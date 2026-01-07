@@ -13,7 +13,8 @@ public struct StatBlock
 public struct ChoiceData
 {
     public string label;     
-    public string flavor;    
+    public string flavor;
+    public string outcome; 
     public StatBlock effects; 
 }
 

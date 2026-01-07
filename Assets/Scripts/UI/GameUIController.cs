@@ -7,12 +7,10 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class GameUIController : MonoBehaviour
 {
-    // --- SERIALIZED FIELDS (For Debugging in Inspector) ---
-
     [Header("--- PANELS ---")]
     [SerializeField] private GameObject panelStakeholders;
     [SerializeField] private GameObject panelTop;
-    [SerializeField] private GameObject panelGameplay; // NEW PARENT
+    [SerializeField] private GameObject panelGameplay;
 
     [Header("--- TOP PANEL ---")]
     [SerializeField] private TextMeshProUGUI roundNumber; 
@@ -23,13 +21,16 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private Image cardBodyshot;
     [SerializeField] private TextMeshProUGUI cardName;
 
-    [Header("--- OPTION A ---")]
-    [SerializeField] private Image optionABackground;
+    [Header("--- OPTIONS ---")]
+    [SerializeField] private GameObject panelOptionAObj;
+    [SerializeField] private GameObject panelOptionBObj;
+    
+    // Canvas Groups for Swipe Transparency
+    [SerializeField] public CanvasGroup optionACanvasGroup; 
+    [SerializeField] public CanvasGroup optionBCanvasGroup; 
+
     [SerializeField] private TextMeshProUGUI optionATitle;
     [SerializeField] private TextMeshProUGUI optionAFlavor;
-
-    [Header("--- OPTION B ---")]
-    [SerializeField] private Image optionBBackground;
     [SerializeField] private TextMeshProUGUI optionBTitle;
     [SerializeField] private TextMeshProUGUI optionBFlavor;
 
@@ -40,14 +41,17 @@ public class GameUIController : MonoBehaviour
     public class StakeholderSlot
     {
         public string id; 
+        public GameObject groupParent;
         public Image background;
-        public Slider resourceSlider;
+        public Slider resourceSlider; 
+        public Image sliderFillImage; // NEW: The colored part of the slider
         public Image headshot;
         public TextMeshProUGUI nameText;
-        public GameObject groupParent;
+        
+        // Internal state to reset colors
+        [HideInInspector] public Color defaultFillColor;
     }
 
-    // --- AUTOMATIC SETUP ---
     private void Awake()
     {
         AutoWireUI();
@@ -55,50 +59,40 @@ public class GameUIController : MonoBehaviour
 
     private void AutoWireUI()
     {
-        // 1. Find Main Panels
-        // Hierarchy: Canvas -> Panel Stakeholders
         panelStakeholders = transform.Find("Panel Stakeholders").gameObject;
-        
-        // Hierarchy: Canvas -> Panel Top
         panelTop = transform.Find("Panel Top").gameObject;
-        
-        // Hierarchy: Canvas -> Panel Gameplay
         panelGameplay = transform.Find("Panel Gameplay").gameObject; 
 
-        // 2. Wire Top Panel
+        // Top Panel
         Transform roundObj = panelTop.transform.Find("Round");
-        // Try finding text inside Round, or look for specific names
-        var roundNumCheck = roundObj.Find("Text/Round Number");
+        var roundNumCheck = roundObj.Find("Text/Round Number") ?? roundObj.Find("Round Number");
         if (roundNumCheck != null) roundNumber = roundNumCheck.GetComponent<TextMeshProUGUI>();
 
-        // Hierarchy: Panel Top -> Flavor -> Flavor Text
         Transform flavorObj = panelTop.transform.Find("Flavor");
         topFlavorText = flavorObj.Find("Flavor Text").GetComponent<TextMeshProUGUI>();
 
-        // 3. Wire Gameplay Panel (Card & Options)
+        // Gameplay Panel
         GameObject panelCard = panelGameplay.transform.Find("Panel Card").gameObject;
-        GameObject panelOptionA = panelGameplay.transform.Find("Panel Option A").gameObject;
-        GameObject panelOptionB = panelGameplay.transform.Find("Panel Option B").gameObject;
+        panelOptionAObj = panelGameplay.transform.Find("Panel Option A").gameObject;
+        panelOptionBObj = panelGameplay.transform.Find("Panel Option B").gameObject;
+        
+        optionACanvasGroup = panelOptionAObj.GetComponent<CanvasGroup>();
+        optionBCanvasGroup = panelOptionBObj.GetComponent<CanvasGroup>();
 
-        // Wire Card
+        // Card & Options
         cardBackground = panelCard.transform.Find("Background").GetComponent<Image>();
         cardBodyshot   = panelCard.transform.Find("Bodyshot").GetComponent<Image>();
         cardName       = panelCard.transform.Find("Name").GetComponent<TextMeshProUGUI>();
 
-        // Wire Option A
-        optionABackground = panelOptionA.transform.Find("Background").GetComponent<Image>();
-        optionATitle      = panelOptionA.transform.Find("Title").GetComponent<TextMeshProUGUI>();
-        optionAFlavor     = panelOptionA.transform.Find("Flavor").GetComponent<TextMeshProUGUI>();
+        optionATitle  = panelOptionAObj.transform.Find("Title").GetComponent<TextMeshProUGUI>();
+        optionAFlavor = panelOptionAObj.transform.Find("Flavor").GetComponent<TextMeshProUGUI>();
+        
+        optionBTitle  = panelOptionBObj.transform.Find("Title").GetComponent<TextMeshProUGUI>();
+        optionBFlavor = panelOptionBObj.transform.Find("Flavor").GetComponent<TextMeshProUGUI>();
 
-        // Wire Option B
-        optionBBackground = panelOptionB.transform.Find("Background").GetComponent<Image>();
-        optionBTitle      = panelOptionB.transform.Find("Title").GetComponent<TextMeshProUGUI>();
-        optionBFlavor     = panelOptionB.transform.Find("Flavor").GetComponent<TextMeshProUGUI>();
-
-        // 4. Wire Stakeholders
+        // Stakeholders
         stakeholders.Clear();
         Transform groupContainer = panelStakeholders.transform.Find("Group");
-
         AddStakeholderToList(groupContainer, "Stakeholder Civil Society", "Civil Society");
         AddStakeholderToList(groupContainer, "Stakeholder Industry",      "Industry");
         AddStakeholderToList(groupContainer, "Stakeholder Governance",    "Governance");
@@ -108,59 +102,110 @@ public class GameUIController : MonoBehaviour
     private void AddStakeholderToList(Transform container, string objectName, string id)
     {
         Transform t = container.Find(objectName);
-        if (t == null)
-        {
-            Debug.LogError($"UI Error: Could not find '{objectName}' inside Panel Stakeholders/Group");
-            return;
-        }
+        if (t == null) return;
 
         StakeholderSlot slot = new StakeholderSlot();
         slot.id = id;
         slot.groupParent = t.gameObject;
+        slot.background = t.Find("Background").GetComponent<Image>();
+        slot.headshot = t.Find("Headshot").GetComponent<Image>();
+        slot.nameText = t.Find("Name").GetComponent<TextMeshProUGUI>();
         
-        slot.background   = t.Find("Background").GetComponent<Image>();
-        
-        // UPDATED: Now looks for Slider component on "Ressource"
+        // Auto-Link Slider & Fill Image
         slot.resourceSlider = t.Find("Ressource").GetComponent<Slider>(); 
-        
-        slot.headshot     = t.Find("Headshot").GetComponent<Image>();
-        slot.nameText     = t.Find("Name").GetComponent<TextMeshProUGUI>();
-
+        if(slot.resourceSlider != null)
+        {
+            slot.resourceSlider.maxValue = 10;
+            // Unity sliders usually have a "Fill Area/Fill" structure
+            if(slot.resourceSlider.fillRect != null)
+            {
+                slot.sliderFillImage = slot.resourceSlider.fillRect.GetComponent<Image>();
+                // Save original color (usually white/grey)
+                if(slot.sliderFillImage != null) slot.defaultFillColor = slot.sliderFillImage.color;
+            }
+        }
         stakeholders.Add(slot);
     }
 
-    // --- PUBLIC METHODS ---
+    // --- PREVIEW SYSTEM ---
 
-    public void UpdateRoundInfo(int currentRound, string description)
+    public void ShowStatPreview(StatBlock effects, ResourceManager currentResources)
     {
-        if(roundNumber != null) roundNumber.text = currentRound.ToString();
-        if(topFlavorText != null) topFlavorText.text = description;
+        // Calculate Future Values and Update Sliders
+        UpdateSinglePreview("Industry",      currentResources.industryVal,   effects.industry);
+        UpdateSinglePreview("Civil Society", currentResources.civilVal,      effects.civilSociety);
+        UpdateSinglePreview("Governance",    currentResources.governanceVal, effects.governance);
+        UpdateSinglePreview("Innovation",    currentResources.innovationVal, effects.innovation);
     }
 
-    public void SetMainCard(string name, string bodyAddressKey)
+    private void UpdateSinglePreview(string id, int currentVal, int change)
     {
-        if(cardName != null) cardName.text = name;
-
-        if (!string.IsNullOrEmpty(bodyAddressKey) && cardBodyshot != null)
+        foreach(var slot in stakeholders)
         {
-            cardBodyshot.sprite = null; 
-            Addressables.LoadAssetAsync<Sprite>(bodyAddressKey).Completed += (AsyncOperationHandle<Sprite> handle) =>
+            if(slot.id == id && slot.resourceSlider != null)
             {
-                if (handle.Status == AsyncOperationStatus.Succeeded && cardBodyshot != null)
+                int futureVal = Mathf.Clamp(currentVal + change, 0, 10);
+                
+                // 1. Show Future Value
+                slot.resourceSlider.value = futureVal;
+
+                // 2. Color Code
+                if(slot.sliderFillImage != null)
                 {
-                    cardBodyshot.sprite = handle.Result;
+                    if (change > 0) slot.sliderFillImage.color = Color.green; // Going Up
+                    else if (change < 0) slot.sliderFillImage.color = Color.red;   // Going Down
+                    else slot.sliderFillImage.color = slot.defaultFillColor;       // No Change
                 }
-            };
+                return;
+            }
         }
     }
 
-    public void SetOptions(string titleA, string flavorA, string titleB, string flavorB)
+    public void ResetPreviews(ResourceManager currentResources)
     {
-        if(optionATitle != null) optionATitle.text = titleA;
-        if(optionAFlavor != null) optionAFlavor.text = flavorA;
-        
-        if(optionBTitle != null) optionBTitle.text = titleB;
-        if(optionBFlavor != null) optionBFlavor.text = flavorB;
+        // Revert to actual current values and default colors
+        UpdateResourceDisplay("Industry",      currentResources.industryVal);
+        UpdateResourceDisplay("Civil Society", currentResources.civilVal);
+        UpdateResourceDisplay("Governance",    currentResources.governanceVal);
+        UpdateResourceDisplay("Innovation",    currentResources.innovationVal);
+
+        // Reset Colors
+        foreach(var slot in stakeholders)
+        {
+            if(slot.sliderFillImage != null)
+            {
+                slot.sliderFillImage.color = slot.defaultFillColor;
+            }
+        }
+    }
+
+    // --- EXISTING METHODS ---
+
+    public void ShowOutcomeUI(string outcomeText)
+    {
+        if(panelOptionAObj) panelOptionAObj.SetActive(false);
+        if(panelOptionBObj) panelOptionBObj.SetActive(false);
+        if(topFlavorText) topFlavorText.text = outcomeText;
+    }
+
+    public void ResetTurnUI()
+    {
+        if(panelOptionAObj) panelOptionAObj.SetActive(true);
+        if(panelOptionBObj) panelOptionBObj.SetActive(true);
+        if(optionACanvasGroup) optionACanvasGroup.alpha = 1f; 
+        if(optionBCanvasGroup) optionBCanvasGroup.alpha = 1f;
+    }
+
+    public void UpdateResourceDisplay(string groupID, int value)
+    {
+        foreach (var slot in stakeholders)
+        {
+            if (slot.id == groupID && slot.resourceSlider != null)
+            {
+                slot.resourceSlider.value = value;
+                return;
+            }
+        }
     }
 
     public void SetupStakeholderSlot(string groupID, string name, string headAddressKey)
@@ -170,26 +215,11 @@ public class GameUIController : MonoBehaviour
             if (slot.id == groupID)
             {
                 if(slot.nameText != null) slot.nameText.text = name;
-                
-                // Initialize Slider (Assuming 0-10 scale in logic, Slider is 0-1.0 or 0-10)
-                // If Slider is set to Max Value 10 in Inspector, use value directly.
-                // If Slider is standard 0-1, use normalization.
-                // Safest to assume normalized (0.5f) for start:
-                if(slot.resourceSlider != null) 
-                {
-                    // If you haven't set Max Value to 10 in Inspector, do this:
-                    slot.resourceSlider.maxValue = 10; 
-                    slot.resourceSlider.value = 5; 
-                }
-
                 if (!string.IsNullOrEmpty(headAddressKey) && slot.headshot != null)
                 {
-                    Addressables.LoadAssetAsync<Sprite>(headAddressKey).Completed += (AsyncOperationHandle<Sprite> obj) =>
+                    Addressables.LoadAssetAsync<Sprite>(headAddressKey).Completed += (op) =>
                     {
-                        if (obj.Status == AsyncOperationStatus.Succeeded && slot.headshot != null)
-                        {
-                            slot.headshot.sprite = obj.Result;
-                        }
+                        if (op.Status == AsyncOperationStatus.Succeeded) slot.headshot.sprite = op.Result;
                     };
                 }
                 return;
@@ -197,19 +227,33 @@ public class GameUIController : MonoBehaviour
         }
     }
 
-    public void UpdateResourceDisplay(string groupID, int value)
+    public void SetMainCard(string name, string bodyAddressKey)
     {
-        foreach (var slot in stakeholders)
+        if(cardName != null) cardName.text = name;
+        var swipe = panelGameplay.GetComponentInChildren<SwipeController>();
+        if(swipe != null) swipe.ResetCardPosition();
+
+        if (!string.IsNullOrEmpty(bodyAddressKey) && cardBodyshot != null)
         {
-            if (slot.id == groupID)
+            cardBodyshot.sprite = null; 
+            Addressables.LoadAssetAsync<Sprite>(bodyAddressKey).Completed += (handle) =>
             {
-                if(slot.resourceSlider != null)
-                {
-                    // Directly set the slider value (assuming Max Value is 10)
-                    slot.resourceSlider.value = value;
-                }
-                return;
-            }
+                if (handle.Status == AsyncOperationStatus.Succeeded) cardBodyshot.sprite = handle.Result;
+            };
         }
+    }
+
+    public void SetOptions(string titleA, string flavorA, string titleB, string flavorB)
+    {
+        if(optionATitle != null) optionATitle.text = titleA;
+        if(optionAFlavor != null) optionAFlavor.text = flavorA;
+        if(optionBTitle != null) optionBTitle.text = titleB;
+        if(optionBFlavor != null) optionBFlavor.text = flavorB;
+    }
+    
+    public void UpdateRoundInfo(int currentRound, string description)
+    {
+        if(roundNumber != null) roundNumber.text = currentRound.ToString();
+        if(topFlavorText != null) topFlavorText.text = description;
     }
 }
