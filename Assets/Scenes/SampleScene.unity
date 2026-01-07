@@ -398,6 +398,7 @@ MonoBehaviour:
   resourceManager: {fileID: 262779130}
   uiController: {fileID: 1759926139}
   maxTurns: 10
+  outcomeDelay: 2
   currentTurn: 0
   currentCard: {fileID: 0}
   isGameActive: 0
@@ -500,7 +501,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.15
+  m_fontSize: 33.7
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1006,7 +1007,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 377268059}
   m_FillRect: {fileID: 1279829974}
   m_HandleRect: {fileID: 377268058}
@@ -1189,7 +1190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.565, y: 0.402}
   m_AnchorMax: {x: 0.9723065, y: 0.5452169}
-  m_AnchoredPosition: {x: 0.91680145, y: 0.29999924}
+  m_AnchoredPosition: {x: 0.91680145, y: 0.30000305}
   m_SizeDelta: {x: 1.8336, y: -0.8456001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523495805
@@ -1400,7 +1401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5.0000305, y: 0}
+  m_AnchoredPosition: {x: -5.000046, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &586842614
@@ -1549,7 +1550,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.565, y: 0.402}
   m_AnchorMax: {x: 0.9723065, y: 0.5452169}
-  m_AnchoredPosition: {x: 0.91680145, y: 0.29999924}
+  m_AnchoredPosition: {x: 0.91680145, y: 0.30000305}
   m_SizeDelta: {x: 1.8336, y: -0.8456001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &612623088
@@ -1845,7 +1846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.565, y: 0.402}
   m_AnchorMax: {x: 0.9723065, y: 0.5452169}
-  m_AnchoredPosition: {x: 0.91680145, y: 0.29999924}
+  m_AnchoredPosition: {x: 0.91680145, y: 0.30000305}
   m_SizeDelta: {x: 1.8336, y: -0.8456001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &625589409
@@ -2579,7 +2580,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.85
+  m_fontSize: 35.2
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2786,7 +2787,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 111691038}
   m_FillRect: {fileID: 1633609686}
   m_HandleRect: {fileID: 111691037}
@@ -2809,6 +2810,7 @@ GameObject:
   - component: {fileID: 1050101360}
   - component: {fileID: 1050101362}
   - component: {fileID: 1050101361}
+  - component: {fileID: 1050101363}
   m_Layer: 5
   m_Name: Panel Option B
   m_TagString: Untagged
@@ -2835,7 +2837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.62125003, y: 0.22187515}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.5, y: 1.0000305}
+  m_AnchoredPosition: {x: -0.5, y: 1}
   m_SizeDelta: {x: 0.49987793, y: -0.9869995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050101361
@@ -2876,6 +2878,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050101359}
   m_CullTransparentMesh: 1
+--- !u!225 &1050101363
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050101359}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1069642565
 GameObject:
   m_ObjectHideFlags: 0
@@ -4323,6 +4337,7 @@ GameObject:
   - component: {fileID: 1714749497}
   - component: {fileID: 1714749499}
   - component: {fileID: 1714749498}
+  - component: {fileID: 1714749500}
   m_Layer: 5
   m_Name: Panel Card
   m_TagString: Untagged
@@ -4390,6 +4405,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714749496}
   m_CullTransparentMesh: 1
+--- !u!114 &1714749500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714749496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d055776a6a64b4f91a9fa575be458c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwipeController
+  gameLoopManager: {fileID: 262779131}
+  threshold: 100
+  maxDragDistance: 300
+  rotationStrength: 0.05
+  snapBackSpeed: 20
+  defaultAlpha: 0.3
+  highlightAlpha: 1
 --- !u!1 &1745573622
 GameObject:
   m_ObjectHideFlags: 0
@@ -4542,7 +4576,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -4590,10 +4624,12 @@ MonoBehaviour:
   cardBackground: {fileID: 0}
   cardBodyshot: {fileID: 0}
   cardName: {fileID: 0}
-  optionABackground: {fileID: 0}
+  panelOptionAObj: {fileID: 0}
+  panelOptionBObj: {fileID: 0}
+  optionACanvasGroup: {fileID: 0}
+  optionBCanvasGroup: {fileID: 0}
   optionATitle: {fileID: 0}
   optionAFlavor: {fileID: 0}
-  optionBBackground: {fileID: 0}
   optionBTitle: {fileID: 0}
   optionBFlavor: {fileID: 0}
   stakeholders: []
@@ -4895,7 +4931,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.8
+  m_fontSize: 23.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5141,7 +5177,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1782265174}
   m_FillRect: {fileID: 619159849}
   m_HandleRect: {fileID: 1782265173}
@@ -5164,6 +5200,7 @@ GameObject:
   - component: {fileID: 1928254566}
   - component: {fileID: 1928254568}
   - component: {fileID: 1928254567}
+  - component: {fileID: 1928254569}
   m_Layer: 5
   m_Name: Panel Option A
   m_TagString: Untagged
@@ -5231,6 +5268,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928254565}
   m_CullTransparentMesh: 1
+--- !u!225 &1928254569
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928254565}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1972832617
 GameObject:
   m_ObjectHideFlags: 0
@@ -5665,7 +5714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.565, y: 0.402}
   m_AnchorMax: {x: 0.9723065, y: 0.5452169}
-  m_AnchoredPosition: {x: 0.91680145, y: 0.29999924}
+  m_AnchoredPosition: {x: 0.91680145, y: 0.30000305}
   m_SizeDelta: {x: 1.8336, y: -0.8456001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2031119158
@@ -6099,7 +6148,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 950389056}
   m_FillRect: {fileID: 1329187414}
   m_HandleRect: {fileID: 950389055}
