@@ -17,9 +17,17 @@ public class StakeholderManager : MonoBehaviour, ISaveable
 
     public void InitializeGame()
     {
-        SelectStakeholders();
-        BuildDeck();
+        // Only init if empty (prevents overwriting loaded data)
+        if (activeStakeholders.Count == 0)
+        {
+            SelectStakeholders();
+            BuildDeck();
+        }
     }
+
+    // (Keep SelectStakeholders, BuildDeck, GetRandom, ShuffleDeck, FindStakeholderByName as they were...)
+    // For brevity, I am not pasting the logic methods again, just the Save System updates below.
+    // Make sure you keep your existing helper methods here!
 
     private void SelectStakeholders()
     {
@@ -33,65 +41,41 @@ public class StakeholderManager : MonoBehaviour, ISaveable
         if(civilPool.Count > 0)    activeStakeholders.Add(GetRandom(civilPool));
         if(govPool.Count > 0)      activeStakeholders.Add(GetRandom(govPool));
         if(innovPool.Count > 0)    activeStakeholders.Add(GetRandom(innovPool));
-
-        // UI: Visualize the selected stakeholders
+        
         UpdateStakeholderUI();
     }
+    
+    private void BuildDeck()
+    {
+        gameDeck.Clear();
+        foreach (var stakeholder in activeStakeholders) gameDeck.AddRange(stakeholder.associatedEvents);
+        ShuffleDeck(gameDeck);
+    }
 
-    // Helper to refresh UI (Used in Initialize and RestoreState)
-    private void UpdateStakeholderUI()
+    private StakeholderData GetRandom(List<StakeholderData> list) => list[Random.Range(0, list.Count)];
+    
+    private void ShuffleDeck<T>(List<T> list)
+    {
+        int n = list.Count;
+        while (n > 1) { n--; int k = Random.Range(0, n + 1); (list[k], list[n]) = (list[n], list[k]); }
+    }
+
+    public void UpdateStakeholderUI()
     {
         if (uiController == null) return;
         foreach(var stakeholder in activeStakeholders)
         {
-            uiController.SetupStakeholderSlot(
-                stakeholder.group, 
-                stakeholder.displayName, 
-                stakeholder.headAddress
-            );
+            uiController.SetupStakeholderSlot(stakeholder.group, stakeholder.displayName, stakeholder.headAddress);
         }
     }
-
-    private void BuildDeck()
-    {
-        gameDeck.Clear();
-        foreach (var stakeholder in activeStakeholders)
-        {
-            gameDeck.AddRange(stakeholder.associatedEvents);
-        }
-        ShuffleDeck(gameDeck);
-    }
-
-    private StakeholderData GetRandom(List<StakeholderData> list)
-    {
-        return list[Random.Range(0, list.Count)];
-    }
-
-    private void ShuffleDeck<T>(List<T> list)
-    {
-        int n = list.Count;
-        while (n > 1)
-        {
-            n--;
-            int k = Random.Range(0, n + 1);
-            (list[k], list[n]) = (list[n], list[k]);
-        }
-    }
-
-    // --- Helpers ---
-    public StakeholderData FindStakeholderByName(string name)
-    {
-        return allStakeholders.FirstOrDefault(s => s.name == name);
-    }
-
-    // Re-added this because EventCards use "characterId" string to link to data
+    
     public StakeholderData GetStakeholderById(string id)
     {
         var found = activeStakeholders.Find(s => s.id == id);
         if (found == null) found = allStakeholders.Find(s => s.id == id);
         return found;
     }
-
+    
     public EventCardData FindCardByName(string name)
     {
         foreach(var s in allStakeholders) 
@@ -101,11 +85,15 @@ public class StakeholderManager : MonoBehaviour, ISaveable
         }
         return null;
     }
+    
+    public StakeholderData FindStakeholderByName(string name) => allStakeholders.FirstOrDefault(s => s.name == name);
 
-    // --- SAVE SYSTEM IMPLEMENTATION ---
 
+    // --- SAVE SYSTEM FIX ---
+
+    // CHANGE 1: Made Public
     [System.Serializable]
-    private struct StakeholderSaveData
+    public struct StakeholderSaveData
     {
         public List<string> activeStakeholderNames;
         public List<string> deckCardNames;
@@ -113,6 +101,7 @@ public class StakeholderManager : MonoBehaviour, ISaveable
 
     public object CaptureState()
     {
+        Debug.Log($"[Stakeholder] Saving {activeStakeholders.Count} actors and {gameDeck.Count} cards.");
         return new StakeholderSaveData
         {
             activeStakeholderNames = activeStakeholders.Select(s => s.name).ToList(),
@@ -122,23 +111,33 @@ public class StakeholderManager : MonoBehaviour, ISaveable
 
     public void RestoreState(object state)
     {
-        var data = ((JObject)state).ToObject<StakeholderSaveData>();
-
-        activeStakeholders.Clear();
-        foreach(string name in data.activeStakeholderNames)
+        // CHANGE 2: Safer conversion
+        JToken token = state as JToken;
+        if (token != null)
         {
-            var s = FindStakeholderByName(name);
-            if(s != null) activeStakeholders.Add(s);
+            var data = token.ToObject<StakeholderSaveData>();
+
+            // 1. Restore Actors
+            activeStakeholders.Clear();
+            foreach(string name in data.activeStakeholderNames)
+            {
+                var s = FindStakeholderByName(name);
+                if(s != null) activeStakeholders.Add(s);
+            }
+            UpdateStakeholderUI();
+
+            // 2. Restore Deck (Order matters!)
+            gameDeck.Clear();
+            foreach(string cardName in data.deckCardNames)
+            {
+                var c = FindCardByName(cardName);
+                if(c != null) gameDeck.Add(c);
+            }
+            Debug.Log($"[Stakeholder] Restored.");
         }
-
-        // UI: Important to refresh UI after loading data!
-        UpdateStakeholderUI();
-
-        gameDeck.Clear();
-        foreach(string cardName in data.deckCardNames)
+        else
         {
-            var c = FindCardByName(cardName);
-            if(c != null) gameDeck.Add(c);
+            Debug.LogError("[Stakeholder] Failed to restore: Data invalid.");
         }
     }
 }

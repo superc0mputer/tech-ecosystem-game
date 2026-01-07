@@ -1,23 +1,46 @@
 using UnityEngine;
-using System.Linq; // for FindObjectsByType
+using System.Linq; 
 using Newtonsoft.Json; 
 using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
-    public static SaveManager Instance; // Singleton for easy access
+    public static SaveManager Instance;
+
+    private string SavePath => Path.Combine(Application.persistentDataPath, "savegame.json");
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-        
-        DontDestroyOnLoad(gameObject);
+        if (Instance == null) 
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else 
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public bool HasSaveFile()
+    {
+        return File.Exists(SavePath);
+    }
+
+    public void DeleteSaveFile()
+    {
+        if (File.Exists(SavePath))
+        {
+            File.Delete(SavePath);
+            Debug.Log("Save file deleted.");
+        }
     }
 
     public void SaveGame()
     {
         GameSaveData saveData = new GameSaveData();
+        saveData.sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        saveData.timestamp = System.DateTime.Now.ToString();
         
         // 1. Find all objects that have the SaveableEntity script
         var saveables = FindObjectsByType<SaveableEntity>(FindObjectsSortMode.None);
@@ -25,43 +48,37 @@ public class SaveManager : MonoBehaviour
         // 2. Loop through them and ask for their data
         foreach (var saveable in saveables)
         {
-            // Get the script that actually holds the logic (Player, Enemy, etc.)
             ISaveable saveableScript = saveable.GetComponent<ISaveable>();
-            
             if (saveableScript != null)
             {
-                // Store their data in the dictionary using their Unique ID
                 saveData.objectsData[saveable.Id] = saveableScript.CaptureState();
             }
         }
 
-        // 3. Write to file (using the method from the previous response)
+        // 3. Write to file
         string json = JsonConvert.SerializeObject(saveData, Formatting.Indented);
-        File.WriteAllText(Path.Combine(Application.persistentDataPath, "savegame.json"), json);
+        File.WriteAllText(SavePath, json);
+        Debug.Log("Game Saved to: " + SavePath);
     }
 
     public void LoadGame()
     {
-        string path = Path.Combine(Application.persistentDataPath, "savegame.json");
-        if (!File.Exists(path)) return;
+        if (!HasSaveFile()) return;
 
-        string json = File.ReadAllText(path);
+        string json = File.ReadAllText(SavePath);
         GameSaveData saveData = JsonConvert.DeserializeObject<GameSaveData>(json);
 
-        // 1. Find all objects in the scene
         var saveables = FindObjectsByType<SaveableEntity>(FindObjectsSortMode.None);
 
-        // 2. Distribute data back to them
         foreach (var saveable in saveables)
         {
             if (saveData.objectsData.TryGetValue(saveable.Id, out object data))
             {
                 ISaveable saveableScript = saveable.GetComponent<ISaveable>();
-                
-                // IMPORTANT: JSON often loads as a generic JObject, so we might need to cast it
-                // This part depends on your JSON library settings, but conceptual logic applies
+                // RestoreState handles the casting internally in the specific scripts
                 saveableScript.RestoreState(data); 
             }
         }
+        Debug.Log("Game Loaded.");
     }
 }

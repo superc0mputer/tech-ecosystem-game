@@ -7,49 +7,33 @@ public class ResourceManager : MonoBehaviour, ISaveable
     public GameUIController uiController; 
 
     [Header("Current Values (0-10)")]
-    public int industryVal;
-    public int civilVal;
-    public int governanceVal;
-    public int innovationVal;
+    public int industryVal = 5;
+    public int civilVal = 5;
+    public int governanceVal = 5;
+    public int innovationVal = 5;
 
     public void InitializeResources()
     {
-        // Start in the middle
-        industryVal = 5;
-        civilVal = 5;
-        governanceVal = 5;
-        innovationVal = 5;
+        // Only reset if we are NOT loading (handled by GameLoop)
+        // Default values set above
         UpdateUI();
     }
 
     public void ApplyEffects(StatBlock effects)
     {
-        industryVal   += effects.industry;
-        civilVal      += effects.civilSociety;
-        governanceVal += effects.governance;
-        innovationVal += effects.innovation;
-
-        // Note: We do NOT clamp here immediately if we want to detect the "Game Over" 
-        // condition of hitting 10 or 0 precisely. 
-        // But for safety, let's keep them within bounds 0-10 so the UI doesn't break.
-        industryVal   = Mathf.Clamp(industryVal, 0, 10);
-        civilVal      = Mathf.Clamp(civilVal, 0, 10);
-        governanceVal = Mathf.Clamp(governanceVal, 0, 10);
-        innovationVal = Mathf.Clamp(innovationVal, 0, 10);
-
+        industryVal   = Mathf.Clamp(industryVal + effects.industry, 0, 10);
+        civilVal      = Mathf.Clamp(civilVal + effects.civilSociety, 0, 10);
+        governanceVal = Mathf.Clamp(governanceVal + effects.governance, 0, 10);
+        innovationVal = Mathf.Clamp(innovationVal + effects.innovation, 0, 10);
         UpdateUI();
-        Debug.Log($"Stats: Ind:{industryVal} Civ:{civilVal} Gov:{governanceVal} Inn:{innovationVal}");
     }
 
-    // --- UPDATED GAME OVER LOGIC ---
     public bool CheckGameOverCondition()
     {
-        // Game Over if ANY value hits 0 (Collapse) OR 10 (Extreme)
         if (industryVal <= 0 || industryVal >= 10) return true;
         if (civilVal <= 0    || civilVal >= 10)    return true;
         if (governanceVal <= 0 || governanceVal >= 10) return true;
         if (innovationVal <= 0 || innovationVal >= 10) return true;
-
         return false;
     }
 
@@ -63,8 +47,10 @@ public class ResourceManager : MonoBehaviour, ISaveable
     }
 
     // --- SAVE SYSTEM ---
+
+    // CHANGE 1: Made Public so GameLoopManager can see it clearly
     [System.Serializable]
-    private struct ResourceSaveData
+    public struct ResourceSaveData
     {
         public int industry;
         public int civil;
@@ -74,6 +60,7 @@ public class ResourceManager : MonoBehaviour, ISaveable
 
     public object CaptureState()
     {
+        Debug.Log($"[Resource] Saving: {industryVal}, {civilVal}, {governanceVal}, {innovationVal}");
         return new ResourceSaveData
         {
             industry = industryVal,
@@ -85,11 +72,22 @@ public class ResourceManager : MonoBehaviour, ISaveable
 
     public void RestoreState(object state)
     {
-        var data = ((JObject)state).ToObject<ResourceSaveData>();
-        this.industryVal = data.industry;
-        this.civilVal = data.civil;
-        this.governanceVal = data.governance;
-        this.innovationVal = data.innovation;
-        UpdateUI(); 
+        // CHANGE 2: Safer conversion using JToken
+        JToken token = state as JToken;
+        if (token != null)
+        {
+            var data = token.ToObject<ResourceSaveData>();
+            this.industryVal = data.industry;
+            this.civilVal = data.civil;
+            this.governanceVal = data.governance;
+            this.innovationVal = data.innovation;
+            
+            Debug.Log($"[Resource] Restored: {industryVal}, {civilVal}...");
+            UpdateUI(); 
+        }
+        else
+        {
+            Debug.LogError("[Resource] Failed to restore state: Data was null or wrong type.");
+        }
     }
 }
