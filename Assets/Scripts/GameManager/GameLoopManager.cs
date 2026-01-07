@@ -4,11 +4,11 @@ using Newtonsoft.Json.Linq;
 
 public class GameLoopManager : MonoBehaviour, ISaveable
 {
-    // ... (Keep existing dependencies and variables) ...
     [Header("Dependencies")]
     public StakeholderManager stakeholderManager;
     public ResourceManager resourceManager;
     public GameUIController uiController; 
+    public EndGameFeedbackManager feedbackManager;
 
     [Header("Game Settings")]
     public int maxTurns = 10;
@@ -19,7 +19,6 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     public EventCardData currentCard;
     public bool isGameActive = false;
 
-    // ... (Keep Start, StartGame, NextTurnRoutine exactly as they were) ...
     private void Start()
     {
         StartGame();
@@ -40,15 +39,17 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     {
         if (!isGameActive) yield break;
 
-        // Reset UI (Buttons and Previews)
+        // Reset UI
         if(uiController != null) 
         {
             uiController.ResetTurnUI();
-            uiController.ResetPreviews(resourceManager); // Reset sliders to default
+            uiController.ResetPreviews(resourceManager);
         }
 
+        // --- CHECK WIN BY TIME ---
         if (currentTurn >= maxTurns)
         {
+            // Reached the end safely -> Trigger Win Screen
             EndGame(true);
             yield break;
         }
@@ -61,14 +62,13 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
         if (currentCard != null)
         {
-            Debug.Log($"Turn {currentTurn + 1}: Displaying card '{currentCard.name}'");
+            Debug.Log($"Turn {currentTurn + 1}: {currentCard.name}");
             StakeholderData actor = stakeholderManager.GetStakeholderById(currentCard.characterId);
             UpdateUI(currentCard, actor);
         }
         else
         {
-            Debug.LogWarning("Deck ran out of cards!");
-            EndGame(true);
+            EndGame(true); // Deck empty = Win
         }
     }
 
@@ -82,32 +82,10 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         uiController.SetOptions(card.choiceA.label, card.choiceA.flavor, card.choiceB.label, card.choiceB.flavor);
     }
 
-    // --- NEW: PREVIEW LOGIC ---
-
-    public void ShowPreview(bool isLeft)
-    {
-        if (currentCard == null || uiController == null) return;
-
-        // Get the potential effects
-        StatBlock effects = isLeft ? currentCard.choiceA.effects : currentCard.choiceB.effects;
-        
-        // Tell UI to preview them using current resources
-        uiController.ShowStatPreview(effects, resourceManager);
-    }
-
-    public void ClearPreview()
-    {
-        if (uiController == null) return;
-        uiController.ResetPreviews(resourceManager);
-    }
-
-    // --------------------------
-
     public void OnPlayerChoice(bool isLeftChoice)
     {
         if (!isGameActive || currentCard == null) return;
 
-        // Ensure visuals are clean before applying
         ClearPreview(); 
 
         ChoiceData selectedOption = isLeftChoice ? currentCard.choiceA : currentCard.choiceB;
@@ -118,12 +96,13 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
     private IEnumerator OutcomeSequence(ChoiceData choice)
     {
-        if(uiController != null) uiController.ShowOutcomeUI(choice.outcome);
+        if(uiController != null) uiController.ShowOutcomeUI(choice.flavor);
 
+        // --- CHECK LOSS CONDITION (0 or 10) ---
         if (resourceManager.CheckGameOverCondition())
         {
             yield return new WaitForSeconds(1.5f);
-            EndGame(false);
+            EndGame(false); // Trigger Loss Screen
             yield break;
         }
 
@@ -137,11 +116,31 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     private void EndGame(bool isWin)
     {
         isGameActive = false;
-        string msg = isWin ? "VICTORY: Consensus Reached." : "DEFEAT: Talks broke down.";
-        if(uiController != null) uiController.UpdateRoundInfo(currentTurn, msg);
+        
+        // Hide the Game UI
+        //if(uiController != null) uiController.gameObject.SetActive(false);
+        uiController.HideGameInterface();
+
+        // Show the Feedback UI
+        if (feedbackManager != null)
+        {
+            feedbackManager.ShowFeedback(
+                resourceManager.industryVal,
+                resourceManager.governanceVal,
+                resourceManager.civilVal,
+                resourceManager.innovationVal,
+                isWin
+            );
+        }
+        
+        Debug.Log(isWin ? "Game Complete" : "Game Over (Stat failure)");
     }
     
-    // ... (Keep CaptureState and RestoreState the same) ...
+    // Pass-throughs for SwipeController
+    public void ShowPreview(bool isLeft) { /* ... keep existing ... */ }
+    public void ClearPreview() { /* ... keep existing ... */ }
+
+    // ... (Keep CaptureState and RestoreState) ...
     public object CaptureState() { return null; } 
     public void RestoreState(object state) { }
 }

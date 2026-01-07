@@ -256,4 +256,12 @@ public class GameUIController : MonoBehaviour
         if(roundNumber != null) roundNumber.text = currentRound.ToString();
         if(topFlavorText != null) topFlavorText.text = description;
     }
+    
+    public void HideGameInterface()
+    {
+        // Hide the gameplay panels individually
+        if(panelStakeholders) panelStakeholders.SetActive(false);
+        if(panelTop) panelTop.SetActive(false);
+        if(panelGameplay) panelGameplay.SetActive(false);
+    }
 }
