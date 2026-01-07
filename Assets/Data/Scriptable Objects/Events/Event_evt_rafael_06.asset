@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_rafael_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rafael_06
-  characterId: Rafael Ortiz
+  characterId: stk_rafael
   title: Who Pays the Infrastructure Cost?
   bodyText: "Data centers don\u2019t just use resources. They reshape local economies.
     Property prices near our sites have risen. Water and energy costs followed. Small
@@ -23,10 +23,16 @@ MonoBehaviour:
   choiceA:
     label: Co-invest in local infrastructure
     flavor: We offset our footprint.
-    effects: civil_society:2|governance:1|industry:-2
-    result: Local backlash softens. Expansion becomes more expensive.
+    effects:
+      industry: -2
+      civilSociety: 2
+      governance: 1
+      innovation: 0
   choiceB:
     label: Externalize the costs
     flavor: We follow market rules.
-    effects: industry:2|innovation:1|civil_society:-2
-    result: Margins stay strong. Social tension builds around your sites.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: 0
+      innovation: 1

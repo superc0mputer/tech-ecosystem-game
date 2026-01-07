@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_klaus_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_klaus_01
-  characterId: Dr. Klaus Weber
+  characterId: stk_klaus
   title: The Unknown Unknowns
   bodyText: "There are behaviors of your system which your safety tests don\u2019t
     predict. How do you plan to notice them?"
   choiceA:
     label: Deploy with live monitoring
     flavor: We learn in production.
-    effects: innovation:1|governance:-1
-    result: You gain insight - after exposure.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: -1
+      innovation: 1
   choiceB:
     label: Delay until confidence is higher
     flavor: "We don\u2019t guess."
-    effects: governance:2|industry:-1
-    result: Momentum slows. Uncertainty shrinks.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0

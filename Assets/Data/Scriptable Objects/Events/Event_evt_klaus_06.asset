@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_klaus_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_klaus_06
-  characterId: Dr. Klaus Weber
+  characterId: stk_klaus
   title: The First Casualty
   bodyText: Your system was certified. Deployed according to guidelines. A downstream
     operator followed the manual. A decision was delayed. Someone died. This is the
@@ -21,11 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Suspend deployment and reopen certification
     flavor: We treat this as a systemic failure.
-    effects: governance:1|civil_society:2|industry:-2
-    result: Trust in certification is rebuilt slowly. Your product becomes a warning
-      case for the entire sector.
+    effects:
+      industry: -2
+      civilSociety: 2
+      governance: 1
+      innovation: 0
   choiceB:
     label: Treat it as operational misuse
     flavor: We stand by the certification.
-    effects: industry:2|innovation:1|civil_society:-2
-    result: Deployment continues. Certification becomes a shield - not a guarantee.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: 0
+      innovation: 1

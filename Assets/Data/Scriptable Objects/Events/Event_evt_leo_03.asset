@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_leo_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_leo_03
-  characterId: Leo Park
+  characterId: stk_leo
   title: Synthetic Users
   bodyText: "Most of our testing users aren\u2019t real. They\u2019re AI agents simulating
     demand. It lets us scale fast. Real users come later. Your usage metrics look
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Allow synthetic load
     flavor: Growth signals are signals.
-    effects: industry:2|civil_society:-1
-    result: Adoption metrics explode. Reality lags behind dashboards.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0
   choiceB:
     label: Require real-user validation
     flavor: We measure actual impact.
-    effects: civil_society:2|industry:-1
-    result: Metrics slow down. Credibility improves.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0

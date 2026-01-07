@@ -13,19 +13,24 @@ MonoBehaviour:
   m_Name: Event_evt_voss_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_voss_01
-  characterId: Colonel Adrian Voss
+  characterId: stk_voss
   title: A Classified Environment
   bodyText: "We\u2019d like to test your AI in a classified environment - a military
     network isolated from the internet, public oversight, and civilian use. No press.
     No users. No public accountability. Just performance."
   choiceA:
     label: Approve the pilot
-    flavor: 
-    effects: industry:2
-    result: "Your AI runs inside a closed military system. You can\u2019t talk about
-      it \u2014 but you know it works."
+    flavor: Performance matters.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0
   choiceB:
     label: Decline
-    flavor: 
-    effects: civil_society:2
-    result: Voss nods. "Then someone else will test theirs instead."
+    flavor: Not our path.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0

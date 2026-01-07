@@ -23,8 +23,5 @@ public class StakeholderData : ScriptableObject
     public string bodyAddress;     // Addressable Key
 
     [Header("Runtime Data")]
-    // This list will be empty initially. You can write a separate tool 
-    // to link events here later if your Events are also ScriptableObjects.
-    // Assuming EventCardData is a class you have defined elsewhere.
     public List<EventCardData> associatedEvents = new List<EventCardData>();
 }

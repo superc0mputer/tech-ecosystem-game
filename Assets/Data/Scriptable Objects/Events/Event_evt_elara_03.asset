@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_elara_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_elara_03
-  characterId: Dr. Elara Knox
+  characterId: stk_elara
   title: Onboarding Drop-Off
   bodyText: New users drop out early. The system feels overwhelming at first. We
     can simplify onboarding. Or keep all features visible.
   choiceA:
     label: Simplify onboarding
     flavor: We ease people in.
-    effects: industry:1|innovation:1
-    result: New users stay longer. Advanced users feel constrained.
+    effects:
+      industry: 1
+      civilSociety: 0
+      governance: 0
+      innovation: 1
   choiceB:
     label: Keep full functionality upfront
     flavor: "They\u2019ll figure it out."
-    effects: industry:2
-    result: Experienced users are productive. Growth plateaus early.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0

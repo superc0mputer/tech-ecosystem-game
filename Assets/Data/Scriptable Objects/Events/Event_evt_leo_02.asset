@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_leo_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_leo_02
-  characterId: Leo Park
+  characterId: stk_leo
   title: "I\u2019ll Move Anyway"
   bodyText: "If you slow me down. I\u2019ll build on someone else\u2019s stack. I\u2019d
     rather build on yours. But speed decides loyalty. You can block me - or shape
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Keep Leo inside your ecosystem
     flavor: We influence from within.
-    effects: industry:1|innovation:1|governance:-1
-    result: You retain indirect influence. You inherit downstream risk.
+    effects:
+      industry: 1
+      civilSociety: 0
+      governance: -1
+      innovation: 1
   choiceB:
     label: Cut him off early
     flavor: We draw clear boundaries.
-    effects: governance:1|innovation:-1|industry:-1
-    result: Your exposure drops. An uncontrolled competitor emerges.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 1
+      innovation: -1

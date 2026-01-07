@@ -13,19 +13,24 @@ MonoBehaviour:
   m_Name: Event_evt_voss_04
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_voss_04
-  characterId: Colonel Adrian Voss
+  characterId: stk_voss
   title: Operational Changes
   bodyText: Our engineers are requesting changes to the system. They want to remove
     explainability layers from the decision loop. Each additional check adds latency.
     In combat systems, milliseconds matter. Delays cost lives.
   choiceA:
     label: Remove some safeguards
-    flavor: 
-    effects: industry:2|governance:-1
-    result: The AI reacts faster. Later reviews become harder to conduct.
+    flavor: Speed saves lives.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0
   choiceB:
     label: Keep safeguards
-    flavor: 
-    effects: governance:2|industry:-1
-    result: The system remains auditable. The military marks it as "operationally
-      limited."
+    flavor: Safety first.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0

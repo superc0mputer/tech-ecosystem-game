@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_samya_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_samya_03
-  characterId: Samya Lin
+  characterId: stk_samya
   title: XR Integration
   bodyText: "We can integrate XR into the core model. No one else has done this yet.
     But it\u2019s risky. And complex."
   choiceA:
     label: Greenlight the integration
     flavor: "Let\u2019s lead."
-    effects: innovation:2|industry:-1
-    result: The system becomes cutting-edge. Stability takes a hit.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 0
+      innovation: 2
   choiceB:
     label: Keep XR separate
     flavor: Not yet.
-    effects: industry:2|innovation:-1
-    result: The product stays stable. The frontier moves elsewhere.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: -1

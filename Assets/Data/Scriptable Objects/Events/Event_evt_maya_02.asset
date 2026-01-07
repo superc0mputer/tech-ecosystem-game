@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_maya_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_maya_02
-  characterId: Maya Chen
+  characterId: stk_maya
   title: Why This?
   bodyText: "Maya points at an AI suggestion. \"I\u2019m not saying that the proposal
     of your AI is wrong. I\u2019m saying I\u2019d like to know why it thinks this
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Add short explanations
     flavor: Context matters.
-    effects: civil_society:2|industry:-1
-    result: Understanding improves. So does the number of follow-up questions.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Keep it streamlined
     flavor: Speed is key.
-    effects: industry:2|civil_society:-1
-    result: Workflows stay smooth. Agency quietly erodes.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

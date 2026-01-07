@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_eleanor_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_eleanor_02
-  characterId: Eleanor Whitaker
+  characterId: stk_eleanor
   title: Fast Money, Slow Consequences
   bodyText: "You can raise money quickly right now at a high valuation. With investors
     who want growth above everything else. That money won\u2019t disappear. But its
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Take the fast capital
     flavor: We grow while the window is open.
-    effects: industry:2|governance:-2
-    result: Resources increase immediately. Future pressure to grow intensifies.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -2
+      innovation: 0
   choiceB:
     label: Raise more cautiously
     flavor: We choose who we grow with.
-    effects: governance:2|industry:-1
-    result: Growth is steadier. Some opportunities pass.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0

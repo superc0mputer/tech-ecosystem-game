@@ -13,16 +13,22 @@ MonoBehaviour:
   m_Name: Event_evt_klaus_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_klaus_02
-  characterId: Dr. Klaus Weber
+  characterId: stk_klaus
   title: The Certification Conditions
   bodyText: These are the requirements you need for important certifications.
   choiceA:
     label: Meet all conditions
     flavor: We commit fully.
-    effects: governance:2|industry:-2
-    result: You gain credibility - and a slower roadmap.
+    effects:
+      industry: -2
+      civilSociety: 0
+      governance: 2
+      innovation: 0
   choiceB:
     label: Negotiate scope
     flavor: Some conditions go too far.
-    effects: industry:1|governance:-2
-    result: 'Klaus replies, calmly: "Then the certification waits."'
+    effects:
+      industry: 1
+      civilSociety: 0
+      governance: -2
+      innovation: 0

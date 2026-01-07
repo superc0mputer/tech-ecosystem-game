@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_elara_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_elara_06
-  characterId: Dr. Elara Knox
+  characterId: stk_elara
   title: People Stop Questioning It
   bodyText: "Something changed. Users no longer compare the AI\u2019s suggestions
     with alternatives. They don\u2019t disagree. They don\u2019t explore. They don\u2019t
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Redesign to reintroduce friction
     flavor: We make disagreement visible again.
-    effects: civil_society:2|governance:2|industry:-1
-    result: Users question the AI more often. Decision speed drops. Engagement softens.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 2
+      innovation: 0
   choiceB:
     label: Keep the interface as is
     flavor: That trust is a feature.
-    effects: industry:3|innovation:2
-    result: Usage remains high. Human judgment fades into the background.
+    effects:
+      industry: 3
+      civilSociety: 0
+      governance: 0
+      innovation: 2

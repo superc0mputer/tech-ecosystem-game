@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_leo_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_leo_01
-  characterId: Leo Park
+  characterId: stk_leo
   title: Terms Are Suggestions
   bodyText: "Relax. I\u2019ll technically follow your usage policy. I\u2019ll just\u2026
     interpret it creatively. If I win, you\u2019ll say it was vision. If I lose,
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Look the other way
     flavor: "We don\u2019t police experimentation."
-    effects: innovation:2|governance:-1
-    result: Wild use cases emerge. Your rules become optional in practice.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: -1
+      innovation: 2
   choiceB:
     label: Enforce terms strictly
     flavor: Rules apply to everyone.
-    effects: governance:2|innovation:-1
-    result: Boundaries hold. Leo calls you "corporate" on Twitter.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: 2
+      innovation: -1

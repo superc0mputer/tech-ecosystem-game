@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_samya_04
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_samya_04
-  characterId: Samya Lin
+  characterId: stk_samya
   title: Technical Debt
   bodyText: "This part of the code was written fast. It works - but barely. If we
     don\u2019t refactor now, every new feature gets harder."
   choiceA:
     label: Pause features and refactor
     flavor: We clean it up.
-    effects: innovation:2|industry:-1
-    result: The system becomes more robust. Roadmaps slip quietly.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 0
+      innovation: 2
   choiceB:
     label: Ship anyway
     flavor: "We\u2019ll deal with it later."
-    effects: industry:2|innovation:-1
-    result: Progress looks fast. Complexity piles up.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: -1

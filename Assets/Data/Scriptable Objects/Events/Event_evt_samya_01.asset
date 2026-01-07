@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_samya_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_samya_01
-  characterId: Samya Lin
+  characterId: stk_samya
   title: Bigger Model
   bodyText: "If we double the model size, we\u2019ll beat competitors on benchmarks.
     It\u2019ll cost a lot of compute. But technically? It\u2019s beautiful."
   choiceA:
     label: Approve the scale-up
     flavor: "Let\u2019s push it."
-    effects: innovation:2|industry:-1
-    result: Performance jumps. Costs and energy use spike.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 0
+      innovation: 2
   choiceB:
     label: Hold the current size
     flavor: Optimize what we have.
-    effects: industry:2|innovation:-1
-    result: Costs stay under control. Technical ambition stalls.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: -1

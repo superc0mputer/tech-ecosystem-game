@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_eleanor_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_eleanor_01
-  characterId: Eleanor Whitaker
+  characterId: stk_eleanor
   title: Ringfencing the Risk
   bodyText: "One of your largest enterprise clients wants an indemnity clause. If
     your AI causes harm, you cover the downstream liability. It helps close the deal.
@@ -22,12 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Accept broader liability
     flavor: We absorb the risk to grow.
-    effects: industry:2|governance:-1
-    result: The contract closes quickly. Your company becomes the default backstop
-      when things go wrong.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0
   choiceB:
     label: Limit liability
     flavor: "We don\u2019t underwrite unknown risk."
-    effects: governance:2|industry:-1
-    result: Some deals fall through. Future exposure becomes easier to price and
-      insure.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0

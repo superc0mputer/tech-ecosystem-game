@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_sofia_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_sofia_06
-  characterId: Sofia Marin
+  characterId: stk_sofia
   title: Did You Write This?
   bodyText: "Schools are panicking. Teachers can\u2019t tell what\u2019s human anymore.
     Detection doesn\u2019t work. Students are being accused. Some unfairly. Some
@@ -22,12 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Make the product incompatible with exams
     flavor: We deliberately block use in exams.
-    effects: governance:2|civil_society:1|industry:-2
-    result: Institutions stop treating your AI as an assessment threat. Students
-      continue using it outside formal evaluation.
+    effects:
+      industry: -2
+      civilSociety: 1
+      governance: 2
+      innovation: 0
   choiceB:
     label: Make the product compatible with assessment
     flavor: We design features for grading.
-    effects: industry:1|innovation:1|governance:-2|civil_society:-1
-    result: Adoption accelerates in education. Traditional notions of authorship
-      erode.
+    effects:
+      industry: 1
+      civilSociety: -1
+      governance: -2
+      innovation: 1

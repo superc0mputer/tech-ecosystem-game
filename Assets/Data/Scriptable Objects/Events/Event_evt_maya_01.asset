@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_maya_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_maya_01
-  characterId: Maya Chen
+  characterId: stk_maya
   title: Confidently Wrong
   bodyText: "I like the AI. I really do. But it sounds confident in the same way
     people do right before they\u2019re wrong. When it\u2019s wrong, it doesn\u2019t
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Tone down the confidence
     flavor: We add uncertainty.
-    effects: civil_society:2|industry:-1
-    result: Users pause more often. They also trust themselves again.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Leave it as is
     flavor: Confidence sells.
-    effects: industry:2|civil_society:-1
-    result: Decisions stay fast. Mistakes become harder to notice.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

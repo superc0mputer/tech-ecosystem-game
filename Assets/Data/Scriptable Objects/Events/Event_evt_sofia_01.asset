@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_sofia_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_sofia_01
-  characterId: Sofia Marin
+  characterId: stk_sofia
   title: AI Art Wins a Prize
   bodyText: "An AI-generated piece just won a major design award. The judges didn\u2019t
     know, but no rules were broken. Artists are furious. The jury is embarrassed.
@@ -22,11 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Frame it as a breakthrough
     flavor: We highlight what the technology enables.
-    effects: innovation:2|civil_society:-1
-    result: The headline celebrates progress. Human creators feel written out of
-      the story.
+    effects:
+      industry: 0
+      civilSociety: -1
+      governance: 0
+      innovation: 2
   choiceB:
     label: Push for transparency in creative contests
     flavor: We call for clearer boundaries.
-    effects: governance:2|innovation:-1
-    result: "The debate becomes more nuanced. The hype cools \u2014 so does momentum."
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: 2
+      innovation: -1

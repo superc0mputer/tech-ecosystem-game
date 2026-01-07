@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_leo_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_leo_06
-  characterId: Leo Park
+  characterId: stk_leo
   title: The Exit Window
   bodyText: "We have an offer. Big one. A larger company wants to acquire us. They
     want our product and our speed. They\u2019ll keep building on your AI which we
@@ -24,12 +24,16 @@ MonoBehaviour:
   choiceA:
     label: Support the acquisition
     flavor: We stay inside the deal.
-    effects: industry:2|innovation:1|governance:-2
-    result: The product scales rapidly under new ownership. Your AI becomes harder
-      to disentangle from external decisions.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -2
+      innovation: 1
   choiceB:
     label: Withhold deep cooperation
     flavor: "We don\u2019t follow every exit."
-    effects: governance:2|civil_society:1|industry:-2
-    result: The acquisition slows or reshapes. Your AI is replaced or reworked beyond
-      your influence.
+    effects:
+      industry: -2
+      civilSociety: 1
+      governance: 2
+      innovation: 0

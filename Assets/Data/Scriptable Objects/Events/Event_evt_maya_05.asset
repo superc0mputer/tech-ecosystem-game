@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_maya_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_maya_05
-  characterId: Maya Chen
+  characterId: stk_maya
   title: "Just Tell Me When It\u2019s Unsure"
   bodyText: "I don\u2019t need perfection. I just need to know when the AI isn\u2019t
     sure either."
   choiceA:
     label: Add uncertainty indicators
     flavor: Transparency helps.
-    effects: civil_society:2
-    result: Automation feels less magical. Judgment returns to the room.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Keep outputs clean
     flavor: It works or it doesn't.
-    effects: industry:2
-    result: "The AI sounds decisive. Even when it shouldn\u2019t."
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0

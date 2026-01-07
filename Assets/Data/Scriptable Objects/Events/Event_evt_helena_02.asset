@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_helena_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_helena_02
-  characterId: Commissioner Helena Richter
+  characterId: stk_helena
   title: The Precedent
   bodyText: "If we approve your system, others will cite it as precedent. Some will
     copy the safeguards. Others will copy the gaps. This isn\u2019t just about you."
   choiceA:
     label: Accept stricter conditions
     flavor: We set a high bar.
-    effects: governance:2|industry:-1
-    result: The EU standard rises. Innovation slows across the sector.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0
   choiceB:
     label: Push for minimal compliance
     flavor: We follow the letter of the law.
-    effects: industry:2|governance:-1
-    result: Market flexibility remains. Regulatory fragmentation grows.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0

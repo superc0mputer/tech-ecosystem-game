@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_aris_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_aris_02
-  characterId: Dr. Aris Thorne
+  characterId: stk_aris
   title: Global by Name
   bodyText: "You\u2019re calling this a global product. But you test it where users
     are predictable and well-resourced. When it fails elsewhere, you call it \u2018unexpected
@@ -21,11 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Design for diverse real-world conditions
     flavor: We treat global use seriously.
-    effects: civil_society:2|innovation:-1
-    result: The system becomes more robust across contexts. Development slows and
-      assumptions are challenged.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: -1
   choiceB:
     label: Focus on primary markets first
     flavor: We scale where reliability is highest.
-    effects: industry:2|civil_society:-1
-    result: Performance stays strong in core markets. Failures elsewhere are normalized.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

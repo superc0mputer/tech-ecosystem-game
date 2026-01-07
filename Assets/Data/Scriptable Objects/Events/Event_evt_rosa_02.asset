@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_rosa_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rosa_02
-  characterId: "Rosa Mart\xEDnez"
+  characterId: stk_rosa
   title: The Missing Document
   bodyText: "Your system is reviewing applications for emergency housing assistance.
     It flags them often as incomplete. One missing document. A payslip. A lease.
@@ -22,12 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Allow provisional approval
     flavor: We give time to fix errors.
-    effects: civil_society:2
-    result: More households remain eligible while documents are completed. Case handling
-      becomes slower and more complex.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Enforce strict completeness
     flavor: "We decide based on what\u2019s submitted."
-    effects: industry:2
-    result: Processing stays fast and predictable. Applicants with unstable situations
-      drop out first.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0

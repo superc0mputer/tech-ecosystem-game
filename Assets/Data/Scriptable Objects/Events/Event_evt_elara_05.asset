@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_elara_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_elara_05
-  characterId: Dr. Elara Knox
+  characterId: stk_elara
   title: One Interface Fits All?
   bodyText: "Professionals want control. Casual users want simplicity. One interface
     can\u2019t serve both well."
   choiceA:
     label: Offer multiple modes
     flavor: We design for diversity.
-    effects: civil_society:2|industry:-1
-    result: Users feel better served. Maintenance complexity increases.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Standardize the experience
     flavor: We pick one.
-    effects: industry:2|civil_society:-1
-    result: The product stays clean. Some users feel ignored.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

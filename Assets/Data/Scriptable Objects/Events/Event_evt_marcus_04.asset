@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_marcus_04
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_marcus_04
-  characterId: Marcus Sterling
+  characterId: stk_marcus
   title: The Feature Creep Question
   bodyText: "There\u2019s talk of cutting a feature because users might misuse it.
     Why would we do that? If potential misuse is the bar for removal, innovation
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Keep the feature.
     flavor: "Choice is the user\u2019s."
-    effects: innovation:1|civil_society:-1|governance:-1
-    result: Flexibility increases. Responsibility becomes abstract.
+    effects:
+      industry: 0
+      civilSociety: -1
+      governance: -1
+      innovation: 1
   choiceB:
     label: Remove it.
     flavor: We design with intent.
-    effects: civil_society:2|innovation:-1
-    result: "Marcus shrugs. \"Constraints are very\u2026 European.\""
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: -1

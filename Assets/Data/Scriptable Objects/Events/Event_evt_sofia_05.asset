@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_sofia_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_sofia_05
-  characterId: Sofia Marin
+  characterId: stk_sofia
   title: The Face Everyone Recognizes
   bodyText: "This one\u2019s bad. A deepfake. Sexual. Degrading. A real person. Not
     famous. Some persons lost their jobs. But the videos aren\u2019t illegal everywhere.
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Take responsibility publicly
     flavor: We act, even if it costs us.
-    effects: governance:2|civil_society:2|industry:-1
-    result: Abuse drops sharply. Your platform is no longer framed as neutral infrastructure.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 2
+      innovation: 0
   choiceB:
     label: Defend openness, offer support to victims
     flavor: "We don\u2019t restrict the tool, but we\u2019ll help the victims."
-    effects: industry:2|innovation:1|civil_society:-2
-    result: The tool remains flexible and widely used. Public trust fractures.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: 0
+      innovation: 1

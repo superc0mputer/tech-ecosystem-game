@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_marcus_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_marcus_01
-  characterId: Marcus Sterling
+  characterId: stk_marcus
   title: Just a Small Data Adjustment
   bodyText: "Retention could double if we\u2026 reinterpret user consent. Relax -
     everyone does it. We\u2019ll call it \u2018industry standard\u2019."
   choiceA:
     label: Do it.
     flavor: Growth first.
-    effects: industry:1|civil_society:-1
-    result: Your KPIs explode. Somewhere, a privacy advocate refreshes Twitter.
+    effects:
+      industry: 1
+      civilSociety: -1
+      governance: 0
+      innovation: 0
   choiceB:
     label: No.
     flavor: We keep consent clean.
-    effects: civil_society:2
-    result: "Marcus frowns. \"Ethics don\u2019t show up in revenue reports.\""
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0

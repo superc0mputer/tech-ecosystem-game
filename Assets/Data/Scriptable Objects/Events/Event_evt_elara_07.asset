@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_elara_07
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_elara_07
-  characterId: Dr. Elara Knox
+  characterId: stk_elara
   title: The Burnout Signal
   bodyText: "We\u2019re seeing a pattern. Professionals using the system daily report
     exhaustion, stress, detachment. The AI is always available. Always confident.
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Introduce usage limits and rest cues
     flavor: We design for long-term well-being.
-    effects: civil_society:2|governance:1|industry:-1
-    result: Sessions shorten. Burnout reports decline.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 1
+      innovation: 0
   choiceB:
     label: Leave usage patterns unchanged
     flavor: "That\u2019s on the user."
-    effects: industry:2|innovation:1|civil_society:-1
-    result: Productivity metrics stay strong. Human costs stay invisible.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 1

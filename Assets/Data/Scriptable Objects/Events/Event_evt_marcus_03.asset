@@ -13,18 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_marcus_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_marcus_03
-  characterId: Marcus Sterling
+  characterId: stk_marcus
   title: Engagement by Design
   bodyText: "These are engagement loops. Nudges. Defaults. Nothing illegal. Nothing
     obvious. People like being guided. We\u2019d just help them choose faster."
   choiceA:
     label: Implement the nudges.
     flavor: Engagement first.
-    effects: industry:2|civil_society:-1
-    result: "Usage rises. Users stay longer \u2014 often without knowing why."
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0
   choiceB:
     label: Explain the system.
     flavor: They deserve to know.
-    effects: civil_society:2
-    result: "Marcus raises an eyebrow. \"You really don\u2019t like asymmetry, do
-      you?\""
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0

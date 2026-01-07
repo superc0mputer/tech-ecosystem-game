@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_rafael_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rafael_05
-  characterId: Rafael Ortiz
+  characterId: stk_rafael
   title: Who Gets Priority?
   bodyText: "When capacity is tight, we prioritize workload. Right now, it\u2019s
     whoever pays most. We could reserve capacity for public or safety-critical uses.
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Reserve capacity for critical uses
     flavor: We limit peak profits.
-    effects: governance:1|civil_society:1|industry:-1
-    result: Essential services remain stable. Revenue opportunities shrink.
+    effects:
+      industry: -1
+      civilSociety: 1
+      governance: 1
+      innovation: 0
   choiceB:
     label: Keep purely commercial prioritization
     flavor: We follow the market.
-    effects: industry:2|civil_society:-1|governance:-1
-    result: Revenue is maximized. Access becomes uneven.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: -1
+      innovation: 0

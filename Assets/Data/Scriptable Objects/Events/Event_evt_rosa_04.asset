@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_rosa_04
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rosa_04
-  characterId: "Rosa Mart\xEDnez"
+  characterId: stk_rosa
   title: The Feature Clients Ask For
   bodyText: "Several agencies are asking for a \u2018risk flag\u2019. One indicator.
     Red or green. It simplifies casework. It also becomes the decision."
   choiceA:
     label: Refuse to build a single-score flag
     flavor: "We don\u2019t reduce people to one signal."
-    effects: civil_society:2|industry:-1
-    result: Decisions remain nuanced. Some clients look for simpler tools elsewhere.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Offer the feature with disclaimers
     flavor: We trust professionals to use it responsibly.
-    effects: industry:2|civil_society:-1
-    result: Adoption increases. The flag quietly dominates outcomes.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

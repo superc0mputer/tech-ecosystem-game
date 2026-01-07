@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_klaus_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_klaus_05
-  characterId: Dr. Klaus Weber
+  characterId: stk_klaus
   title: Assumptions in the Manual
   bodyText: "Your safety analysis assumes trained users. Stable environments. Proper
     supervision. I don\u2019t certify intentions. I certify what happens when assumptions
@@ -21,11 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Design for misuse and misinterpretation
     flavor: We assume real-world behavior.
-    effects: civil_society:1|governance:1|innovation:-1
-    result: The system tolerates mistakes better. Complexity and cost increase.
+    effects:
+      industry: 0
+      civilSociety: 1
+      governance: 1
+      innovation: -1
   choiceB:
     label: Limit responsibility to documented use
     flavor: We certify intended operation.
-    effects: industry:2|governance:-1
-    result: "Certification is straightforward. Harm outside assumptions becomes someone
-      else\u2019s problem."
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0

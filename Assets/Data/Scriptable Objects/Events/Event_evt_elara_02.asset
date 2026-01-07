@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_elara_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_elara_02
-  characterId: Dr. Elara Knox
+  characterId: stk_elara
   title: Not Designed for Everyone
   bodyText: "Users with visual impairments struggle. Key actions rely on color, small
     targets, and so on. Fixing this means redesigning core interaction patterns.
@@ -21,11 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Fix accessibility now
     flavor: We redesign the interface.
-    effects: civil_society:2
-    result: The product becomes usable for more people. Delivery slows across the
-      roadmap.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Defer accessibility
     flavor: We focus on current customers.
-    effects: industry:2
-    result: Enterprise deadlines are met. Some users remain locked out.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_helena_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_helena_05
-  characterId: Commissioner Helena Richter
+  characterId: stk_helena
   title: The Moving Target
   bodyText: I can certify what exists today. Not what your system becomes tomorrow.
     If I allow continuous learning, oversight weakens. If I freeze models, I approve
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Accept ongoing regulatory oversight
     flavor: We regulate the process.
-    effects: governance:2|innovation:-1
-    result: Systems evolve under supervision. Innovation continues - but ships slower.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: 2
+      innovation: -1
   choiceB:
     label: Freeze approved versions
     flavor: We regulate stability.
-    effects: governance:1|innovation:-2
-    result: Certification stays simple. The system falls behind its own research.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: 1
+      innovation: -2

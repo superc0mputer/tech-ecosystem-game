@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_luis_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_luis_03
-  characterId: "Mayor Luis Hern\xE1ndez"
+  characterId: stk_luis
   title: Unequal Service
   bodyText: "Luis puts a printed dashboard on the table. \"This AI sorts incoming
     requests for City Hall. In the city center, requests are answered within hours.
@@ -22,10 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Fix fairness citywide
     flavor: We rebalance priorities.
-    effects: civil_society:2|industry:-1
-    result: Response times become more equal. Overall processing slows down.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Optimize where it already works
     flavor: Efficiency wins.
-    effects: industry:2|civil_society:-1
-    result: Central districts stay fast. Anger grows elsewhere.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

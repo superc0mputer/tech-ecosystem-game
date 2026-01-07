@@ -13,19 +13,24 @@ MonoBehaviour:
   m_Name: Event_evt_voss_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_voss_06
-  characterId: Colonel Adrian Voss
+  characterId: stk_voss
   title: The Allied Request
   bodyText: "An allied nation is requesting access to the system. They\u2019re stable.
     Friendly. Strategically important. Once access is granted, control doesn\u2019t
     stay technical. It becomes diplomatic."
   choiceA:
     label: Approve transfer
-    flavor: 
-    effects: industry:2|governance:-1
-    result: Your AI spreads through military alliances. Retracting it later becomes
-      impossible.
+    flavor: Allies need support.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0
   choiceB:
     label: Deny transfer
-    flavor: 
-    effects: governance:3|industry:-2
-    result: You limit proliferation. You strain political relationships.
+    flavor: Limit proliferation.
+    effects:
+      industry: -2
+      civilSociety: 0
+      governance: 3
+      innovation: 0

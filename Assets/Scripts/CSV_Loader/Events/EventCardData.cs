@@ -1,30 +1,33 @@
 using UnityEngine;
 
 [System.Serializable]
+public struct StatBlock
+{
+    public int industry;
+    public int civilSociety;
+    public int governance;
+    public int innovation;
+}
+
+[System.Serializable]
 public struct ChoiceData
 {
-    public string label;     // maps to "choice_x_label"
-    public string flavor;    // maps to "choice_x_flavor"
-    
-    // Stores the raw string "industry:2|civil_society:-1"
-    // Your runtime Logic Manager will parse this when the choice is clicked.
-    public string effects;   // maps to "choice_x_effects" 
-    
-    [TextArea(2, 5)] 
-    public string result;    // maps to "choice_x_result"
+    public string label;     
+    public string flavor;    
+    public StatBlock effects; 
 }
 
 [CreateAssetMenu(fileName = "New Event", menuName = "Game/Event Card")]
 public class EventCardData : ScriptableObject
 {
     [Header("CSV: Core Info")]
-    public string id;            // maps to "id"
-    public string characterId;   // maps to "character"
-    public string title;         // maps to "title"
+    public string id;            
+    public string characterId;   
+    public string title;         
     [TextArea(3, 10)] 
-    public string bodyText;      // maps to "body_text"
+    public string bodyText;      
 
     [Header("CSV: Choices")]
-    public ChoiceData choiceA;   // Container for all choice_a_... columns
-    public ChoiceData choiceB;   // Container for all choice_b_... columns
+    public ChoiceData choiceA;   
+    public ChoiceData choiceB;   
 }

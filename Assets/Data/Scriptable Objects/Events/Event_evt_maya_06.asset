@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_maya_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_maya_06
-  characterId: Maya Chen
+  characterId: stk_maya
   title: Terms and Conditions
   bodyText: "Legal proposes an update. A new clause clearly states that users are
     fully responsible for decisions made with AI assistance. Maya reads it and sighs:
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Clarify and limit liability
     flavor: We protect the user too.
-    effects: governance:3|industry:-1
-    result: Trust stabilizes. Your lawyers start sleeping less.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 3
+      innovation: 0
   choiceB:
     label: Add the clause
     flavor: We protect the company.
-    effects: industry:3|civil_society:-1
-    result: "Risk shifts downward. Users notice \u2014 eventually."
+    effects:
+      industry: 3
+      civilSociety: -1
+      governance: 0
+      innovation: 0

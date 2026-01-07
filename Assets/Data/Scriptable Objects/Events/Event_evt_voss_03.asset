@@ -13,18 +13,24 @@ MonoBehaviour:
   m_Name: Event_evt_voss_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_voss_03
-  characterId: Colonel Adrian Voss
+  characterId: stk_voss
   title: Dual-Use Reality
   bodyText: "Your AI can optimize logistics, prediction, and coordination. Those
     are civilian features - and military ones. If you don\u2019t plan for defense
     use, others will use it without constraints."
   choiceA:
     label: Engage in dual-use planning
-    flavor: 
-    effects: industry:2|civil_society:-1
-    result: You help define limits from inside the system. Publicly, nothing changes.
+    flavor: We help define limits.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0
   choiceB:
     label: Commit to civilian-only use
-    flavor: 
-    effects: civil_society:2|industry:-1
-    result: Your position is clear. So is your lack of influence over military applications.
+    flavor: We stay civilian.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0

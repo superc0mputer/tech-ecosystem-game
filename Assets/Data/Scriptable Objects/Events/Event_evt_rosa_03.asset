@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_rosa_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rosa_03
-  characterId: "Rosa Mart\xEDnez"
+  characterId: stk_rosa
   title: The Automatic Sanction
   bodyText: "Missed appointments trigger sanctions. The system assumes non-compliance.
     Sometimes it\u2019s a missed bus. Sometimes a sick child."
   choiceA:
     label: Add a grace period
     flavor: We assume good faith first.
-    effects: civil_society:2|industry:-1
-    result: Fewer benefits are cut automatically. Abuse becomes harder to detect.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Enforce sanctions immediately
     flavor: Rules must be predictable.
-    effects: industry:2|civil_society:-1
-    result: The system stays strict and fast. Small failures escalate quickly.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_aris_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_aris_05
-  characterId: Dr. Aris Thorne
+  characterId: stk_aris
   title: Predictable Harm
   bodyText: "Your system could detect risky behavior. Not diagnoses. Patterns. Escalating
     usage. Obsessive loops. Signals that precede breakdowns or worse. You could intervene.
@@ -22,10 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Detect and intervene in risky behavior
     flavor: We accept deeper insight to reduce harm.
-    effects: civil_society:2|governance:-1|industry:-2
-    result: Some harm is reduced. Your system crosses a new line of behavioral surveillance.
+    effects:
+      industry: -2
+      civilSociety: 2
+      governance: -1
+      innovation: 0
   choiceB:
     label: Limit monitoring to basic functionality
     flavor: "We don\u2019t profile behavior this deeply."
-    effects: civil_society:1|governance:2|innovation:-2
-    result: Privacy boundaries remain clear. Known risk patterns stay unaddressed.
+    effects:
+      industry: 0
+      civilSociety: 1
+      governance: 2
+      innovation: -2

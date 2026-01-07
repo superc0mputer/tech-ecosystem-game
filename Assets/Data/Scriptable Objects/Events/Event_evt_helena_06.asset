@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_helena_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_helena_06
-  characterId: Commissioner Helena Richter
+  characterId: stk_helena
   title: The Compliance Ceiling
   bodyText: "Only a handful of companies can meet full AI Act compliance. Mostly
     large players. Smaller firms are falling behind. Some are leaving Europe. If
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Simplify compliance requirements
     flavor: We lower the barrier.
-    effects: innovation:2|industry:1|governance:-2
-    result: More players stay in the market. Oversight becomes thinner.
+    effects:
+      industry: 1
+      civilSociety: 0
+      governance: -2
+      innovation: 2
   choiceB:
     label: Maintain strict compliance
     flavor: We protect the standard.
-    effects: governance:2|civil_society:1|innovation:-2
-    result: Safety remains high. The market consolidates around a few giants.
+    effects:
+      industry: 0
+      civilSociety: 1
+      governance: 2
+      innovation: -2

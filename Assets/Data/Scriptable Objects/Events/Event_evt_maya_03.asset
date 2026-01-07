@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_maya_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_maya_03
-  characterId: Maya Chen
+  characterId: stk_maya
   title: Surprise Update
   bodyText: "Did the AI change\u2026 or am I imagining things? It feels different.
     I just don\u2019t know how."
   choiceA:
     label: Add simple update notes
     flavor: We explain changes.
-    effects: civil_society:2
-    result: Users feel oriented again. They also start paying attention.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Keep updates invisible
     flavor: Seamless magic.
-    effects: industry:2
-    result: Nothing breaks. Nothing is explained either.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0

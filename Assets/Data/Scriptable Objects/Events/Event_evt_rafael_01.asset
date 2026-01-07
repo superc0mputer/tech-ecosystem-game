@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_rafael_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rafael_01
-  characterId: Rafael Ortiz
+  characterId: stk_rafael
   title: Where to Build the Data Center
   bodyText: Site A runs mostly on solar. Energy is cheap and clean - but water is
     scarce. Cooling will compete with agriculture. Site B has abundant water and
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Build at the solar-powered site
     flavor: We optimize for clean energy.
-    effects: governance:1|innovation:-1|industry:1
-    result: Emissions stay low. Water usage becomes a bottleneck.
+    effects:
+      industry: 1
+      civilSociety: 0
+      governance: 1
+      innovation: -1
   choiceB:
     label: Build at the water-secure site
     flavor: We optimize for reliability and scale.
-    effects: innovation:2|industry:1|governance:-1
-    result: The system scales smoothly. Environmental scrutiny grows.
+    effects:
+      industry: 1
+      civilSociety: 0
+      governance: -1
+      innovation: 2

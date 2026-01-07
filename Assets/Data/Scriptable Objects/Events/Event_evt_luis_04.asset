@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_luis_04
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_luis_04
-  characterId: "Mayor Luis Hern\xE1ndez"
+  characterId: stk_luis
   title: Are We Using Citizen Data?
   bodyText: "Someone asked whether the AI learns from citizen records. Welfare history.
     Past complaints. Address data. If it learns from this, it predicts needs better.
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Use local citizen data
     flavor: It improves accuracy.
-    effects: industry:2|governance:-1
-    result: Predictions improve. Privacy fears rise.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0
   choiceB:
     label: Avoid local data
     flavor: "We don\u2019t touch personal records."
-    effects: governance:2|industry:-1
-    result: Trust holds. The AI feels less helpful.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0

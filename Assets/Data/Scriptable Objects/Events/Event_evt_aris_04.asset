@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_aris_04
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_aris_04
-  characterId: Dr. Aris Thorne
+  characterId: stk_aris
   title: Age Is Just a Setting
   bodyText: "Age gating exists, but the system doesn\u2019t behave differently. Same
     recommendation loops. Same nudges. Same feedback. If age matters only on paper,
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Limit certain features for younger users
     flavor: We reduce intensity.
-    effects: civil_society:2|industry:-1
-    result: Youth exposure decreases. Product consistency breaks.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Keep one experience for all users
     flavor: "We don\u2019t fragment the system."
-    effects: industry:2|civil_society:-1
-    result: The platform stays simple. Protection remains symbolic.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

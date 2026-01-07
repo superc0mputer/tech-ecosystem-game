@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_maya_07
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_maya_07
-  characterId: Maya Chen
+  characterId: stk_maya
   title: Critical Use Case
   bodyText: "I work night shifts at a hospital. The AI helps us decide who gets a
     bed when it\u2019s full. Last night, it flagged a patient as low priority. I
@@ -22,10 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Restrict AI use in life-critical decisions
     flavor: "This can\u2019t happen again."
-    effects: civil_society:3|governance:1|industry:-1
-    result: "Hospitals slow down. Human responsibility is clear \u2014 and costly."
+    effects:
+      industry: -1
+      civilSociety: 3
+      governance: 1
+      innovation: 0
   choiceB:
     label: Keep AI use, add disclaimers
     flavor: The AI only advises.
-    effects: industry:2|civil_society:-2
-    result: Systems keep running smoothly. Trust erodes where the stakes are highest.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: 0
+      innovation: 0

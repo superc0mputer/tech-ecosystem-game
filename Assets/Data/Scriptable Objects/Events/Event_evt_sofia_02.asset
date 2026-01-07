@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_sofia_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_sofia_02
-  characterId: Sofia Marin
+  characterId: stk_sofia
   title: The Cheap Content Wave
   bodyText: "Sofia forwards you drafts she didn\u2019t write herself. \"That\u2019s
     the draft for my next article: Studios are cutting freelance budgets. Not with
@@ -22,10 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Emphasize AI as a support tool
     flavor: We talk augmentation, not replacement.
-    effects: civil_society:2|industry:-1
-    result: The narrative softens. The market keeps cutting costs anyway.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Frame it as inevitable efficiency
     flavor: "We don\u2019t fight the trend."
-    effects: industry:2|civil_society:-1
-    result: The story sounds realistic. Creative work looks increasingly disposable.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

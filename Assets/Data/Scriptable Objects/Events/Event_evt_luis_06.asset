@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_luis_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_luis_06
-  characterId: "Mayor Luis Hern\xE1ndez"
+  characterId: stk_luis
   title: The EU Audit
   bodyText: "The EU wants to audit our AI use. They\u2019re asking how decisions
     are made - and who oversees them. If they find violations, this won\u2019t stay
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Open the system to auditors
     flavor: We cooperate fully.
-    effects: governance:3|civil_society:1|industry:-1
-    result: The audit is slow and painful. Legitimacy improves.
+    effects:
+      industry: -1
+      civilSociety: 1
+      governance: 3
+      innovation: 0
   choiceB:
     label: Limit disclosure
     flavor: We provide summaries only.
-    effects: industry:3|governance:-1|civil_society:-1
-    result: The city avoids immediate sanctions. Scrutiny intensifies.
+    effects:
+      industry: 3
+      civilSociety: -1
+      governance: -1
+      innovation: 0

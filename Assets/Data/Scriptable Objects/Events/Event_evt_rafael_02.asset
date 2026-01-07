@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_rafael_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rafael_02
-  characterId: Rafael Ortiz
+  characterId: stk_rafael
   title: Cooling vs. Capability
   bodyText: The new model runs hotter. To keep performance, we need more cooling
     - more power, more water. Or we cap performance.
   choiceA:
     label: Upgrade cooling systems
     flavor: We maintain capability.
-    effects: industry:2
-    result: Performance holds. Operating costs and resource use rise.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0
   choiceB:
     label: Cap model intensity
     flavor: We respect physical limits.
-    effects: governance:2
-    result: Resource use stabilizes. Model growth plateaus.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: 2
+      innovation: 0

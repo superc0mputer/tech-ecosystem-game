@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_helena_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_helena_01
-  characterId: Commissioner Helena Richter
+  characterId: stk_helena
   title: Member States Disagree
   bodyText: Some countries want stricter enforcement. Others fear losing competitiveness.
     Your company is being cited by both sides. How visible do you want to be in this
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Support strong unified EU standards
     flavor: We back consistency.
-    effects: governance:2|industry:-1
-    result: Regulatory clarity improves. Some markets cool.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0
   choiceB:
     label: Quietly lobby for flexibility
     flavor: We need room to adapt.
-    effects: industry:2|governance:-1
-    result: National differences persist. Policy coherence weakens.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0

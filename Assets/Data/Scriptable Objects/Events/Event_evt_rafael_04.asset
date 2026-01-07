@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_rafael_04
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rafael_04
-  characterId: Rafael Ortiz
+  characterId: stk_rafael
   title: The Carbon Bill
   bodyText: "Our systems don\u2019t just consume electricity. They consume it at
     scale: data centers, cooling, redundancy. In some regions, that now includes
@@ -23,10 +23,16 @@ MonoBehaviour:
   choiceA:
     label: Absorb the CO2 cost
     flavor: We treat it as operating expense.
-    effects: industry:-1|innovation:1
-    result: Development continues uninterrupted. Margins quietly shrink.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 0
+      innovation: 1
   choiceB:
     label: Reduce energy-heavy workloads
     flavor: We cut where it hurts most.
-    effects: innovation:-1|civil_society:1
-    result: Emissions fall. Some teams lose their favorite models.
+    effects:
+      industry: 0
+      civilSociety: 1
+      governance: 0
+      innovation: -1

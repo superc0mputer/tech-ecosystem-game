@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_marcus_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_marcus_05
-  characterId: Marcus Sterling
+  characterId: stk_marcus
   title: The Data Revenue Question
   bodyText: "Right now, our only income comes from the product. Subscriptions. Licenses.
     Usage fees. However, given the fierce competition, it is important to have additional
@@ -23,11 +23,16 @@ MonoBehaviour:
   choiceA:
     label: Sell aggregated usage data
     flavor: We monetize insight.
-    effects: industry:2|civil_society:-1
-    result: "New revenue streams open fast. Users don\u2019t notice - until they
-      do."
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0
   choiceB:
     label: Keep user data internal
     flavor: "We don\u2019t sell behavior."
-    effects: civil_society:2|governance:1|industry:-2
-    result: Revenue stays simpler and slower. Pricing pressure increases elsewhere.
+    effects:
+      industry: -2
+      civilSociety: 2
+      governance: 1
+      innovation: 0

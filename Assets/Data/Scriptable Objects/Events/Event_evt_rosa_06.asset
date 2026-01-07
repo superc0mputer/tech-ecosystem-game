@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_rosa_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rosa_06
-  characterId: "Rosa Mart\xEDnez"
+  characterId: stk_rosa
   title: Gaming the Safety Net
   bodyText: "People are learning how your system works. Not everyone - but enough.
     They delay reporting income. They structure jobs to stay just below thresholds.
@@ -22,11 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Tighten detection and close loopholes
     flavor: We reduce abuse.
-    effects: industry:2|governance:2|civil_society:-1
-    result: Abuse drops noticeably. Legitimate users feel increased pressure and
-      scrutiny.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 2
+      innovation: 0
   choiceB:
     label: Accept some gaming to protect the vulnerable
     flavor: We tolerate misuse.
-    effects: civil_society:3|innovation:1|industry:-1
-    result: Fewer people are wrongly penalized. System costs and inefficiencies grow.
+    effects:
+      industry: -1
+      civilSociety: 3
+      governance: 0
+      innovation: 1

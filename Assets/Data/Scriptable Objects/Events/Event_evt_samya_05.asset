@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_samya_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_samya_05
-  characterId: Samya Lin
+  characterId: stk_samya
   title: One Model to Rule Them All
   bodyText: We could merge several systems into one large model. Shared representations.
     Cleaner architecture. But if it fails, everything fails.
   choiceA:
     label: Merge the models
     flavor: Go big.
-    effects: innovation:2|governance:-1
-    result: Capabilities expand. Single points of failure emerge.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: -1
+      innovation: 2
   choiceB:
     label: Keep systems separate
     flavor: Redundancy matters.
-    effects: governance:2|innovation:-1
-    result: Systems stay stable. Progress fragments.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: 2
+      innovation: -1

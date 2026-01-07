@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_sofia_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_sofia_03
-  characterId: Sofia Marin
+  characterId: stk_sofia
   title: Synthetic Voices
   bodyText: In that video - it sounds like a famous actor. Your AI can generate voices
     that are indistinguishable. Legality is unclear. Ethics even more so. This can
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Restrict voice models to licensed use
     flavor: We require explicit permission.
-    effects: governance:2|civil_society:1|innovation:-2
-    result: Consent becomes the headline. Creative experimentation narrows.
+    effects:
+      industry: 0
+      civilSociety: 1
+      governance: 2
+      innovation: -2
   choiceB:
     label: Allow open voice synthesis
     flavor: We trust users.
-    effects: innovation:2|governance:-1|civil_society:-1
-    result: New uses explode. So do uncomfortable questions.
+    effects:
+      industry: 0
+      civilSociety: -1
+      governance: -1
+      innovation: 2

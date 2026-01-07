@@ -13,22 +13,26 @@ MonoBehaviour:
   m_Name: Event_evt_helena_07
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_helena_07
-  characterId: Commissioner Helena Richter
+  characterId: stk_helena
   title: The Innovation Flight
   bodyText: "Three major AI labs are moving core R&D out of Europe. They\u2019ll
     still sell here. But training decisions, safety trade-offs, and breakthroughs
     will happen under other legal systems. If I ease conditions, I\u2019m accused
     of weakening the law. If I don\u2019t, Europe becomes a rule-taker for technologies
-    it no longer shapes."
+    it no longer shapes.I can\u2019t regulate what I don\u2019t host."
   choiceA:
     label: Move frontier research outside the EU
     flavor: We optimize for speed and leave the EU.
-    effects: innovation:3|industry:1|governance:-1
-    result: Research accelerates under looser constraints. European rules apply only
-      after development.
+    effects:
+      industry: 1
+      civilSociety: 0
+      governance: -1
+      innovation: 3
   choiceB:
     label: Keep frontier research in Europe
     flavor: We build under stricter standards.
-    effects: governance:3|civil_society:1|innovation:-1
-    result: Development remains transparent and accountable. Breakthroughs take longer
-      to reach scale.
+    effects:
+      industry: 0
+      civilSociety: 1
+      governance: 3
+      innovation: -1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_aris_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_aris_06
-  characterId: Dr. Aris Thorne
+  characterId: stk_aris
   title: Designing for the Most Affected
   bodyText: "Your system optimizes for average users. But harm isn\u2019t evenly
     distributed. A small group bears most of the downside: young users, people in
@@ -22,10 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Optimize for worst-case impact
     flavor: We design for those at greatest risk.
-    effects: civil_society:3|governance:1|industry:-1
-    result: Severe harms decrease. Overall performance and growth slow.
+    effects:
+      industry: -1
+      civilSociety: 3
+      governance: 1
+      innovation: 0
   choiceB:
     label: Optimize for average performance
     flavor: We design for scale.
-    effects: industry:2|innovation:1|civil_society:-2
-    result: The system remains competitive. Outliers continue to absorb the cost.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: 0
+      innovation: 1

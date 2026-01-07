@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_rafael_07
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rafael_07
-  characterId: Rafael Ortiz
+  characterId: stk_rafael
   title: The Rebound Effect
   bodyText: "Our efficiency work paid off. Energy per request is down. Costs dropped.
     Usage didn\u2019t just grow. It exploded. Because the system is cheaper and faster,
@@ -23,10 +23,16 @@ MonoBehaviour:
   choiceA:
     label: Cap usage despite efficiency gains
     flavor: We limit growth deliberately.
-    effects: governance:2|civil_society:1|industry:-2
-    result: Total resource use stabilizes. Customers accuse you of artificial scarcity.
+    effects:
+      industry: -2
+      civilSociety: 1
+      governance: 2
+      innovation: 0
   choiceB:
     label: Let demand scale freely
     flavor: Efficiency justifies growth.
-    effects: industry:2|innovation:1|governance:-2
-    result: Adoption surges. Infrastructure strain accelerates again.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -2
+      innovation: 1

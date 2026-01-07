@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_marianne_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_marianne_01
-  characterId: "Justice Marianne Kov\xE1cs"
+  characterId: stk_marianne
   title: The Denied Appeal
   bodyText: "A citizen appealed a welfare decision. The agency used your AI to assess
     eligibility. The appeal failed because the agency couldn\u2019t explain why the
@@ -22,11 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Provide detailed decision logs
     flavor: We make the reasoning traceable.
-    effects: governance:2|industry:-1
-    result: The appeal is properly reviewed. Agencies now expect explanations every
-      time.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0
   choiceB:
     label: Defend the decision as lawful
     flavor: The AI followed approved rules.
-    effects: industry:2|governance:-1
-    result: The ruling stands. Future appeals become harder.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0

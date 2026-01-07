@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_rosa_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rosa_05
-  characterId: "Rosa Mart\xEDnez"
+  characterId: stk_rosa
   title: The Decision Was the System
   bodyText: Agencies are changing how they talk to people. When someone asks why
     they were rejected, the answer is always the same. The system decided. Not the
@@ -21,11 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Force clients to retain visible responsibility
     flavor: No decision without a human name attached.
-    effects: governance:2|civil_society:2|industry:-1
-    result: Accountability returns to institutions. Some clients resist or delay
-      adoption.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 2
+      innovation: 0
   choiceB:
     label: Allow full delegation to the system
     flavor: Clients choose how they use it.
-    effects: industry:2|innovation:1|civil_society:-2
-    result: Your system becomes the final authority. Responsibility dissolves upward.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: 0
+      innovation: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_samya_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_samya_06
-  characterId: Samya Lin
+  characterId: stk_samya
   title: The Breakthrough
   bodyText: "We cracked it. The model generalizes better than anything we\u2019ve
     built. It\u2019s not just bigger. It\u2019s\u2026 different. But\u2026 I can\u2019t
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Ship the breakthrough immediately
     flavor: We take the lead.
-    effects: innovation:2|industry:2|governance:-1
-    result: You leap ahead of competitors. Understanding lags behind deployment.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 2
   choiceB:
     label: "Freeze deployment until it\u2019s understood"
     flavor: "We don\u2019t ship black magic."
-    effects: innovation:2|governance:2|industry:-1
-    result: The system becomes legible and safer. Market momentum slows.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 2

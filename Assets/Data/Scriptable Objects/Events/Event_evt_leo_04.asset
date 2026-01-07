@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_leo_04
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_leo_04
-  characterId: Leo Park
+  characterId: stk_leo
   title: Your AI Our Product
   bodyText: "Our product is based entirely on your AI. When a user clicks a button,
     your model runs. On your servers. We didn\u2019t build a fallback system. We
@@ -22,12 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Carry the infrastructure burden
     flavor: We fuel ecosystem growth.
-    effects: innovation:2|industry:-1
-    result: "The product scales fast \u2014 on your AI. Your costs rise faster than
-      your revenue."
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 0
+      innovation: 2
   choiceB:
     label: Force Leo to internalize the costs
     flavor: "Our AI isn\u2019t free infrastructure."
-    effects: industry:2|innovation:-1
-    result: "Your financial exposure stays controlled. Leo\u2019s product growth
-      stalls or migrates elsewhere."
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: -1

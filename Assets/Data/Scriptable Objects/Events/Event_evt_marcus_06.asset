@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_marcus_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_marcus_06
-  characterId: Marcus Sterling
+  characterId: stk_marcus
   title: The Growth Shortcut
   bodyText: "We\u2019re stalling. Not because the product is bad - but because we\u2019re
     picky. There are markets asking for access now. Different languages. Different
@@ -23,10 +23,16 @@ MonoBehaviour:
   choiceA:
     label: Launch fast and wide
     flavor: Growth first. We'll fix later.
-    effects: industry:3|governance:-1|civil_society:-1
-    result: User numbers spike across regions. Local friction quietly accumulates.
+    effects:
+      industry: 3
+      civilSociety: -1
+      governance: -1
+      innovation: 0
   choiceB:
     label: Localize and adapt before launch
     flavor: We scale with care.
-    effects: civil_society:2|innovation:1|industry:-2
-    result: Expansion is slower but steadier. Marcus checks his watch.
+    effects:
+      industry: -2
+      civilSociety: 2
+      governance: 0
+      innovation: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_luis_07
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_luis_07
-  characterId: "Mayor Luis Hern\xE1ndez"
+  characterId: stk_luis
   title: Targeted Visibility
   bodyText: Our AI sends city notifications. Deadlines, service updates, reminders.
     It started prioritizing districts with low engagement. Turnout improves there.
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Standardize communication citywide
     flavor: We make it strictly neutral.
-    effects: governance:2|civil_society:2|industry:-1
-    result: Messaging becomes neutral. Political advantages flatten out.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 2
+      innovation: 0
   choiceB:
     label: Keep optimizing engagement
     flavor: "It\u2019s still public service."
-    effects: industry:2|governance:-1|civil_society:-1
-    result: Engagement rises where it matters. So do questions about fairness.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: -1
+      innovation: 0

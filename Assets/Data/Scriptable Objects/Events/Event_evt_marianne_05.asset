@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_marianne_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_marianne_05
-  characterId: "Justice Marianne Kov\xE1cs"
+  characterId: stk_marianne
   title: The Safety Override
   bodyText: "A factory uses your AI to manage emergency shutdowns. It balances safety
     against unnecessary downtime. A sensor detected a risk. The system calculated
@@ -22,10 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Accept liability for safety optimization
     flavor: "Efficiency can\u2019t outweigh life."
-    effects: governance:2|civil_society:1|industry:-2
-    result: Safety thresholds tighten. Automation loses flexibility.
+    effects:
+      industry: -2
+      civilSociety: 1
+      governance: 2
+      innovation: 0
   choiceB:
     label: Treat it as operational failure
     flavor: The system followed parameters.
-    effects: industry:2|governance:-1|civil_society:-2
-    result: Production continues. Workers trust systems less.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: -1
+      innovation: 0

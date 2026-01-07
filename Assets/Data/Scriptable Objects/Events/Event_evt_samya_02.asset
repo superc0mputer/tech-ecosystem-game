@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_samya_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_samya_02
-  characterId: Samya Lin
+  characterId: stk_samya
   title: The Prototype
   bodyText: "I\u2019ve got a prototype. It works - mostly. It\u2019s not stable enough
     for users yet."
   choiceA:
     label: Give her time to refine it
     flavor: Let her cook.
-    effects: innovation:2
-    result: The prototype improves. Nothing ships this sprint.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: 0
+      innovation: 2
   choiceB:
     label: Turn it into a feature now
     flavor: "We\u2019ll fix it later."
-    effects: industry:2
-    result: Users get something new. Engineers quietly worry.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0

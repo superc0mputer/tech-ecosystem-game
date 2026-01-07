@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_luis_08
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_luis_08
-  characterId: "Mayor Luis Hern\xE1ndez"
+  characterId: stk_luis
   title: The Boundary
   bodyText: The AI predicts which citizens respond to city services. Based on usage
     patterns. It could adjust response times and reminders to increase turnout in
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Disable predictive use for elections
     flavor: We draw a hard line.
-    effects: governance:3|civil_society:1|industry:-1
-    result: The system becomes politically blind. Trust stabilizes.
+    effects:
+      industry: -1
+      civilSociety: 1
+      governance: 3
+      innovation: 0
   choiceB:
     label: Allow limited predictive use
     flavor: "We\u2019re increasing participation."
-    effects: industry:2|governance:-1
-    result: Turnout shifts subtly. So does the meaning of neutrality.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_eleanor_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_eleanor_03
-  characterId: Eleanor Whitaker
+  characterId: stk_eleanor
   title: What Kind of Company This Becomes
   bodyText: In ten years, this company will be one of two things. Either something
     others build on or something others replace. That depends on whether you design
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Design for long-term dependence
     flavor: We become infrastructure.
-    effects: governance:2|industry:-1
-    result: Customers rely on you deeply. Changing direction later becomes costly.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0
   choiceB:
     label: Design for flexibility and turnover
     flavor: We stay flexible.
-    effects: industry:2|governance:-1
-    result: Adoption stays high. Long-term leverage remains uncertain.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0

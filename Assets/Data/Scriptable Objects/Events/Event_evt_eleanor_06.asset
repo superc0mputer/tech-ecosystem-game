@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_eleanor_06
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_eleanor_06
-  characterId: Eleanor Whitaker
+  characterId: stk_eleanor
   title: Who Gets to Build on You
   bodyText: "Your platform is becoming foundational, not just a product - something
     others depend on. You can keep it expensive, tightly controlled, and optimized
@@ -23,11 +23,16 @@ MonoBehaviour:
   choiceA:
     label: Keep access limited and controlled
     flavor: We approve who builds on the system.
-    effects: industry:1|governance:2|civil_society:1|innovation:-1
-    result: Use cases stay traceable and enforceable. Fewer actors shape the ecosystem.
+    effects:
+      industry: 1
+      civilSociety: 1
+      governance: 2
+      innovation: -1
   choiceB:
     label: Broaden access deliberately
     flavor: We lower barriers and accept less control.
-    effects: civil_society:3|innovation:1|industry:-1
-    result: More groups benefit from the technology. Misuse becomes harder to anticipate
-      and correct.
+    effects:
+      industry: -1
+      civilSociety: 3
+      governance: 0
+      innovation: 1

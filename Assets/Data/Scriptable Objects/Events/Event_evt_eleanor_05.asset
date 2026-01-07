@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_eleanor_05
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_eleanor_05
-  characterId: Eleanor Whitaker
+  characterId: stk_eleanor
   title: Who Benefits If You Succeed?
   bodyText: "Let\u2019s assume you win. Market leadership. Scale. Influence. Who
     benefits from that outcome? A narrow set of clients? Or society at large? The
@@ -22,11 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Align success with broad social benefit
     flavor: We design for societal use, not just profit.
-    effects: civil_society:2|governance:1|industry:-2
-    result: Your success gains defenders beyond your customers. Decision-making becomes
-      slower and more exposed.
+    effects:
+      industry: -2
+      civilSociety: 2
+      governance: 1
+      innovation: 0
   choiceB:
     label: Optimize success for paying customers only
     flavor: We serve those who pay.
-    effects: industry:2|innovation:1|civil_society:-2
-    result: Execution stays sharp and focused. Legitimacy depends entirely on performance.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: 0
+      innovation: 1

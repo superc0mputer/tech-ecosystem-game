@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_rosa_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rosa_01
-  characterId: "Rosa Mart\xEDnez"
+  characterId: stk_rosa
   title: The Time Window
   bodyText: Appeals must be filed within seven days. Miss it, and the decision stands.
     Seven days is fine - if you have stability.
   choiceA:
     label: Extend appeal deadlines
     flavor: We account for reality.
-    effects: civil_society:2|industry:-1
-    result: More appeals are valid. Resolution slows.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Keep deadlines tight
     flavor: We need closure.
-    effects: industry:2|civil_society:-1
-    result: Processes stay predictable. Late appeals disappear.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

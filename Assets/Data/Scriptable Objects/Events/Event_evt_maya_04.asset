@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_maya_04
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_maya_04
-  characterId: Maya Chen
+  characterId: stk_maya
   title: The Default Problem
   bodyText: "Most people never change the defaults. They assume defaults mean \u2018recommended\u2019.
     Are they?"
   choiceA:
     label: Make defaults explicit
     flavor: We clarify choices.
-    effects: civil_society:2|industry:-1
-    result: Users think twice. They also hesitate more.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Leave defaults untouched
     flavor: Frictionless flow.
-    effects: industry:2|civil_society:-1
-    result: Decisions speed up. Dependence grows quietly.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

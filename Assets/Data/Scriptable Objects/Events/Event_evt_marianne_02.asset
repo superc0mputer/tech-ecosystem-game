@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_marianne_02
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_marianne_02
-  characterId: "Justice Marianne Kov\xE1cs"
+  characterId: stk_marianne
   title: Access to Evidence
   bodyText: A pedestrian was seriously injured. The traffic system adjusted signal
     timing automatically. If your AI caused unsafe conditions, this court needs to
@@ -21,12 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Open the system completely
     flavor: We allow full forensic access.
-    effects: governance:3|innovation:-1|industry:-1
-    result: "The investigation is thorough. Design flaws become legally visible \u2014
-      and expensive to fix."
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 3
+      innovation: -1
   choiceB:
     label: Fight disclosure
     flavor: We challenge the request.
-    effects: industry:3|governance:-1|civil_society:-1
-    result: The company avoids deep scrutiny. Trust in automated infrastructure drops
-      sharply.
+    effects:
+      industry: 3
+      civilSociety: -1
+      governance: -1
+      innovation: 0

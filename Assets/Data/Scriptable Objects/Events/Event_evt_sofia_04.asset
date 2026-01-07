@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_sofia_04
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_sofia_04
-  characterId: Sofia Marin
+  characterId: stk_sofia
   title: "It\u2019s Just a Joke"
   bodyText: "Fake videos. Private people. Colleagues. Teachers. Ex-partners. Most
     are framed as humor. But some targets are losing jobs. There\u2019s no single
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Introduce basic safeguards
     flavor: We slow misuse.
-    effects: governance:1|civil_society:1|industry:-1
-    result: Some abuse is flagged. Creators complain about friction.
+    effects:
+      industry: -1
+      civilSociety: 1
+      governance: 1
+      innovation: 0
   choiceB:
     label: Leave moderation to platforms
     flavor: "We\u2019re not the internet police."
-    effects: industry:1|governance:1|civil_society:-2
-    result: Creative freedom stays intact. Targets are told to log off.
+    effects:
+      industry: 1
+      civilSociety: -2
+      governance: 1
+      innovation: 0

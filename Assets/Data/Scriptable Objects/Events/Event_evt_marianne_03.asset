@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_marianne_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_marianne_03
-  characterId: "Justice Marianne Kov\xE1cs"
+  characterId: stk_marianne
   title: Who Pays?
   bodyText: Your AI made a recommendation. A public agency followed it. A citizen
     suffered financial harm. The agency says it trusted your system. You say you
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Accept shared liability
     flavor: We share responsibility.
-    effects: governance:2|industry:-1
-    result: Victims can seek compensation. Your legal exposure grows.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0
   choiceB:
     label: Deny responsibility
     flavor: The agency made the final call.
-    effects: industry:2|governance:-1
-    result: Your company is shielded. Legal clarity suffers.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0

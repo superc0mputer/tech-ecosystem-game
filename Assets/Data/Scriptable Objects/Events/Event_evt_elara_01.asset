@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Event_evt_elara_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_elara_01
-  characterId: Dr. Elara Knox
+  characterId: stk_elara
   title: XR Fatigue
   bodyText: "Users report dizziness and exhaustion after long XR sessions. They still
     log in every day. But they don\u2019t feel good."
   choiceA:
     label: Reduce XR intensity
     flavor: We design for comfort.
-    effects: civil_society:2
-    result: Sessions shorten. Well-being improves.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Optimize for engagement
     flavor: Retention matters.
-    effects: industry:2
-    result: Time-on-platform stays high. So does fatigue.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0

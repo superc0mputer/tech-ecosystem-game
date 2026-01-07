@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_rafael_03
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_rafael_03
-  characterId: Rafael Ortiz
+  characterId: stk_rafael
   title: The Supplier Question
   bodyText: Some of our critical components come from high-risk supply chains. Rare
     earths. Specialty chips. Cooling materials. Subcontractors flagged for unsafe
@@ -22,10 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Source from audited ethical suppliers
     flavor: We pay the premium.
-    effects: governance:2|industry:-1
-    result: Supply chains become cleaner. Expansion slows and costs rise.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0
   choiceB:
     label: Stick with current suppliers
     flavor: We follow the market.
-    effects: industry:2|governance:-1
-    result: Hardware stays cheap. Ethical risk remains embedded.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0

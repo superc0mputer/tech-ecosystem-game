@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_eleanor_04
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_eleanor_04
-  characterId: Eleanor Whitaker
+  characterId: stk_eleanor
   title: Who You Can Sell To Later
   bodyText: Not every potential buyer of your company wants the same kind of company.
     Some want fast growth and clean metrics. Others want stability and predictable
@@ -22,10 +22,16 @@ MonoBehaviour:
   choiceA:
     label: Structure for clean exits
     flavor: We keep the company easy to sell.
-    effects: industry:2|governance:-2
-    result: More buyers stay interested. Responsibility is kept deliberately narrow.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -2
+      innovation: 0
   choiceB:
     label: Structure for long-term ownership
     flavor: We accept complexity.
-    effects: governance:2|industry:-1
-    result: Fewer buyers qualify. Those who remain stay longer.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0

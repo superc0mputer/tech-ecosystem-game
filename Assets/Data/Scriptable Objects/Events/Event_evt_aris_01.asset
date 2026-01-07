@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event_evt_aris_01
   m_EditorClassIdentifier: Assembly-CSharp::EventCardData
   id: evt_aris_01
-  characterId: Dr. Aris Thorne
+  characterId: stk_aris
   title: Who Gets a Voice?
   bodyText: "Your feedback channels are clean. But they\u2019re not neutral. Complaints
     require time, literacy, stability. The people most affected rarely submit them.
@@ -21,10 +21,16 @@ MonoBehaviour:
   choiceA:
     label: Actively seek feedback from marginalized users
     flavor: We go where silence is.
-    effects: civil_society:2
-    result: Blind spots shrink. Research costs increase.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0
   choiceB:
     label: Rely on existing feedback mechanisms
     flavor: We listen to who speaks up.
-    effects: industry:2
-    result: Signals remain easy to process. Some harms never surface.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0
