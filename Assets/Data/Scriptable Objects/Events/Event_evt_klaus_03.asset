@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_klaus_03
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_klaus_03
+  characterId: Dr. Klaus Weber
+  title: The False Positive Dilemma
+  bodyText: "Your model hesitates. In uncertain situations, it defaults to do nothing.
+    When inputs are unclear, the system delays decisions, escalates to humans, or
+    refuses action. That reduces risk. It also shifts responsibility - and sometimes
+    creates new harm. In some contexts, hesitation is safety. In others, it\u2019s
+    failure."
+  choiceA:
+    label: Keep the model conservative
+    flavor: We prefer false negatives.
+    effects: governance:2|industry:-1
+    result: "The system avoids risky actions. Responsibility shifts to human operators
+      \u2014 under pressure."
+  choiceB:
+    label: Tune the model to act more decisively
+    flavor: We accept calculated risk.
+    effects: industry:2|civil_society:-1
+    result: "Decisions come faster. Mistakes become rarer \u2014 but more consequential."

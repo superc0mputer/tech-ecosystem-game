@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_rosa_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_rosa_01
+  characterId: "Rosa Mart\xEDnez"
+  title: The Time Window
+  bodyText: Appeals must be filed within seven days. Miss it, and the decision stands.
+    Seven days is fine - if you have stability.
+  choiceA:
+    label: Extend appeal deadlines
+    flavor: We account for reality.
+    effects: civil_society:2|industry:-1
+    result: More appeals are valid. Resolution slows.
+  choiceB:
+    label: Keep deadlines tight
+    flavor: We need closure.
+    effects: industry:2|civil_society:-1
+    result: Processes stay predictable. Late appeals disappear.

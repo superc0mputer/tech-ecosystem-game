@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_eleanor_03
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_eleanor_03
+  characterId: Eleanor Whitaker
+  title: What Kind of Company This Becomes
+  bodyText: In ten years, this company will be one of two things. Either something
+    others build on or something others replace. That depends on whether you design
+    for long-term use or for fast iteration and replacement cycles. Both can be profitable.
+  choiceA:
+    label: Design for long-term dependence
+    flavor: We become infrastructure.
+    effects: governance:2|industry:-1
+    result: Customers rely on you deeply. Changing direction later becomes costly.
+  choiceB:
+    label: Design for flexibility and turnover
+    flavor: We stay flexible.
+    effects: industry:2|governance:-1
+    result: Adoption stays high. Long-term leverage remains uncertain.

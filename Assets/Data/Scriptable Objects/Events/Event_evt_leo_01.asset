@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_leo_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_leo_01
+  characterId: Leo Park
+  title: Terms Are Suggestions
+  bodyText: "Relax. I\u2019ll technically follow your usage policy. I\u2019ll just\u2026
+    interpret it creatively. If I win, you\u2019ll say it was vision. If I lose,
+    you\u2019ll say it was my fault."
+  choiceA:
+    label: Look the other way
+    flavor: "We don\u2019t police experimentation."
+    effects: innovation:2|governance:-1
+    result: Wild use cases emerge. Your rules become optional in practice.
+  choiceB:
+    label: Enforce terms strictly
+    flavor: Rules apply to everyone.
+    effects: governance:2|innovation:-1
+    result: Boundaries hold. Leo calls you "corporate" on Twitter.

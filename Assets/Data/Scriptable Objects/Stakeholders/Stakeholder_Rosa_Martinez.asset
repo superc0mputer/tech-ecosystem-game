@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca66e569e84e4c658a36757e61c763d, type: 3}
+  m_Name: Stakeholder_Rosa_Martinez
+  m_EditorClassIdentifier: Assembly-CSharp::StakeholderData
+  id: stk_rosa
+  group: Civil Society
+  archetype: The Welfare Advocate
+  displayName: "Rosa Mart\xEDnez"
+  firstName: Rosa
+  lastName: Martinez
+  goal: To ensure that AI systems used in welfare, housing, or employment decisions
+    do not silently exclude or penalize people.
+  intrinsicNeed: Dignity. She believes no one should be reduced to a risk score they
+    cannot see or contest.
+  extrinsicNeed: Appealability & Human Oversight. She needs clear paths for explanation,
+    correction, and human review when AI decisions affect livelihoods.
+  uniqueTension: 
+  headAddress: Rosa_Martinez_Head
+  bodyAddress: Rosa_Martinez_Body
+  associatedEvents: []

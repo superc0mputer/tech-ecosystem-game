@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca66e569e84e4c658a36757e61c763d, type: 3}
+  m_Name: Stakeholder_Sofia_Marin
+  m_EditorClassIdentifier: Assembly-CSharp::StakeholderData
+  id: stk_sofia
+  group: Civil Society
+  archetype: The Influential Tech Journalist
+  displayName: Sofia Marin
+  firstName: Sofia
+  lastName: Marin
+  goal: Break the next big AI story
+  intrinsicNeed: Relevance
+  extrinsicNeed: Access and exclusives
+  uniqueTension: Sensationalism vs. accuracy; Trust volatility
+  headAddress: Sofia_Marin_Head
+  bodyAddress: Sofia_Marin_Body
+  associatedEvents: []

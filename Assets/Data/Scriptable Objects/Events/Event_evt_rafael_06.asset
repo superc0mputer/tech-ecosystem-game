@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_rafael_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_rafael_06
+  characterId: Rafael Ortiz
+  title: Who Pays the Infrastructure Cost?
+  bodyText: "Data centers don\u2019t just use resources. They reshape local economies.
+    Property prices near our sites have risen. Water and energy costs followed. Small
+    businesses are being pushed out. We can contribute to local infrastructure. Or
+    treat this as outside our responsibility. The market won\u2019t correct this
+    on its own."
+  choiceA:
+    label: Co-invest in local infrastructure
+    flavor: We offset our footprint.
+    effects: civil_society:2|governance:1|industry:-2
+    result: Local backlash softens. Expansion becomes more expensive.
+  choiceB:
+    label: Externalize the costs
+    flavor: We follow market rules.
+    effects: industry:2|innovation:1|civil_society:-2
+    result: Margins stay strong. Social tension builds around your sites.

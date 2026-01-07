@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_maya_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_maya_04
+  characterId: Maya Chen
+  title: The Default Problem
+  bodyText: "Most people never change the defaults. They assume defaults mean \u2018recommended\u2019.
+    Are they?"
+  choiceA:
+    label: Make defaults explicit
+    flavor: We clarify choices.
+    effects: civil_society:2|industry:-1
+    result: Users think twice. They also hesitate more.
+  choiceB:
+    label: Leave defaults untouched
+    flavor: Frictionless flow.
+    effects: industry:2|civil_society:-1
+    result: Decisions speed up. Dependence grows quietly.

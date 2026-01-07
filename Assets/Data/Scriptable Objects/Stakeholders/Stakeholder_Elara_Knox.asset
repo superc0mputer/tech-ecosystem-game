@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca66e569e84e4c658a36757e61c763d, type: 3}
+  m_Name: Stakeholder_Elara_Knox
+  m_EditorClassIdentifier: Assembly-CSharp::StakeholderData
+  id: stk_elara
+  group: Innovation
+  archetype: The User Experience (UX) Researcher
+  displayName: Dr. Elara Knox
+  firstName: Elara
+  lastName: Knox
+  goal: To ensure the AI interface is intuitive, accessible, and doesn't cause "XR
+    sickness" or digital fatigue.
+  intrinsicNeed: Empathy. She wants the user to feel empowered, not manipulated,
+    by the technology.
+  extrinsicNeed: User Retention Metrics. She needs data showing that people actually
+    understand how to use the AI features.
+  uniqueTension: 
+  headAddress: Elara_Knox_Head
+  bodyAddress: Elara_Knox_Body
+  associatedEvents: []

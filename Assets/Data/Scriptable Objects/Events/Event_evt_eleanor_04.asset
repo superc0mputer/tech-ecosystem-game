@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_eleanor_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_eleanor_04
+  characterId: Eleanor Whitaker
+  title: Who You Can Sell To Later
+  bodyText: Not every potential buyer of your company wants the same kind of company.
+    Some want fast growth and clean metrics. Others want stability and predictable
+    risk. The way you structure responsibility now decides who will even look at
+    you later.
+  choiceA:
+    label: Structure for clean exits
+    flavor: We keep the company easy to sell.
+    effects: industry:2|governance:-2
+    result: More buyers stay interested. Responsibility is kept deliberately narrow.
+  choiceB:
+    label: Structure for long-term ownership
+    flavor: We accept complexity.
+    effects: governance:2|industry:-1
+    result: Fewer buyers qualify. Those who remain stay longer.

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_elara_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_elara_06
+  characterId: Dr. Elara Knox
+  title: People Stop Questioning It
+  bodyText: "Something changed. Users no longer compare the AI\u2019s suggestions
+    with alternatives. They don\u2019t disagree. They don\u2019t explore. They don\u2019t
+    double-check. They trust the interface too much."
+  choiceA:
+    label: Redesign to reintroduce friction
+    flavor: We make disagreement visible again.
+    effects: civil_society:2|governance:2|industry:-1
+    result: Users question the AI more often. Decision speed drops. Engagement softens.
+  choiceB:
+    label: Keep the interface as is
+    flavor: That trust is a feature.
+    effects: industry:3|innovation:2
+    result: Usage remains high. Human judgment fades into the background.

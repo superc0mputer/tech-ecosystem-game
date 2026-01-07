@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_marcus_05
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_marcus_05
+  characterId: Marcus Sterling
+  title: The Data Revenue Question
+  bodyText: "Right now, our only income comes from the product. Subscriptions. Licenses.
+    Usage fees. However, given the fierce competition, it is important to have additional
+    financial resources. But we also collect something else: how people use the system.
+    We can package these usage patterns and sell them to partners - companies, researchers,
+    advertisers. No names. No profiles. But it\u2019s still our users\u2019 behavior."
+  choiceA:
+    label: Sell aggregated usage data
+    flavor: We monetize insight.
+    effects: industry:2|civil_society:-1
+    result: "New revenue streams open fast. Users don\u2019t notice - until they
+      do."
+  choiceB:
+    label: Keep user data internal
+    flavor: "We don\u2019t sell behavior."
+    effects: civil_society:2|governance:1|industry:-2
+    result: Revenue stays simpler and slower. Pricing pressure increases elsewhere.

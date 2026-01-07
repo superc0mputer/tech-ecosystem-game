@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca66e569e84e4c658a36757e61c763d, type: 3}
+  m_Name: Stakeholder_Leo_Park
+  m_EditorClassIdentifier: Assembly-CSharp::StakeholderData
+  id: stk_leo
+  group: Industry
+  archetype: The Disruptive Startup Founder
+  displayName: Leo Park
+  firstName: Leo
+  lastName: Park
+  goal: To outpace incumbents by shipping faster, cutting corners, and redefining
+    the market before rules, standards, or giants can catch up.
+  intrinsicNeed: "Recognition. He wants to prove that small teams can beat big companies
+    \u2014 and that he was right to move fast when others hesitated."
+  extrinsicNeed: Leverage & Speed. He needs access to your APIs, models, or infrastructure
+    to build on top of them before the window closes.
+  uniqueTension: 
+  headAddress: Leo_Park_Head
+  bodyAddress: Leo_Park_Body
+  associatedEvents: []

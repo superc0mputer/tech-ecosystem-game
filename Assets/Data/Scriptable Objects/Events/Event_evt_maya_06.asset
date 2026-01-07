@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_maya_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_maya_06
+  characterId: Maya Chen
+  title: Terms and Conditions
+  bodyText: "Legal proposes an update. A new clause clearly states that users are
+    fully responsible for decisions made with AI assistance. Maya reads it and sighs:
+    \"So\u2026 it helps me decide. But only until something goes wrong.\""
+  choiceA:
+    label: Clarify and limit liability
+    flavor: We protect the user too.
+    effects: governance:3|industry:-1
+    result: Trust stabilizes. Your lawyers start sleeping less.
+  choiceB:
+    label: Add the clause
+    flavor: We protect the company.
+    effects: industry:3|civil_society:-1
+    result: "Risk shifts downward. Users notice \u2014 eventually."

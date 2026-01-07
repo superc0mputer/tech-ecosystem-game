@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_marcus_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_marcus_04
+  characterId: Marcus Sterling
+  title: The Feature Creep Question
+  bodyText: "There\u2019s talk of cutting a feature because users might misuse it.
+    Why would we do that? If potential misuse is the bar for removal, innovation
+    doesn\u2019t get off the ground."
+  choiceA:
+    label: Keep the feature.
+    flavor: "Choice is the user\u2019s."
+    effects: innovation:1|civil_society:-1|governance:-1
+    result: Flexibility increases. Responsibility becomes abstract.
+  choiceB:
+    label: Remove it.
+    flavor: We design with intent.
+    effects: civil_society:2|innovation:-1
+    result: "Marcus shrugs. \"Constraints are very\u2026 European.\""

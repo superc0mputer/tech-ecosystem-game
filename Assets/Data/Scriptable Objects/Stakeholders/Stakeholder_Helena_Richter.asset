@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca66e569e84e4c658a36757e61c763d, type: 3}
+  m_Name: Stakeholder_Helena_Richter
+  m_EditorClassIdentifier: Assembly-CSharp::StakeholderData
+  id: stk_helena
+  group: Governance
+  archetype: The EU Regulator
+  displayName: Commissioner Helena Richter
+  firstName: Helena
+  lastName: Richter
+  goal: To ensure your AI is "Trustworthy" and compliant with the EU AI Act before
+    it reaches the mass market.
+  intrinsicNeed: Order. She fears a "Wild West" tech landscape where citizens' rights
+    are ignored.
+  extrinsicNeed: Political Consensus. She needs to show the UN and member states
+    that regulation doesn't kill innovation.
+  uniqueTension: 
+  headAddress: Helena_Richter_Head
+  bodyAddress: Helena_Richter_Body
+  associatedEvents: []

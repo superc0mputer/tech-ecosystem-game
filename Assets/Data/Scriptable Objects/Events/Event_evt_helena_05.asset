@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_helena_05
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_helena_05
+  characterId: Commissioner Helena Richter
+  title: The Moving Target
+  bodyText: I can certify what exists today. Not what your system becomes tomorrow.
+    If I allow continuous learning, oversight weakens. If I freeze models, I approve
+    systems I know will age badly.
+  choiceA:
+    label: Accept ongoing regulatory oversight
+    flavor: We regulate the process.
+    effects: governance:2|innovation:-1
+    result: Systems evolve under supervision. Innovation continues - but ships slower.
+  choiceB:
+    label: Freeze approved versions
+    flavor: We regulate stability.
+    effects: governance:1|innovation:-2
+    result: Certification stays simple. The system falls behind its own research.

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: Event_evt_leo_02
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_leo_02
+  characterId: Leo Park
+  title: "I\u2019ll Move Anyway"
+  bodyText: "If you slow me down. I\u2019ll build on someone else\u2019s stack. I\u2019d
+    rather build on yours. But speed decides loyalty. You can block me - or shape
+    what I become."
+  choiceA:
+    label: Keep Leo inside your ecosystem
+    flavor: We influence from within.
+    effects: industry:1|innovation:1|governance:-1
+    result: You retain indirect influence. You inherit downstream risk.
+  choiceB:
+    label: Cut him off early
+    flavor: We draw clear boundaries.
+    effects: governance:1|innovation:-1|industry:-1
+    result: Your exposure drops. An uncontrolled competitor emerges.

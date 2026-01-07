@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca66e569e84e4c658a36757e61c763d, type: 3}
+  m_Name: Stakeholder_Samya_Lin
+  m_EditorClassIdentifier: Assembly-CSharp::StakeholderData
+  id: stk_samya
+  group: Innovation
+  archetype: The Lead AI Architect
+  displayName: Samya Lin
+  firstName: Samya
+  lastName: Lin
+  goal: "To push the boundaries of what is technically possible\u2014scaling models
+    and integrating XR (Extended Reality)."
+  intrinsicNeed: Discovery. The "Eureka" moment of solving a complex mathematical
+    or technical bottleneck.
+  extrinsicNeed: Compute Power. Needs more GPUs and energy credits to run larger,
+    more powerful simulations.
+  uniqueTension: 
+  headAddress: Samya_Lin_Head
+  bodyAddress: Samya_Lin_Body
+  associatedEvents: []
