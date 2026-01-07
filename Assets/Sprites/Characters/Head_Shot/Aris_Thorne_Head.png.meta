@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9cf3409ae83854b00ab4bf8fe384fb45
+guid: a4cc61f777e5f4a3faac95b4703fae3f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5370472441129659984
-    second: Victor_Kline_Body_0
+      213: 4359883377989423807
+    second: Aris_Thorne_Head_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Victor_Kline_Body_0
+      name: Aris_Thorne_Head_0
       rect:
         serializedVersion: 2
-        x: 225
-        y: 1
-        width: 734
-        height: 2655
+        x: 75
+        y: 0
+        width: 1696
+        height: 2198
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b1117ec4cf3875b0800000000000000
-      internalID: -5370472441129659984
+      spriteID: fb2903725da618c30800000000000000
+      internalID: 4359883377989423807
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Victor_Kline_Body_0: -5370472441129659984
+      Aris_Thorne_Head_0: 4359883377989423807
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

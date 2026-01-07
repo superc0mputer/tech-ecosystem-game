@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9cf3409ae83854b00ab4bf8fe384fb45
+guid: f0e567cc688da410cb7e12af28893d1a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5370472441129659984
-    second: Victor_Kline_Body_0
+      213: -1354591590846508001
+    second: Leo_Park_Head_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Victor_Kline_Body_0
+      name: Leo_Park_Head_0
       rect:
         serializedVersion: 2
-        x: 225
-        y: 1
-        width: 734
-        height: 2655
+        x: 165
+        y: 0
+        width: 1492
+        height: 2141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b1117ec4cf3875b0800000000000000
-      internalID: -5370472441129659984
+      spriteID: f14dcd30026833de0800000000000000
+      internalID: -1354591590846508001
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Victor_Kline_Body_0: -5370472441129659984
+      Leo_Park_Head_0: -1354591590846508001
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

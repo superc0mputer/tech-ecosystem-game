@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9cf3409ae83854b00ab4bf8fe384fb45
+guid: 6f56ad2a9b46d4643b0e486eb5cdd44a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5370472441129659984
-    second: Victor_Kline_Body_0
+      213: 6845929221171593791
+    second: Eleanor_Whitaker_Body_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Victor_Kline_Body_0
+      name: Eleanor_Whitaker_Body_0
       rect:
         serializedVersion: 2
-        x: 225
-        y: 1
-        width: 734
-        height: 2655
+        x: 9
+        y: 0
+        width: 1020
+        height: 2022
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b1117ec4cf3875b0800000000000000
-      internalID: -5370472441129659984
+      spriteID: f324669fa50a10f50800000000000000
+      internalID: 6845929221171593791
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Victor_Kline_Body_0: -5370472441129659984
+      Eleanor_Whitaker_Body_0: 6845929221171593791
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
