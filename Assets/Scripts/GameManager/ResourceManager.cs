@@ -1,9 +1,11 @@
 using UnityEngine;
-using Newtonsoft.Json.Linq; // Required for casting JSON back to objects
+using Newtonsoft.Json.Linq; 
 
-// Added ISaveable interface
 public class ResourceManager : MonoBehaviour, ISaveable
 {
+    [Header("Dependencies")]
+    public GameUIController uiController;
+
     [Header("Current Values (0-10)")]
     public int industryVal;
     public int civilVal;
@@ -42,7 +44,13 @@ public class ResourceManager : MonoBehaviour, ISaveable
 
     private void UpdateUI()
     {
-        // TODO: Connect this to your UI Sliders later
+        if (uiController == null) return;
+
+        // UI: Update the filled images
+        uiController.UpdateResourceDisplay("Industry", industryVal);
+        uiController.UpdateResourceDisplay("Civil Society", civilVal);
+        uiController.UpdateResourceDisplay("Governance", governanceVal);
+        uiController.UpdateResourceDisplay("Innovation", innovationVal);
     }
 
     // --- SAVE SYSTEM IMPLEMENTATION ---
@@ -69,7 +77,6 @@ public class ResourceManager : MonoBehaviour, ISaveable
 
     public void RestoreState(object state)
     {
-        // Convert JObject (JSON generic) back to our Struct
         var data = ((JObject)state).ToObject<ResourceSaveData>();
 
         this.industryVal = data.industry;
@@ -77,6 +84,6 @@ public class ResourceManager : MonoBehaviour, ISaveable
         this.governanceVal = data.governance;
         this.innovationVal = data.innovation;
         
-        UpdateUI(); // Refresh UI after load
+        UpdateUI(); // UI: Refresh UI after load
     }
 }

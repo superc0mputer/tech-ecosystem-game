@@ -7,6 +7,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     [Header("Dependencies")]
     public StakeholderManager stakeholderManager;
     public ResourceManager resourceManager;
+    public GameUIController uiController; // UI REFERENCE
 
     [Header("Game Settings")]
     public int maxTurns = 10;
@@ -42,7 +43,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
             yield break;
         }
 
-        // If we already have a card (loaded from save), don't draw a new one
+        // Logic: If we already have a card (e.g. from Save Game), don't draw a new one
         if (currentCard == null && stakeholderManager.gameDeck.Count > 0)
         {
             currentCard = stakeholderManager.gameDeck[0];
@@ -51,14 +52,34 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
         if (currentCard != null)
         {
-            Debug.Log($"Turn {currentTurn + 1}: Displaying card '{currentCard.name}'"); // Changed bodyText to name for generic debug
-            // TODO: Spawn UI for currentCard
+            Debug.Log($"Turn {currentTurn + 1}: Displaying card '{currentCard.name}'");
+
+            // UI: Find the actor and update the screen
+            StakeholderData actor = stakeholderManager.GetStakeholderById(currentCard.characterId);
+            UpdateUI(currentCard, actor);
         }
         else
         {
             Debug.LogWarning("Deck ran out of cards!");
             EndGame(true);
         }
+    }
+    
+    private void UpdateUI(EventCardData card, StakeholderData actor)
+    {
+        if (uiController == null) return;
+
+        uiController.UpdateRoundInfo(currentTurn + 1, card.bodyText);
+
+        string actorName = actor != null ? actor.displayName : "Unknown";
+        string actorBodyAddress = actor != null ? actor.bodyAddress : "";
+        
+        uiController.SetMainCard(actorName, actorBodyAddress);
+
+        uiController.SetOptions(
+            card.choiceA.label, card.choiceA.flavor,
+            card.choiceB.label, card.choiceB.flavor
+        );
     }
 
     public void OnPlayerChoice(bool isLeftChoice)
@@ -85,7 +106,11 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     private void EndGame(bool isWin)
     {
         isGameActive = false;
-        Debug.Log(isWin ? "GAME OVER: You Survived!" : "GAME OVER: Fired.");
+        string msg = isWin ? "VICTORY: Consensus Reached." : "DEFEAT: Talks broke down.";
+        Debug.Log(msg);
+        
+        // UI: Show end game text
+        if(uiController != null) uiController.UpdateRoundInfo(currentTurn, msg);
     }
 
     // --- SAVE SYSTEM IMPLEMENTATION ---
@@ -95,7 +120,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     {
         public int currentTurn;
         public bool isGameActive;
-        public string currentCardName; // Save string reference
+        public string currentCardName; 
     }
 
     public object CaptureState()
@@ -104,7 +129,6 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         {
             currentTurn = this.currentTurn,
             isGameActive = this.isGameActive,
-            // Handle case where we save in between turns (currentCard might be null)
             currentCardName = currentCard != null ? currentCard.name : ""
         };
     }
@@ -116,10 +140,16 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         this.currentTurn = data.currentTurn;
         this.isGameActive = data.isGameActive;
 
-        // Restore the specific card the player was looking at
         if (!string.IsNullOrEmpty(data.currentCardName))
         {
             this.currentCard = stakeholderManager.FindCardByName(data.currentCardName);
+            
+            // UI: If we loaded a card in progress, SHOW IT immediately
+            if(this.currentCard != null)
+            {
+                StakeholderData actor = stakeholderManager.GetStakeholderById(currentCard.characterId);
+                UpdateUI(currentCard, actor);
+            }
         }
         else
         {
@@ -127,7 +157,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         }
         
         // Restart the routine if the game was active
-        if(isGameActive)
+        if(isGameActive && currentCard == null)
         {
             StartCoroutine(NextTurnRoutine());
         }

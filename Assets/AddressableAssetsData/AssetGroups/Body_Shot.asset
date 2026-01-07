@@ -16,27 +16,27 @@ MonoBehaviour:
   m_GUID: 72412e08c39ee4d2d8db783485ef850c
   m_SerializeEntries:
   - m_GUID: 0284ab51754e84f5487c630ec1ae74c6
-    m_Address: Assets/Sprites/Characters/Body_Shot/Amina_Okoye_Body.png
+    m_Address: Amina_Okoye_Body.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 205afcb8b9e4e439e83c09c6e9ade729
-    m_Address: Assets/Sprites/Characters/Body_Shot/Sofia_Marin_Body.png
+    m_Address: Sofia_Marin_Body.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 391a1f3a895f545f192351f6a87e986d
-    m_Address: Assets/Sprites/Characters/Body_Shot/Aris_Thorne_Body.png
+    m_Address: Aris_Thorne_Body.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 455733052bdc64e31a4e3cbdbf748a0d
-    m_Address: Assets/Sprites/Characters/Body_Shot/Rafael_Ortiz_Body.png
+    m_Address: Rafael_Ortiz_Body.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 69c9204fd52ec469f8f219fe03db3ffc
-    m_Address: Assets/Sprites/Characters/Body_Shot/Maya_Chen_Body.png
+    m_Address: Maya_Chen_Body.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -46,37 +46,37 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c254021aa3fb4c72bdf0b5ad3ad1ad3
-    m_Address: Assets/Sprites/Characters/Body_Shot/Elara_Vance_Body.png
+    m_Address: Elara_Vance_Body.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ac34bc340710445f924425e002f17f2
-    m_Address: Assets/Sprites/Characters/Body_Shot/Marcus_Sterling_Body.png
+    m_Address: Marcus_Sterling_Body.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c150005bf9674c3587356707e0cb97a
-    m_Address: Assets/Sprites/Characters/Body_Shot/Colonel_Adrian_Voss_Body.png
+    m_Address: Colonel_Adrian_Voss_Body.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9cf3409ae83854b00ab4bf8fe384fb45
-    m_Address: Assets/Sprites/Characters/Body_Shot/Victor_Kline_Body.png
+    m_Address: Victor_Kline_Body.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0d9a94f7b20842b8905ed45cdd0b85d
-    m_Address: Assets/Sprites/Characters/Body_Shot/Elena_Vance_Body.png
+    m_Address: Elena_Vance_Body.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3c2d485a61d242a984aa5bf8b86f54e
-    m_Address: "Assets/Sprites/Characters/Body_Shot/Rosa_Marti\u0301nez_Body.png"
+    m_Address: "Rosa_Marti\u0301nez_Body.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4a757e3037c74b6f99b6dffb0ecfd51
-    m_Address: Assets/Sprites/Characters/Body_Shot/Leo_Park_Body.png
+    m_Address: Leo_Park_Body.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -5,6 +5,9 @@ using Newtonsoft.Json.Linq;
 
 public class StakeholderManager : MonoBehaviour, ISaveable
 {
+    [Header("Dependencies")]
+    public GameUIController uiController;
+
     [Header("Database")]
     [SerializeField] private List<StakeholderData> allStakeholders;
 
@@ -15,7 +18,6 @@ public class StakeholderManager : MonoBehaviour, ISaveable
     private void Start()
     {
         // Only Initialize if we aren't loading immediately after start
-        // Usually, you let Start run, and then LoadGame overwrites it.
         InitializeGame();
     }
 
@@ -37,6 +39,23 @@ public class StakeholderManager : MonoBehaviour, ISaveable
         if(civilPool.Count > 0)    activeStakeholders.Add(GetRandom(civilPool));
         if(govPool.Count > 0)      activeStakeholders.Add(GetRandom(govPool));
         if(innovPool.Count > 0)    activeStakeholders.Add(GetRandom(innovPool));
+
+        // UI: Visualize the selected stakeholders
+        UpdateStakeholderUI();
+    }
+
+    // Helper to refresh UI (Used in Initialize and RestoreState)
+    private void UpdateStakeholderUI()
+    {
+        if (uiController == null) return;
+        foreach(var stakeholder in activeStakeholders)
+        {
+            uiController.SetupStakeholderSlot(
+                stakeholder.group, 
+                stakeholder.displayName, 
+                stakeholder.headAddress + ".png"
+            );
+        }
     }
 
     private void BuildDeck()
@@ -65,16 +84,22 @@ public class StakeholderManager : MonoBehaviour, ISaveable
         }
     }
 
-    // --- Helpers for Save System (Lookup by name) ---
+    // --- Helpers ---
     public StakeholderData FindStakeholderByName(string name)
     {
         return allStakeholders.FirstOrDefault(s => s.name == name);
     }
 
+    // Re-added this because EventCards use "characterId" string to link to data
+    public StakeholderData GetStakeholderById(string id)
+    {
+        var found = activeStakeholders.Find(s => s.id == id);
+        if (found == null) found = allStakeholders.Find(s => s.id == id);
+        return found;
+    }
+
     public EventCardData FindCardByName(string name)
     {
-        // Search through all possible cards in the active stakeholders
-        // (Optimized: In a real game, you might want a global card database)
         foreach(var s in allStakeholders) 
         {
             var card = s.associatedEvents.FirstOrDefault(c => c.name == name);
@@ -96,7 +121,6 @@ public class StakeholderManager : MonoBehaviour, ISaveable
     {
         return new StakeholderSaveData
         {
-            // Save the Names of the scriptable objects
             activeStakeholderNames = activeStakeholders.Select(s => s.name).ToList(),
             deckCardNames = gameDeck.Select(c => c.name).ToList()
         };
@@ -106,7 +130,6 @@ public class StakeholderManager : MonoBehaviour, ISaveable
     {
         var data = ((JObject)state).ToObject<StakeholderSaveData>();
 
-        // Reconstruct Active Stakeholders
         activeStakeholders.Clear();
         foreach(string name in data.activeStakeholderNames)
         {
@@ -114,7 +137,9 @@ public class StakeholderManager : MonoBehaviour, ISaveable
             if(s != null) activeStakeholders.Add(s);
         }
 
-        // Reconstruct Deck (Preserving order!)
+        // UI: Important to refresh UI after loading data!
+        UpdateStakeholderUI();
+
         gameDeck.Clear();
         foreach(string cardName in data.deckCardNames)
         {
