@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Head_Shot
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Head_Shot
+  m_GUID: 3fa42dca8db7144678ee140f407acc84
+  m_SerializeEntries:
+  - m_GUID: 13348e2790de74316a7d4ab862625560
+    m_Address: Assets/Sprites/Characters/Head_Shot/Rafael_Ortiz_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f03f45248acc4cf4b034c96fcfc4e2e
+    m_Address: Assets/Sprites/Characters/Head_Shot/Eleanor_Whitaker_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57ac805eb12684becbab9b26d28fb203
+    m_Address: Assets/Sprites/Characters/Head_Shot/Elena_Vance_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 651b2f75c7d444896bd999d3c4acdb46
+    m_Address: Assets/Sprites/Characters/Head_Shot/Amina_Okoye_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76ec502334b2e4cdb8aeebdb152b73d3
+    m_Address: Assets/Sprites/Characters/Head_Shot/Marcus_Sterling_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82f935168dfcb4915bb80f2fd742bc42
+    m_Address: Assets/Sprites/Characters/Head_Shot/Sofia_Marin_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a099bbb08bfb440ef8d24191b6d73eaa
+    m_Address: "Assets/Sprites/Characters/Head_Shot/Rosa_Marti\u0301nez_Head.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4cc61f777e5f4a3faac95b4703fae3f
+    m_Address: Assets/Sprites/Characters/Head_Shot/Aris_Thorne_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8b5cbacef22c441cb852d887d38a81f
+    m_Address: Assets/Sprites/Characters/Head_Shot/Victor_Kline_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aea1017b332f24705ac49f37bcd3e2d3
+    m_Address: Assets/Sprites/Characters/Head_Shot/Colonel_Adrian_Voss_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5ce0c512084d40d090bdb99f10482e4
+    m_Address: Assets/Sprites/Characters/Head_Shot/Maya_Chen_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8fa9251c8a844159a65c4ca72095d30
+    m_Address: Assets/Sprites/Characters/Head_Shot/Elara_Vance_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0e567cc688da410cb7e12af28893d1a
+    m_Address: Assets/Sprites/Characters/Head_Shot/Leo_Park_Head.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ddf365bf8744649e1bdbcb21036f0661, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e8819dd50e0894f739b8b8f122b65854, type: 2}
+    - {fileID: 11400000, guid: 5e7a91bd5bd984a2790d8834267018ae, type: 2}
