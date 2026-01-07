@@ -2,6 +2,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.AddressableAssets; // Required for images
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Collections.Generic;
+using System.Linq;
 
 public class EndGameFeedbackManager : MonoBehaviour
 {
@@ -19,7 +23,12 @@ public class EndGameFeedbackManager : MonoBehaviour
     {
         public TextMeshProUGUI scoreText;       
         public TextMeshProUGUI stateText;       
-        public TextMeshProUGUI descriptionText; 
+        public TextMeshProUGUI descriptionText;
+        public Slider resultSlider;
+        
+        // NEW: References for Character Identity
+        public Image headshotImage;
+        public TextMeshProUGUI nameText;
     }
 
     private void Awake()
@@ -30,28 +39,6 @@ public class EndGameFeedbackManager : MonoBehaviour
 
     private void AutoWireUI()
     {
-        // 1. Find the Root Panel
-        if (panelEndGame == null)
-            panelEndGame = transform.Find("Panel End Screen")?.gameObject;
-
-        if (panelEndGame == null)
-        {
-            Debug.LogError("EndGameFeedbackManager: Could not find 'Panel End Screen'.");
-            return;
-        }
-
-        // 2. Find the Main Title
-        Transform topPanel = panelEndGame.transform.Find("Panel Top");
-        if (topPanel != null)
-        {
-            Transform titleObj = topPanel.Find("Title"); 
-            if (titleObj == null) titleObj = topPanel.Find("Text"); 
-            
-            if (titleObj != null) mainResultTitle = titleObj.GetComponent<TextMeshProUGUI>();
-        }
-
-        // 3. Find Category Slots (CORRECTED SPELLING)
-        // Make sure your Hierarchy names match these exactly:
         WireSlot(panelEndGame.transform, "Panel Stakeholder Summary Industry",      slotIndustry);
         WireSlot(panelEndGame.transform, "Panel Stakeholder Summary Governance",    slotGovernance);
         WireSlot(panelEndGame.transform, "Panel Stakeholder Summary Civil Society", slotCivilSociety);
@@ -61,34 +48,43 @@ public class EndGameFeedbackManager : MonoBehaviour
     private void WireSlot(Transform root, string panelName, FeedbackSlot slot)
     {
         Transform panel = root.Find(panelName);
-        if (panel == null)
-        {
-            Debug.LogError($"UI Error: Could not find '{panelName}'. Did you rename it in the Hierarchy?");
-            return;
-        }
+        if (panel == null) return;
 
         var scoreObj = panel.Find("Score Number");
-        var stateObj = panel.Find("State Text");
+        var stateObj = panel.Find("State Text") ?? panel.Find("State");
         var descObj  = panel.Find("Description");
+        var sliderObj = panel.Find("Ressource");
+        
+        var nameObj = panel.Find("Name");
+        var headObj = panel.Find("Headshot");
 
         if (scoreObj) slot.scoreText = scoreObj.GetComponent<TextMeshProUGUI>();
         if (stateObj) slot.stateText = stateObj.GetComponent<TextMeshProUGUI>();
         if (descObj)  slot.descriptionText = descObj.GetComponent<TextMeshProUGUI>();
+        if (sliderObj) slot.resultSlider = sliderObj.GetComponent<Slider>();
+        
+        if (nameObj) slot.nameText = nameObj.GetComponent<TextMeshProUGUI>();
+        if (headObj) slot.headshotImage = headObj.GetComponent<Image>();
     }
-
-    // --- PUBLIC METHODS ---
-
-    public void ShowFeedback(int industry, int gov, int civil, int innov, bool isWin)
+    
+    public void ShowFeedback(int industry, int gov, int civil, int innov, bool isWin, List<StakeholderData> activeStakeholders)
     {
         if(panelEndGame) panelEndGame.SetActive(true);
 
         if(mainResultTitle) 
             mainResultTitle.text = isWin ? "SIMULATION COMPLETE" : "GAME OVER";
 
-        FillSlot(slotIndustry, "Industry", industry);
-        FillSlot(slotGovernance, "Governance", gov);
-        FillSlot(slotCivilSociety, "Civil Society", civil);
-        FillSlot(slotInnovation, "Capability", innov);
+        // We find the specific person for each group from the list passed in
+        FillSlot(slotIndustry, "Industry", industry, GetStakeholderByGroup(activeStakeholders, "Industry"));
+        FillSlot(slotGovernance, "Governance", gov, GetStakeholderByGroup(activeStakeholders, "Governance"));
+        FillSlot(slotCivilSociety, "Civil Society", civil, GetStakeholderByGroup(activeStakeholders, "Civil Society"));
+        FillSlot(slotInnovation, "Innovation", innov, GetStakeholderByGroup(activeStakeholders, "Innovation")); // Note: Check if your ID is "Innovation" or "Capability"
+    }
+
+    private StakeholderData GetStakeholderByGroup(List<StakeholderData> list, string group)
+    {
+        if (list == null) return null;
+        return list.FirstOrDefault(s => s.group == group);
     }
 
     public void OnRestartClicked()
@@ -96,27 +92,46 @@ public class EndGameFeedbackManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    private void FillSlot(FeedbackSlot slot, string category, int score)
+    private void FillSlot(FeedbackSlot slot, string category, int score, StakeholderData person)
     {
+        // 1. Fill Standard Stats
         if (slot.scoreText) slot.scoreText.text = score.ToString();
-        
+        if (slot.resultSlider) slot.resultSlider.value = score;
+
         var data = GetOutcomeData(category, score);
         if (slot.stateText) slot.stateText.text = data.state;
         if (slot.descriptionText) slot.descriptionText.text = data.description;
         
         if (slot.stateText)
         {
-            if (score <= 0 || score >= 10)
+            slot.stateText.color = (score <= 0 || score >= 10) ? new Color(0.8f, 0f, 0f) : Color.white;
+        }
+
+        // 2. Fill Personal Identity (Name & Picture)
+        if (person != null)
+        {
+            if (slot.nameText) slot.nameText.text = person.displayName;
+
+            if (slot.headshotImage && !string.IsNullOrEmpty(person.headAddress))
             {
-                slot.stateText.color = Color.maroon;
+                // Clean up previous sprite if needed (optional)
+                slot.headshotImage.sprite = null; 
+                
+                Addressables.LoadAssetAsync<Sprite>(person.headAddress).Completed += (op) =>
+                {
+                    if (op.Status == AsyncOperationStatus.Succeeded && slot.headshotImage != null)
+                    {
+                        slot.headshotImage.sprite = op.Result;
+                    }
+                };
             }
-            else slot.stateText.color = Color.white;
         }
     }
 
+    // (Keep your existing GetOutcomeData method exactly as it was)
     private (string state, string description) GetOutcomeData(string category, int score)
     {
-        switch (category)
+         switch (category)
         {
             case "Industry":
                 if (score <= 0) return ("Bankruptcy", "Game Over: Your 'burn rate' exceeded your funding. Investors have liquidated your assets.");
@@ -139,7 +154,7 @@ public class EndGameFeedbackManager : MonoBehaviour
                 if (score <= 9) return ("The People's Champion", "Empowered grassroots movements. Synonymous with digital equity.");
                 return ("The Design Trap", "Game Over: Tried to satisfy everyone. Product became so 'neutral' it is no longer functional.");
 
-            case "Capability":
+            case "Innovation":
                 if (score <= 0) return ("Technical Debt", "Game Over: Buggy and slow. Engineers quit. Effectively a pile of broken code.");
                 if (score <= 3) return ("Low-Fi Utility", "Simple and reliable, but lacks 'magic.' Users are migrating to exciting platforms.");
                 if (score <= 6) return ("Balanced Innovation", "Top-tier UX. Powerful but stays within human-controllable limits.");

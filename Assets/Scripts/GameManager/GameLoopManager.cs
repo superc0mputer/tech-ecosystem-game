@@ -169,7 +169,8 @@ public class GameLoopManager : MonoBehaviour, ISaveable
                 resourceManager.governanceVal,
                 resourceManager.civilVal,
                 resourceManager.innovationVal,
-                isWin
+                isWin,
+                stakeholderManager.activeStakeholders 
             );
         }
         
