@@ -1,17 +1,14 @@
 using UnityEngine;
-using System;
 
-[RequireComponent(typeof(ISaveable))] // Enforce the interface
+[RequireComponent(typeof(ISaveable))]
 public class SaveableEntity : MonoBehaviour
 {
-    [SerializeField] private string id = string.Empty;
-
+    [SerializeField] private string id;
     public string Id => id;
 
-    // Generate a unique ID automatically in the Editor so you don't forget
-    [ContextMenu("Generate ID")] 
+    [ContextMenu("Generate ID")]
     private void GenerateId()
     {
-        id = Guid.NewGuid().ToString();
+        id = System.Guid.NewGuid().ToString();
     }
 }

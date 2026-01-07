@@ -1,14 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using Newtonsoft.Json.Linq; 
 
-public class GameLoopManager : MonoBehaviour
+public class GameLoopManager : MonoBehaviour, ISaveable
 {
     [Header("Dependencies")]
     public StakeholderManager stakeholderManager;
     public ResourceManager resourceManager;
 
     [Header("Game Settings")]
-    public int maxTurns = 10; //TODO change number
+    public int maxTurns = 10;
     
     [Header("Current State")]
     public int currentTurn = 0;
@@ -24,37 +25,34 @@ public class GameLoopManager : MonoBehaviour
     {
         currentTurn = 0;
         isGameActive = true;
-
-        // 1. Setup Data
-        stakeholderManager.InitializeGame();
         
-        // 2. Setup Resources
+        stakeholderManager.InitializeGame();
         resourceManager.InitializeResources();
 
-        // 3. Start First Turn
         StartCoroutine(NextTurnRoutine());
     }
 
-    // This handles the timing of drawing a card
     private IEnumerator NextTurnRoutine()
     {
         if (!isGameActive) yield break;
 
-        // Check Win Condition (Time limit reached)
         if (currentTurn >= maxTurns)
         {
             EndGame(true);
             yield break;
         }
 
-        // Draw Card logic
-        if (stakeholderManager.gameDeck.Count > 0)
+        // If we already have a card (loaded from save), don't draw a new one
+        if (currentCard == null && stakeholderManager.gameDeck.Count > 0)
         {
             currentCard = stakeholderManager.gameDeck[0];
-            stakeholderManager.gameDeck.RemoveAt(0); // Remove card from deck
-            
-            // TODO: Here you would tell the UI to spawn/show the card prefab
-            Debug.Log($"Turn {currentTurn + 1}: Displaying card '{currentCard.bodyText}'");
+            stakeholderManager.gameDeck.RemoveAt(0); 
+        }
+
+        if (currentCard != null)
+        {
+            Debug.Log($"Turn {currentTurn + 1}: Displaying card '{currentCard.name}'"); // Changed bodyText to name for generic debug
+            // TODO: Spawn UI for currentCard
         }
         else
         {
@@ -63,27 +61,22 @@ public class GameLoopManager : MonoBehaviour
         }
     }
 
-    // Call this from your UI Buttons or Swipe Controller
-    // isLeftChoice: true = Option A, false = Option B
     public void OnPlayerChoice(bool isLeftChoice)
     {
         if (!isGameActive || currentCard == null) return;
 
         ChoiceData selectedOption = isLeftChoice ? currentCard.choiceA : currentCard.choiceB;
-        
-        Debug.Log($"Selected: {selectedOption.label} ({selectedOption.flavor})");
+        Debug.Log($"Selected: {selectedOption.label}");
 
-        // 1. Apply Stats
         resourceManager.ApplyEffects(selectedOption.effects);
 
-        // 2. Check Loss Condition
         if (resourceManager.CheckGameOverCondition())
         {
             EndGame(false);
         }
         else
         {
-            // 3. Prepare Next Turn
+            currentCard = null; // Clear card so we draw a new one
             currentTurn++;
             StartCoroutine(NextTurnRoutine());
         }
@@ -92,14 +85,51 @@ public class GameLoopManager : MonoBehaviour
     private void EndGame(bool isWin)
     {
         isGameActive = false;
-        if (isWin)
+        Debug.Log(isWin ? "GAME OVER: You Survived!" : "GAME OVER: Fired.");
+    }
+
+    // --- SAVE SYSTEM IMPLEMENTATION ---
+
+    [System.Serializable]
+    private struct GameLoopData
+    {
+        public int currentTurn;
+        public bool isGameActive;
+        public string currentCardName; // Save string reference
+    }
+
+    public object CaptureState()
+    {
+        return new GameLoopData
         {
-            Debug.Log("GAME OVER: You Survived! Calculation Score...");
-            // TODO: Calculate score based on ResourceManager values
+            currentTurn = this.currentTurn,
+            isGameActive = this.isGameActive,
+            // Handle case where we save in between turns (currentCard might be null)
+            currentCardName = currentCard != null ? currentCard.name : ""
+        };
+    }
+
+    public void RestoreState(object state)
+    {
+        var data = ((JObject)state).ToObject<GameLoopData>();
+
+        this.currentTurn = data.currentTurn;
+        this.isGameActive = data.isGameActive;
+
+        // Restore the specific card the player was looking at
+        if (!string.IsNullOrEmpty(data.currentCardName))
+        {
+            this.currentCard = stakeholderManager.FindCardByName(data.currentCardName);
         }
         else
         {
-            Debug.Log("GAME OVER: You were fired (One value hit 0).");
+            this.currentCard = null;
+        }
+        
+        // Restart the routine if the game was active
+        if(isGameActive)
+        {
+            StartCoroutine(NextTurnRoutine());
         }
     }
 }

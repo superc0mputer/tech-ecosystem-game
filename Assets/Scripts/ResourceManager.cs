@@ -1,6 +1,8 @@
 using UnityEngine;
+using Newtonsoft.Json.Linq; // Required for casting JSON back to objects
 
-public class ResourceManager : MonoBehaviour
+// Added ISaveable interface
+public class ResourceManager : MonoBehaviour, ISaveable
 {
     [Header("Current Values (0-10)")]
     public int industryVal;
@@ -8,25 +10,22 @@ public class ResourceManager : MonoBehaviour
     public int governanceVal;
     public int innovationVal;
 
-    // Start values usually start in the middle (5)
     public void InitializeResources()
     {
         industryVal = 5;
         civilVal = 5;
         governanceVal = 5;
         innovationVal = 5;
-        UpdateUI(); // Placeholder for UI update
+        UpdateUI();
     }
 
     public void ApplyEffects(StatBlock effects)
     {
-        // Add the new values to the current ones
         industryVal   += effects.industry;
         civilVal      += effects.civilSociety;
         governanceVal += effects.governance;
         innovationVal += effects.innovation;
 
-        // Clamp them to ensure they stay between 0 and 10
         industryVal   = Mathf.Clamp(industryVal, 0, 10);
         civilVal      = Mathf.Clamp(civilVal, 0, 10);
         governanceVal = Mathf.Clamp(governanceVal, 0, 10);
@@ -36,7 +35,6 @@ public class ResourceManager : MonoBehaviour
         Debug.Log($"Values Updated: Ind:{industryVal} Civ:{civilVal} Gov:{governanceVal} Inn:{innovationVal}");
     }
 
-    // Returns TRUE if any value hit 0 (Lose Condition)
     public bool CheckGameOverCondition()
     {
         return (industryVal <= 0 || civilVal <= 0 || governanceVal <= 0 || innovationVal <= 0);
@@ -45,5 +43,40 @@ public class ResourceManager : MonoBehaviour
     private void UpdateUI()
     {
         // TODO: Connect this to your UI Sliders later
+    }
+
+    // --- SAVE SYSTEM IMPLEMENTATION ---
+
+    [System.Serializable]
+    private struct ResourceSaveData
+    {
+        public int industry;
+        public int civil;
+        public int governance;
+        public int innovation;
+    }
+
+    public object CaptureState()
+    {
+        return new ResourceSaveData
+        {
+            industry = industryVal,
+            civil = civilVal,
+            governance = governanceVal,
+            innovation = innovationVal
+        };
+    }
+
+    public void RestoreState(object state)
+    {
+        // Convert JObject (JSON generic) back to our Struct
+        var data = ((JObject)state).ToObject<ResourceSaveData>();
+
+        this.industryVal = data.industry;
+        this.civilVal = data.civil;
+        this.governanceVal = data.governance;
+        this.innovationVal = data.innovation;
+        
+        UpdateUI(); // Refresh UI after load
     }
 }
