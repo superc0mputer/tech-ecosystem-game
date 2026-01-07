@@ -15,12 +15,6 @@ public class StakeholderManager : MonoBehaviour, ISaveable
     public List<StakeholderData> activeStakeholders = new List<StakeholderData>();
     public List<EventCardData> gameDeck = new List<EventCardData>();
 
-    private void Start()
-    {
-        // Only Initialize if we aren't loading immediately after start
-        InitializeGame();
-    }
-
     public void InitializeGame()
     {
         SelectStakeholders();

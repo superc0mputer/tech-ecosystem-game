@@ -44,7 +44,7 @@ public class GameUIController : MonoBehaviour
         public GameObject groupParent;
         public Image background;
         public Slider resourceSlider; 
-        public Image sliderFillImage; // NEW: The colored part of the slider
+        public Image sliderFillImage;
         public Image headshot;
         public TextMeshProUGUI nameText;
         
