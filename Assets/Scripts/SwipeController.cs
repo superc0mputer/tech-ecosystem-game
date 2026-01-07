@@ -9,7 +9,7 @@ public class SwipeController : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     public GameLoopManager gameLoopManager;
     
     [Header("UI References")]
-    // We get these from GameUIController now to avoid manual dragging
+    
     private CanvasGroup optionAGroup;
     private CanvasGroup optionBGroup;
 

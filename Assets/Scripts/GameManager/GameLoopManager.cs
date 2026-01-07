@@ -8,11 +8,11 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     public StakeholderManager stakeholderManager;
     public ResourceManager resourceManager;
     public GameUIController uiController; 
-    public EndGameFeedbackManager feedbackManager;
+    public EndGameFeedbackManager feedbackManager; // Reference to the new End Screen Manager
 
     [Header("Game Settings")]
     public int maxTurns = 10;
-    public float outcomeDelay = 2.0f;
+    public float outcomeDelay = 2.0f; // Time to read the result before next card
     
     [Header("Current State")]
     public int currentTurn = 0;
@@ -29,6 +29,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         currentTurn = 0;
         isGameActive = true;
         
+        // Initialize systems
         stakeholderManager.InitializeGame();
         resourceManager.InitializeResources();
 
@@ -39,21 +40,21 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     {
         if (!isGameActive) yield break;
 
-        // Reset UI
+        // 1. Reset UI for the new turn (Buttons back, colors reset)
         if(uiController != null) 
         {
             uiController.ResetTurnUI();
             uiController.ResetPreviews(resourceManager);
         }
 
-        // --- CHECK WIN BY TIME ---
+        // 2. Check Win Condition (Time)
         if (currentTurn >= maxTurns)
         {
-            // Reached the end safely -> Trigger Win Screen
-            EndGame(true);
+            EndGame(true); // Win by surviving
             yield break;
         }
 
+        // 3. Draw Card
         if (currentCard == null && stakeholderManager.gameDeck.Count > 0)
         {
             currentCard = stakeholderManager.gameDeck[0];
@@ -63,51 +64,91 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         if (currentCard != null)
         {
             Debug.Log($"Turn {currentTurn + 1}: {currentCard.name}");
+            
             StakeholderData actor = stakeholderManager.GetStakeholderById(currentCard.characterId);
             UpdateUI(currentCard, actor);
         }
         else
         {
-            EndGame(true); // Deck empty = Win
+            Debug.Log("Deck Empty!");
+            EndGame(true); // Win by empty deck
         }
     }
 
     private void UpdateUI(EventCardData card, StakeholderData actor)
     {
         if (uiController == null) return;
+
         uiController.UpdateRoundInfo(currentTurn + 1, card.bodyText);
+
         string actorName = actor != null ? actor.displayName : "Unknown";
         string actorBodyAddress = actor != null ? actor.bodyAddress : "";
+        
         uiController.SetMainCard(actorName, actorBodyAddress);
-        uiController.SetOptions(card.choiceA.label, card.choiceA.flavor, card.choiceB.label, card.choiceB.flavor);
+
+        uiController.SetOptions(
+            card.choiceA.label, card.choiceA.flavor,
+            card.choiceB.label, card.choiceB.flavor
+        );
     }
+
+    // --- PREVIEW SYSTEM (THE FIX) ---
+    // Called by SwipeController when dragging
+    public void ShowPreview(bool isLeft)
+    {
+        if (currentCard == null || uiController == null) return;
+
+        // 1. Get stats from the card data
+        StatBlock effects = isLeft ? currentCard.choiceA.effects : currentCard.choiceB.effects;
+        
+        // 2. Send them to the UI Controller to move the sliders
+        uiController.ShowStatPreview(effects, resourceManager);
+    }
+
+    public void ClearPreview()
+    {
+        if (uiController == null) return;
+        
+        // Reset sliders to their actual values
+        uiController.ResetPreviews(resourceManager);
+    }
+    // --------------------------------
 
     public void OnPlayerChoice(bool isLeftChoice)
     {
         if (!isGameActive || currentCard == null) return;
 
+        // Clear any lingering previews
         ClearPreview(); 
 
+        // 1. Get Data
         ChoiceData selectedOption = isLeftChoice ? currentCard.choiceA : currentCard.choiceB;
+        Debug.Log($"Selected: {selectedOption.label}");
+
+        // 2. Apply Stats
         resourceManager.ApplyEffects(selectedOption.effects);
 
+        // 3. Start Outcome Phase
         StartCoroutine(OutcomeSequence(selectedOption));
     }
 
     private IEnumerator OutcomeSequence(ChoiceData choice)
     {
-        if(uiController != null) uiController.ShowOutcomeUI(choice.flavor);
+        // A. Show Outcome Text
+        if(uiController != null) uiController.ShowOutcomeUI(choice.outcome);
 
-        // --- CHECK LOSS CONDITION (0 or 10) ---
+        // B. Check Game Over (Stat Failure)
         if (resourceManager.CheckGameOverCondition())
         {
-            yield return new WaitForSeconds(1.5f);
-            EndGame(false); // Trigger Loss Screen
+            yield return new WaitForSeconds(1.5f); // Suspense wait
+            EndGame(false); // Loss
             yield break;
         }
 
+        // C. Reading Time
         yield return new WaitForSeconds(outcomeDelay);
 
+        // D. Next Turn
         currentCard = null; 
         currentTurn++;
         StartCoroutine(NextTurnRoutine());
@@ -117,11 +158,10 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     {
         isGameActive = false;
         
-        // Hide the Game UI
-        //if(uiController != null) uiController.gameObject.SetActive(false);
-        uiController.HideGameInterface();
+        // 1. Hide ONLY the gameplay panels (keep Canvas active for Feedback)
+        if(uiController != null) uiController.HideGameInterface();
 
-        // Show the Feedback UI
+        // 2. Show the Feedback Screen
         if (feedbackManager != null)
         {
             feedbackManager.ShowFeedback(
@@ -133,14 +173,53 @@ public class GameLoopManager : MonoBehaviour, ISaveable
             );
         }
         
-        Debug.Log(isWin ? "Game Complete" : "Game Over (Stat failure)");
+        Debug.Log(isWin ? "Game Complete (Victory)" : "Game Over (Stat Collapse)");
     }
-    
-    // Pass-throughs for SwipeController
-    public void ShowPreview(bool isLeft) { /* ... keep existing ... */ }
-    public void ClearPreview() { /* ... keep existing ... */ }
 
-    // ... (Keep CaptureState and RestoreState) ...
-    public object CaptureState() { return null; } 
-    public void RestoreState(object state) { }
+    // --- SAVE SYSTEM ---
+
+    [System.Serializable]
+    private struct GameLoopData
+    {
+        public int currentTurn;
+        public bool isGameActive;
+        public string currentCardName; 
+    }
+
+    public object CaptureState()
+    {
+        return new GameLoopData
+        {
+            currentTurn = this.currentTurn,
+            isGameActive = this.isGameActive,
+            currentCardName = currentCard != null ? currentCard.name : ""
+        };
+    }
+
+    public void RestoreState(object state)
+    {
+        var data = ((JObject)state).ToObject<GameLoopData>();
+
+        this.currentTurn = data.currentTurn;
+        this.isGameActive = data.isGameActive;
+
+        if (!string.IsNullOrEmpty(data.currentCardName))
+        {
+            this.currentCard = stakeholderManager.FindCardByName(data.currentCardName);
+            if(this.currentCard != null)
+            {
+                StakeholderData actor = stakeholderManager.GetStakeholderById(currentCard.characterId);
+                UpdateUI(currentCard, actor);
+            }
+        }
+        else
+        {
+            this.currentCard = null;
+        }
+        
+        if(isGameActive && currentCard == null)
+        {
+            StartCoroutine(NextTurnRoutine());
+        }
+    }
 }
