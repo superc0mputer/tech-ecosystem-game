@@ -68,7 +68,7 @@ public class EndGameFeedbackManager : MonoBehaviour
         }
 
         var scoreObj = panel.Find("Score Number");
-        var stateObj = panel.Find("State");
+        var stateObj = panel.Find("State Text");
         var descObj  = panel.Find("Description");
 
         if (scoreObj) slot.scoreText = scoreObj.GetComponent<TextMeshProUGUI>();
@@ -106,7 +106,10 @@ public class EndGameFeedbackManager : MonoBehaviour
         
         if (slot.stateText)
         {
-            if (score <= 0 || score >= 10) slot.stateText.color = Color.red;
+            if (score <= 0 || score >= 10)
+            {
+                slot.stateText.color = Color.maroon;
+            }
             else slot.stateText.color = Color.white;
         }
     }
