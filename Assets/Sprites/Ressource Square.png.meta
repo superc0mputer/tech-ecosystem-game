@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 76ec502334b2e4cdb8aeebdb152b73d3
+guid: 434bdfe5b04a3483e814679fce79d950
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5118944330058463648
-    second: Marcus_Sterling_Head_0
+      213: -7886120576344219048
+    second: Ressource Square_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,15 +40,15 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Marcus_Sterling_Head_0
+      name: Ressource Square_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 13
         y: 0
-        width: 2013
-        height: 2198
+        width: 246
+        height: 243
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a972223fb42a0740800000000000000
-      internalID: 5118944330058463648
+      spriteID: 852aa174e1fde8290800000000000000
+      internalID: -7886120576344219048
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Marcus_Sterling_Head_0: 5118944330058463648
+      Ressource Square_0: -7886120576344219048
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 76ec502334b2e4cdb8aeebdb152b73d3
+guid: 435c78a8cd80c4f8b85318447775be8f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5118944330058463648
-    second: Marcus_Sterling_Head_0
+      213: 596855318153103468
+    second: Klaus_Weber_Body_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Marcus_Sterling_Head_0
+      name: Klaus_Weber_Body_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2013
-        height: 2198
+        x: 7
+        y: 29
+        width: 763
+        height: 1290
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a972223fb42a0740800000000000000
-      internalID: 5118944330058463648
+      spriteID: c6881d4efb4784800800000000000000
+      internalID: 596855318153103468
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Marcus_Sterling_Head_0: 5118944330058463648
+      Klaus_Weber_Body_0: 596855318153103468
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
