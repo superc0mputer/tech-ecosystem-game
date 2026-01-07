@@ -24,4 +24,12 @@ MonoBehaviour:
   uniqueTension: Local vs. EU/global regulation conflict
   headAddress: Luis_Hernandez_Head
   bodyAddress: Luis_Hernandez_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: 69370ad41e73f44ef8a6fe79ad4a4f81, type: 2}
+  - {fileID: 11400000, guid: fc4dd4e77d1074a50b8e5ad7ccbc3bad, type: 2}
+  - {fileID: 11400000, guid: 70d44cee8a1be4f29851946ed7cc98c9, type: 2}
+  - {fileID: 11400000, guid: fa3c474a07ac942829ce1b568c3ce885, type: 2}
+  - {fileID: 11400000, guid: 6d10b1a7869324842ad2033622b335e6, type: 2}
+  - {fileID: 11400000, guid: 672b87e31b4da4e6eb267c28d6cbbea7, type: 2}
+  - {fileID: 11400000, guid: aa3a3353f4c0a46dc817c6cfc5d36242, type: 2}
+  - {fileID: 11400000, guid: cbad62b8c665e49ba86daf8c12580db7, type: 2}

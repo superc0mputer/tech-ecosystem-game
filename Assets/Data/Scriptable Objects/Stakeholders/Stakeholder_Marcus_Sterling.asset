@@ -27,4 +27,10 @@ MonoBehaviour:
   uniqueTension: 
   headAddress: Marcus_Sterling_Head
   bodyAddress: Marcus_Sterling_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: 1c4144922f1fc4e3a9a77cd90dda673d, type: 2}
+  - {fileID: 11400000, guid: cc54bf4d4cb8d447d85eecead48315f3, type: 2}
+  - {fileID: 11400000, guid: 25b0b74a5c1004d56a3176d511013613, type: 2}
+  - {fileID: 11400000, guid: 93d5bb08a7480472b99ecd7f71bc3fc9, type: 2}
+  - {fileID: 11400000, guid: 6a84f031457984f8681d7bfe6a40af7d, type: 2}
+  - {fileID: 11400000, guid: de9940f37987f44a38376f46b2b17426, type: 2}

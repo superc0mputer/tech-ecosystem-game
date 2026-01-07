@@ -28,4 +28,10 @@ MonoBehaviour:
   uniqueTension: 
   headAddress: Adrian_Voss_Head
   bodyAddress: Adrian_Voss_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: 68131d6cd08fc4e1184deb2065f8db25, type: 2}
+  - {fileID: 11400000, guid: e4927e16aec6544c983362a65b78c071, type: 2}
+  - {fileID: 11400000, guid: 29371fc0dbdab4e529bcdb9a3a71bdd1, type: 2}
+  - {fileID: 11400000, guid: 7ae66207c8f7f44078e101e53b22e95c, type: 2}
+  - {fileID: 11400000, guid: b2cdeb31d9fae4bbcb0270cd3978c3b3, type: 2}
+  - {fileID: 11400000, guid: 4a52a5376a9eb4da8856cea49fd6248e, type: 2}

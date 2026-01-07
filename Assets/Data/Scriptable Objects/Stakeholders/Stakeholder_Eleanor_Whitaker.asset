@@ -27,4 +27,10 @@ MonoBehaviour:
   uniqueTension: 
   headAddress: Eleanor_Whitaker_Head
   bodyAddress: Eleanor_Whitaker_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: e8382439ae3ab4a56a872dfc11ea9f8b, type: 2}
+  - {fileID: 11400000, guid: bd8068ab27362426f892b6c347ccf30c, type: 2}
+  - {fileID: 11400000, guid: 8fb33f403468f4436ad8bdb5e2fa7b82, type: 2}
+  - {fileID: 11400000, guid: 52b219cbc3391431fad323fd9af75d1a, type: 2}
+  - {fileID: 11400000, guid: dbcced059f195480aaf8b8704d3ec390, type: 2}
+  - {fileID: 11400000, guid: a2a38ab3589cf4b13b58fc9a347cf9ec, type: 2}

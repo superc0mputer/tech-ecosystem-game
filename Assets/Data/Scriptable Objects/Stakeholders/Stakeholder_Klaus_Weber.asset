@@ -27,4 +27,10 @@ MonoBehaviour:
   uniqueTension: 
   headAddress: Klaus_Weber_Head
   bodyAddress: Klaus_Weber_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: e5405044bab8e4c6b9f308f74ad628cf, type: 2}
+  - {fileID: 11400000, guid: 49267a23a70224c4fb7fa05609ae37ac, type: 2}
+  - {fileID: 11400000, guid: 9ed61e056f00d44ddabaef67822546da, type: 2}
+  - {fileID: 11400000, guid: 3463457981f664b1a850d79ac35a56b6, type: 2}
+  - {fileID: 11400000, guid: d8be76fedc77646ea9521738e7bf9f9a, type: 2}
+  - {fileID: 11400000, guid: 7b21c50ee78b447b1a6b4397c58fc23c, type: 2}

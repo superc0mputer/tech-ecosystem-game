@@ -56,12 +56,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8b5cbacef22c441cb852d887d38a81f
-    m_Address: Assets/Sprites/Characters/Head_Shot/Victor_Kline_Head.png
+    m_Address: Victor_Kline_Head.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aea1017b332f24705ac49f37bcd3e2d3
-    m_Address: Colonel_Adrian_Voss_Head.png
+    m_Address: Adrian_Voss_Head.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

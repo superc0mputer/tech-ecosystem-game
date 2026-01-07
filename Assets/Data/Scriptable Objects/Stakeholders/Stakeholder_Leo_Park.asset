@@ -27,4 +27,10 @@ MonoBehaviour:
   uniqueTension: 
   headAddress: Leo_Park_Head
   bodyAddress: Leo_Park_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: 67cc9793470464a42bee4ab1f917c785, type: 2}
+  - {fileID: 11400000, guid: 6fd8c30d128254289be4b0c350ed1e4c, type: 2}
+  - {fileID: 11400000, guid: e5fec265991dd412fb3afd7ec9bc271b, type: 2}
+  - {fileID: 11400000, guid: bc45a04aee4464107b9a370274027946, type: 2}
+  - {fileID: 11400000, guid: 0a653cefe73a44b8b8d7b298cb1d975c, type: 2}
+  - {fileID: 11400000, guid: 30adc967e3cc84b01a652998e7816865, type: 2}

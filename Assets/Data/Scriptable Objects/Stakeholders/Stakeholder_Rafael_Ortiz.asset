@@ -27,4 +27,11 @@ MonoBehaviour:
   uniqueTension: 
   headAddress: Rafael_Ortiz_Head
   bodyAddress: Rafael_Ortiz_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: b6c767dc67e2e4710b7116f8bc29445d, type: 2}
+  - {fileID: 11400000, guid: 4d92b2028bead42358e792a713785db1, type: 2}
+  - {fileID: 11400000, guid: 008181a52a3ce416e802b35243ad9960, type: 2}
+  - {fileID: 11400000, guid: 28e122871bbf0420288ce3e3aaa56c18, type: 2}
+  - {fileID: 11400000, guid: a67e8dd7efe6449349ad30d8af78a75e, type: 2}
+  - {fileID: 11400000, guid: b4313d77f6f944bedb78c2cd36414ef4, type: 2}
+  - {fileID: 11400000, guid: f85f741b05ab84ffca14123bad5df31b, type: 2}

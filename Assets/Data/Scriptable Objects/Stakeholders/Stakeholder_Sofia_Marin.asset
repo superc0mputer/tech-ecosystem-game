@@ -24,4 +24,10 @@ MonoBehaviour:
   uniqueTension: Sensationalism vs. accuracy; Trust volatility
   headAddress: Sofia_Marin_Head
   bodyAddress: Sofia_Marin_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: d05932b5adc9744f994f29ac403d85d1, type: 2}
+  - {fileID: 11400000, guid: 8248794be329c4c13bea871a0317df28, type: 2}
+  - {fileID: 11400000, guid: 743ac96d1fe894af98780f4c5d75d59e, type: 2}
+  - {fileID: 11400000, guid: eac59525ffebe430dbfc6656843e13d2, type: 2}
+  - {fileID: 11400000, guid: 4d1cf3210093649e9a37f2ae3995b370, type: 2}
+  - {fileID: 11400000, guid: 80c44b4218a314730bef4e655a609807, type: 2}

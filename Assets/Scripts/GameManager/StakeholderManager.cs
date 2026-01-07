@@ -53,7 +53,7 @@ public class StakeholderManager : MonoBehaviour, ISaveable
             uiController.SetupStakeholderSlot(
                 stakeholder.group, 
                 stakeholder.displayName, 
-                stakeholder.headAddress + ".png"
+                stakeholder.headAddress
             );
         }
     }

@@ -27,4 +27,11 @@ MonoBehaviour:
   uniqueTension: 
   headAddress: Samya_Lin_Head
   bodyAddress: Samya_Lin_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: 3d2dd0f89467b4d368a3c3677c78c34c, type: 2}
+  - {fileID: 11400000, guid: ecfb011db37ed40f4a7d58f974784ae2, type: 2}
+  - {fileID: 11400000, guid: 94fbc4346e5f14a079a39b576d49d635, type: 2}
+  - {fileID: 11400000, guid: da3139ebe416447849823ca78b886d93, type: 2}
+  - {fileID: 11400000, guid: 9e67e5d8910574ddeafcb1065a5674e8, type: 2}
+  - {fileID: 11400000, guid: b5c09eb4662ff4903bbb0c99fd46dec7, type: 2}
+  - {fileID: 11400000, guid: 63cf3b5b0bf614183b1de6ed15815c3a, type: 2}

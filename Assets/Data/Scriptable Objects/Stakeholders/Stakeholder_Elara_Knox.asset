@@ -27,4 +27,11 @@ MonoBehaviour:
   uniqueTension: 
   headAddress: Elara_Knox_Head
   bodyAddress: Elara_Knox_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: fc2f451a089fc45959261ec2437c7e05, type: 2}
+  - {fileID: 11400000, guid: 65ffd797d88434f5186ba3f5f6d12f9b, type: 2}
+  - {fileID: 11400000, guid: 74246682fe1b04538b6fd57302f4f5cb, type: 2}
+  - {fileID: 11400000, guid: d8910cff56ef64ea1b65826bbb4486df, type: 2}
+  - {fileID: 11400000, guid: bfdd20f079cb04e5fa96e9939bf79098, type: 2}
+  - {fileID: 11400000, guid: 86f5bc40179eb4ca1985038ef4c07232, type: 2}
+  - {fileID: 11400000, guid: 3ee8cba65407845c786a3afcb2cf7268, type: 2}

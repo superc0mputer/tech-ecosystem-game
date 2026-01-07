@@ -27,4 +27,11 @@ MonoBehaviour:
   uniqueTension: 
   headAddress: Maya_Chen_Head
   bodyAddress: Maya_Chen_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: 3422a861586e44acc81691a177c86419, type: 2}
+  - {fileID: 11400000, guid: 0eac42383140f4e2f92eeed7a82dcbae, type: 2}
+  - {fileID: 11400000, guid: e839264e454d34043943bbcc7551cfe4, type: 2}
+  - {fileID: 11400000, guid: c87d249eb150848bca82c27be794e498, type: 2}
+  - {fileID: 11400000, guid: ccd08e213415344df80ed1b918beb2b2, type: 2}
+  - {fileID: 11400000, guid: 9282839f380a6421e80e23681949d789, type: 2}
+  - {fileID: 11400000, guid: a541064a0eacd42c48e5cc93da4283f8, type: 2}
