@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Do it.
     flavor: Growth first.
+    outcome: Your KPIs explode. Somewhere, a privacy advocate refreshes Twitter.
     effects:
       industry: 1
       civilSociety: -1
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: No.
     flavor: We keep consent clean.
+    outcome: "Marcus frowns. \"Ethics don\u2019t show up in revenue reports.\""
     effects:
       industry: 0
       civilSociety: 2

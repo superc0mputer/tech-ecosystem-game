@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Keep the feature.
     flavor: "Choice is the user\u2019s."
+    outcome: Flexibility increases. Responsibility becomes abstract.
     effects:
       industry: 0
       civilSociety: -1
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Remove it.
     flavor: We design with intent.
+    outcome: "Marcus shrugs. \"Constraints are very\u2026 European.\""
     effects:
       industry: 0
       civilSociety: 2

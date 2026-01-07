@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Disable predictive use for elections
     flavor: We draw a hard line.
+    outcome: The system becomes politically blind. Trust stabilizes.
     effects:
       industry: -1
       civilSociety: 1
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Allow limited predictive use
     flavor: "We\u2019re increasing participation."
+    outcome: Turnout shifts subtly. So does the meaning of neutrality.
     effects:
       industry: 2
       civilSociety: 0

@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Open the system to auditors
     flavor: We cooperate fully.
+    outcome: The audit is slow and painful. Legitimacy improves.
     effects:
       industry: -1
       civilSociety: 1
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Limit disclosure
     flavor: We provide summaries only.
+    outcome: The city avoids immediate sanctions. Scrutiny intensifies.
     effects:
       industry: 3
       civilSociety: -1

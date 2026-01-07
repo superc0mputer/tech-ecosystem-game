@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Accept stricter conditions
     flavor: We set a high bar.
+    outcome: The EU standard rises. Innovation slows across the sector.
     effects:
       industry: -1
       civilSociety: 0
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Push for minimal compliance
     flavor: We follow the letter of the law.
+    outcome: Market flexibility remains. Regulatory fragmentation grows.
     effects:
       industry: 2
       civilSociety: 0

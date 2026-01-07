@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Engage in dual-use planning
     flavor: We help define limits.
+    outcome: You help define limits from inside the system. Publicly, nothing changes.
     effects:
       industry: 2
       civilSociety: -1
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Commit to civilian-only use
     flavor: We stay civilian.
+    outcome: Your position is clear. So is your lack of influence over military applications.
     effects:
       industry: -1
       civilSociety: 2

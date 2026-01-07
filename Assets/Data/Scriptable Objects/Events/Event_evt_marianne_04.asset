@@ -22,6 +22,7 @@ MonoBehaviour:
   choiceA:
     label: Reformat evidence for courts
     flavor: We translate the logs.
+    outcome: The case proceeds. Your engineers lose weeks making the system legible.
     effects:
       industry: 0
       civilSociety: 0
@@ -30,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Submit raw technical data
     flavor: This is industry standard.
+    outcome: The submission is formally accepted. The case stalls anyway.
     effects:
       industry: 1
       civilSociety: 0

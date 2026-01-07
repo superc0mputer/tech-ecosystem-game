@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Offer multiple modes
     flavor: We design for diversity.
+    outcome: Users feel better served. Maintenance complexity increases.
     effects:
       industry: -1
       civilSociety: 2
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Standardize the experience
     flavor: We pick one.
+    outcome: The product stays clean. Some users feel ignored.
     effects:
       industry: 2
       civilSociety: -1

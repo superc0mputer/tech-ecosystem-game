@@ -22,6 +22,7 @@ MonoBehaviour:
   choiceA:
     label: Emphasize AI as a support tool
     flavor: We talk augmentation, not replacement.
+    outcome: The narrative softens. The market keeps cutting costs anyway.
     effects:
       industry: -1
       civilSociety: 2
@@ -30,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Frame it as inevitable efficiency
     flavor: "We don\u2019t fight the trend."
+    outcome: The story sounds realistic. Creative work looks increasingly disposable.
     effects:
       industry: 2
       civilSociety: -1

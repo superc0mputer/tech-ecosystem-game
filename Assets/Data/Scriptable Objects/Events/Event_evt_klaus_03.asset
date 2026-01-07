@@ -23,6 +23,8 @@ MonoBehaviour:
   choiceA:
     label: Keep the model conservative
     flavor: We prefer false negatives.
+    outcome: "The system avoids risky actions. Responsibility shifts to human operators
+      \u2014 under pressure."
     effects:
       industry: -1
       civilSociety: 0
@@ -31,6 +33,7 @@ MonoBehaviour:
   choiceB:
     label: Tune the model to act more decisively
     flavor: We accept calculated risk.
+    outcome: "Decisions come faster. Mistakes become rarer \u2014 but more consequential."
     effects:
       industry: 2
       civilSociety: -1

@@ -22,6 +22,7 @@ MonoBehaviour:
   choiceA:
     label: Fix fairness citywide
     flavor: We rebalance priorities.
+    outcome: Response times become more equal. Overall processing slows down.
     effects:
       industry: -1
       civilSociety: 2
@@ -30,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Optimize where it already works
     flavor: Efficiency wins.
+    outcome: Central districts stay fast. Anger grows elsewhere.
     effects:
       industry: 2
       civilSociety: -1

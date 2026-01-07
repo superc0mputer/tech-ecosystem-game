@@ -22,6 +22,8 @@ MonoBehaviour:
   choiceA:
     label: Accept broader liability
     flavor: We absorb the risk to grow.
+    outcome: The contract closes quickly. Your company becomes the default backstop
+      when things go wrong.
     effects:
       industry: 2
       civilSociety: 0
@@ -30,6 +32,8 @@ MonoBehaviour:
   choiceB:
     label: Limit liability
     flavor: "We don\u2019t underwrite unknown risk."
+    outcome: Some deals fall through. Future exposure becomes easier to price and
+      insure.
     effects:
       industry: -1
       civilSociety: 0

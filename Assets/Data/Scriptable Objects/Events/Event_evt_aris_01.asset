@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Actively seek feedback from marginalized users
     flavor: We go where silence is.
+    outcome: Blind spots shrink. Research costs increase.
     effects:
       industry: 0
       civilSociety: 2
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Rely on existing feedback mechanisms
     flavor: We listen to who speaks up.
+    outcome: Signals remain easy to process. Some harms never surface.
     effects:
       industry: 2
       civilSociety: 0

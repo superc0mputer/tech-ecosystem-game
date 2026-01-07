@@ -22,6 +22,7 @@ MonoBehaviour:
   choiceA:
     label: Commit to EU-based infrastructure
     flavor: We reduce strategic risk.
+    outcome: Resilience improves. Costs rise, innovation slows in Europe.
     effects:
       industry: -1
       civilSociety: 0
@@ -30,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Keep global infrastructure
     flavor: We stay competitive.
+    outcome: Growth remains strong. Control sits outside democratic reach.
     effects:
       industry: 2
       civilSociety: 0

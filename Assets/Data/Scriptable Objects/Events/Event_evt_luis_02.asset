@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Offer a cheaper version
     flavor: Savings first.
+    outcome: The city saves money. Some requests are mishandled.
     effects:
       industry: 2
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Stick to full safeguards
     flavor: Safety isn't optional.
+    outcome: Costs stay high. Automation is limited.
     effects:
       industry: 0
       civilSociety: 0

@@ -36,7 +36,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57ac805eb12684becbab9b26d28fb203
-    m_Address: Elena_Vance_Head
+    m_Address: Helena_Richter_Head
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e8fa9251c8a844159a65c4ca72095d30
-    m_Address: Elara_Vance_Head
+    m_Address: Elara_Knox_Head
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -23,6 +23,8 @@ MonoBehaviour:
   choiceA:
     label: Move frontier research outside the EU
     flavor: We optimize for speed and leave the EU.
+    outcome: Research accelerates under looser constraints. European rules apply
+      only after development.
     effects:
       industry: 1
       civilSociety: 0
@@ -31,6 +33,8 @@ MonoBehaviour:
   choiceB:
     label: Keep frontier research in Europe
     flavor: We build under stricter standards.
+    outcome: Development remains transparent and accountable. Breakthroughs take
+      longer to reach scale.
     effects:
       industry: 0
       civilSociety: 1

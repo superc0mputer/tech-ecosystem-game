@@ -21,6 +21,8 @@ MonoBehaviour:
   choiceA:
     label: Approve transfer
     flavor: Allies need support.
+    outcome: Your AI spreads through military alliances. Retracting it later becomes
+      impossible.
     effects:
       industry: 2
       civilSociety: 0
@@ -29,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Deny transfer
     flavor: Limit proliferation.
+    outcome: You limit proliferation. You strain political relationships.
     effects:
       industry: -2
       civilSociety: 0

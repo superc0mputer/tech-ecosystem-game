@@ -19,6 +19,7 @@ MonoBehaviour:
   choiceA:
     label: Meet all conditions
     flavor: We commit fully.
+    outcome: You gain credibility - and a slower roadmap.
     effects:
       industry: -2
       civilSociety: 0
@@ -27,6 +28,7 @@ MonoBehaviour:
   choiceB:
     label: Negotiate scope
     flavor: Some conditions go too far.
+    outcome: 'Klaus replies, calmly: "Then the certification waits."'
     effects:
       industry: 1
       civilSociety: 0

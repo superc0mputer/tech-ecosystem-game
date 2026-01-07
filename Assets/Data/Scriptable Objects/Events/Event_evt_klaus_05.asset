@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Design for misuse and misinterpretation
     flavor: We assume real-world behavior.
+    outcome: The system tolerates mistakes better. Complexity and cost increase.
     effects:
       industry: 0
       civilSociety: 1
@@ -29,6 +30,8 @@ MonoBehaviour:
   choiceB:
     label: Limit responsibility to documented use
     flavor: We certify intended operation.
+    outcome: "Certification is straightforward. Harm outside assumptions becomes
+      someone else\u2019s problem."
     effects:
       industry: 2
       civilSociety: 0

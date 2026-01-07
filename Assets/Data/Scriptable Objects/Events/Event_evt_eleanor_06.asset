@@ -23,6 +23,7 @@ MonoBehaviour:
   choiceA:
     label: Keep access limited and controlled
     flavor: We approve who builds on the system.
+    outcome: Use cases stay traceable and enforceable. Fewer actors shape the ecosystem.
     effects:
       industry: 1
       civilSociety: 1
@@ -31,6 +32,8 @@ MonoBehaviour:
   choiceB:
     label: Broaden access deliberately
     flavor: We lower barriers and accept less control.
+    outcome: More groups benefit from the technology. Misuse becomes harder to anticipate
+      and correct.
     effects:
       industry: -1
       civilSociety: 3

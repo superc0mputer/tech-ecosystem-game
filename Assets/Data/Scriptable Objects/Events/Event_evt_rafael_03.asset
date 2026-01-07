@@ -22,6 +22,7 @@ MonoBehaviour:
   choiceA:
     label: Source from audited ethical suppliers
     flavor: We pay the premium.
+    outcome: Supply chains become cleaner. Expansion slows and costs rise.
     effects:
       industry: -1
       civilSociety: 0
@@ -30,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Stick with current suppliers
     flavor: We follow the market.
+    outcome: Hardware stays cheap. Ethical risk remains embedded.
     effects:
       industry: 2
       civilSociety: 0

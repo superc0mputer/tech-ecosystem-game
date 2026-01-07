@@ -21,6 +21,8 @@ MonoBehaviour:
   choiceA:
     label: Open the system completely
     flavor: We allow full forensic access.
+    outcome: "The investigation is thorough. Design flaws become legally visible
+      \u2014 and expensive to fix."
     effects:
       industry: -1
       civilSociety: 0
@@ -29,6 +31,8 @@ MonoBehaviour:
   choiceB:
     label: Fight disclosure
     flavor: We challenge the request.
+    outcome: The company avoids deep scrutiny. Trust in automated infrastructure
+      drops sharply.
     effects:
       industry: 3
       civilSociety: -1

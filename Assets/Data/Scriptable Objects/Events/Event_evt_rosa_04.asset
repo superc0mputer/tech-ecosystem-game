@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Refuse to build a single-score flag
     flavor: "We don\u2019t reduce people to one signal."
+    outcome: Decisions remain nuanced. Some clients look for simpler tools elsewhere.
     effects:
       industry: -1
       civilSociety: 2
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Offer the feature with disclaimers
     flavor: We trust professionals to use it responsibly.
+    outcome: Adoption increases. The flag quietly dominates outcomes.
     effects:
       industry: 2
       civilSociety: -1

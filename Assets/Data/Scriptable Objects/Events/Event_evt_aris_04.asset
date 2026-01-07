@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Limit certain features for younger users
     flavor: We reduce intensity.
+    outcome: Youth exposure decreases. Product consistency breaks.
     effects:
       industry: -1
       civilSociety: 2
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Keep one experience for all users
     flavor: "We don\u2019t fragment the system."
+    outcome: The platform stays simple. Protection remains symbolic.
     effects:
       industry: 2
       civilSociety: -1

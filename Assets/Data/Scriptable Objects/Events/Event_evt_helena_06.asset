@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Simplify compliance requirements
     flavor: We lower the barrier.
+    outcome: More players stay in the market. Oversight becomes thinner.
     effects:
       industry: 1
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Maintain strict compliance
     flavor: We protect the standard.
+    outcome: Safety remains high. The market consolidates around a few giants.
     effects:
       industry: 0
       civilSociety: 1

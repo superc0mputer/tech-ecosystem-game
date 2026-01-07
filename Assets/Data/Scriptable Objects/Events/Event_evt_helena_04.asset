@@ -22,6 +22,7 @@ MonoBehaviour:
   choiceA:
     label: Limit certain government uses
     flavor: We draw ethical lines.
+    outcome: Misuse risk drops. Political backlash follows.
     effects:
       industry: -1
       civilSociety: 0
@@ -30,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Remain use-neutral
     flavor: We regulate legality, not intent.
+    outcome: Markets stay open. Responsibility diffuses.
     effects:
       industry: 2
       civilSociety: 0

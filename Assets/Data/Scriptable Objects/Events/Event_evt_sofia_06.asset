@@ -22,6 +22,8 @@ MonoBehaviour:
   choiceA:
     label: Make the product incompatible with exams
     flavor: We deliberately block use in exams.
+    outcome: Institutions stop treating your AI as an assessment threat. Students
+      continue using it outside formal evaluation.
     effects:
       industry: -2
       civilSociety: 1
@@ -30,6 +32,8 @@ MonoBehaviour:
   choiceB:
     label: Make the product compatible with assessment
     flavor: We design features for grading.
+    outcome: Adoption accelerates in education. Traditional notions of authorship
+      erode.
     effects:
       industry: 1
       civilSociety: -1

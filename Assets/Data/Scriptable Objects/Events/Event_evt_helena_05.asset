@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Accept ongoing regulatory oversight
     flavor: We regulate the process.
+    outcome: Systems evolve under supervision. Innovation continues - but ships slower.
     effects:
       industry: 0
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Freeze approved versions
     flavor: We regulate stability.
+    outcome: Certification stays simple. The system falls behind its own research.
     effects:
       industry: 0
       civilSociety: 0

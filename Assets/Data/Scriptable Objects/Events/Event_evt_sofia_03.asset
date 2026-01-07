@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Restrict voice models to licensed use
     flavor: We require explicit permission.
+    outcome: Consent becomes the headline. Creative experimentation narrows.
     effects:
       industry: 0
       civilSociety: 1
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Allow open voice synthesis
     flavor: We trust users.
+    outcome: New uses explode. So do uncomfortable questions.
     effects:
       industry: 0
       civilSociety: -1

@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Design for long-term dependence
     flavor: We become infrastructure.
+    outcome: Customers rely on you deeply. Changing direction later becomes costly.
     effects:
       industry: -1
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Design for flexibility and turnover
     flavor: We stay flexible.
+    outcome: Adoption stays high. Long-term leverage remains uncertain.
     effects:
       industry: 2
       civilSociety: 0

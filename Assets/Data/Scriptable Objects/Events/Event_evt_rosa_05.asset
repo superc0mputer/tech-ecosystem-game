@@ -21,6 +21,8 @@ MonoBehaviour:
   choiceA:
     label: Force clients to retain visible responsibility
     flavor: No decision without a human name attached.
+    outcome: Accountability returns to institutions. Some clients resist or delay
+      adoption.
     effects:
       industry: -1
       civilSociety: 2
@@ -29,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Allow full delegation to the system
     flavor: Clients choose how they use it.
+    outcome: Your system becomes the final authority. Responsibility dissolves upward.
     effects:
       industry: 2
       civilSociety: -2

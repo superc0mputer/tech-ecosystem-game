@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Add simple update notes
     flavor: We explain changes.
+    outcome: Users feel oriented again. They also start paying attention.
     effects:
       industry: 0
       civilSociety: 2
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Keep updates invisible
     flavor: Seamless magic.
+    outcome: Nothing breaks. Nothing is explained either.
     effects:
       industry: 2
       civilSociety: 0

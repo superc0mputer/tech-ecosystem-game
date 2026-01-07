@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Add short explanations
     flavor: Context matters.
+    outcome: Understanding improves. So does the number of follow-up questions.
     effects:
       industry: -1
       civilSociety: 2
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Keep it streamlined
     flavor: Speed is key.
+    outcome: Workflows stay smooth. Agency quietly erodes.
     effects:
       industry: 2
       civilSociety: -1

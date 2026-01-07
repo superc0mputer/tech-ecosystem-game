@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Add friction to critical actions
     flavor: We slow users down where it matters.
+    outcome: Fewer mistakes. Lower completion rates.
     effects:
       industry: -1
       civilSociety: 2
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Keep the fast paths
     flavor: Speed is value.
+    outcome: Throughput stays high. Errors become invisible.
     effects:
       industry: 2
       civilSociety: -1

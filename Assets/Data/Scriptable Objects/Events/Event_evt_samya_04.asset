@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Pause features and refactor
     flavor: We clean it up.
+    outcome: The system becomes more robust. Roadmaps slip quietly.
     effects:
       industry: -1
       civilSociety: 0
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Ship anyway
     flavor: "We\u2019ll deal with it later."
+    outcome: Progress looks fast. Complexity piles up.
     effects:
       industry: 2
       civilSociety: 0

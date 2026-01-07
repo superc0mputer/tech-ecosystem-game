@@ -22,6 +22,8 @@ MonoBehaviour:
   choiceA:
     label: Frame it as a breakthrough
     flavor: We highlight what the technology enables.
+    outcome: The headline celebrates progress. Human creators feel written out of
+      the story.
     effects:
       industry: 0
       civilSociety: -1
@@ -30,6 +32,7 @@ MonoBehaviour:
   choiceB:
     label: Push for transparency in creative contests
     flavor: We call for clearer boundaries.
+    outcome: "The debate becomes more nuanced. The hype cools \u2014 so does momentum."
     effects:
       industry: 0
       civilSociety: 0

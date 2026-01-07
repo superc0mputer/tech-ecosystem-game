@@ -23,6 +23,8 @@ MonoBehaviour:
   choiceA:
     label: Sell aggregated usage data
     flavor: We monetize insight.
+    outcome: "New revenue streams open fast. Users don\u2019t notice - until they
+      do."
     effects:
       industry: 2
       civilSociety: -1
@@ -31,6 +33,7 @@ MonoBehaviour:
   choiceB:
     label: Keep user data internal
     flavor: "We don\u2019t sell behavior."
+    outcome: Revenue stays simpler and slower. Pricing pressure increases elsewhere.
     effects:
       industry: -2
       civilSociety: 2

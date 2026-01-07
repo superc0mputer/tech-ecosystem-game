@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Take the fast capital
     flavor: We grow while the window is open.
+    outcome: Resources increase immediately. Future pressure to grow intensifies.
     effects:
       industry: 2
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Raise more cautiously
     flavor: We choose who we grow with.
+    outcome: Growth is steadier. Some opportunities pass.
     effects:
       industry: -1
       civilSociety: 0

@@ -44,8 +44,8 @@ public class EventAssetGenerator : EditorWindow
         {
             string[] cells = SplitCsvLine(lines[i]);
             
-            // We now have exactly 16 columns
-            if (cells.Length < 16) continue;
+            // We now have 18 columns with Outcome added back
+            if (cells.Length < 18) continue;
 
             string id = cells[0];
             string sanitizedId = id.Replace(":", "").Replace("/", "_");
@@ -79,20 +79,22 @@ public class EventAssetGenerator : EditorWindow
             cA.effects.governance = ParseInt(cells[8]);
             cA.effects.innovation = ParseInt(cells[9]);
             
+            cA.outcome = cells[10]; // New Column 10
             asset.choiceA = cA;
 
             // -- Choice B --
             ChoiceData cB = new ChoiceData();
-            cB.label = cells[10];
-            cB.flavor = cells[11];
+            cB.label = cells[11];
+            cB.flavor = cells[12];
 
-            // Map Columns 12-15 to Stats
+            // Map Columns 13-16 to Stats
             cB.effects = new StatBlock();
-            cB.effects.industry = ParseInt(cells[12]);
-            cB.effects.civilSociety = ParseInt(cells[13]);
-            cB.effects.governance = ParseInt(cells[14]);
-            cB.effects.innovation = ParseInt(cells[15]);
+            cB.effects.industry = ParseInt(cells[13]);
+            cB.effects.civilSociety = ParseInt(cells[14]);
+            cB.effects.governance = ParseInt(cells[15]);
+            cB.effects.innovation = ParseInt(cells[16]);
 
+            cB.outcome = cells[17]; // New Column 17
             asset.choiceB = cB;
 
             EditorUtility.SetDirty(asset);

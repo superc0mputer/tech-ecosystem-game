@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Keep Leo inside your ecosystem
     flavor: We influence from within.
+    outcome: You retain indirect influence. You inherit downstream risk.
     effects:
       industry: 1
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Cut him off early
     flavor: We draw clear boundaries.
+    outcome: Your exposure drops. An uncontrolled competitor emerges.
     effects:
       industry: -1
       civilSociety: 0

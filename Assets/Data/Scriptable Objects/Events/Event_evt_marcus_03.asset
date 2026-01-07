@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Implement the nudges.
     flavor: Engagement first.
+    outcome: "Usage rises. Users stay longer \u2014 often without knowing why."
     effects:
       industry: 2
       civilSociety: -1
@@ -28,6 +29,8 @@ MonoBehaviour:
   choiceB:
     label: Explain the system.
     flavor: They deserve to know.
+    outcome: "Marcus raises an eyebrow. \"You really don\u2019t like asymmetry, do
+      you?\""
     effects:
       industry: 0
       civilSociety: 2

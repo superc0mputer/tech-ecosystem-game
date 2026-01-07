@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Take responsibility publicly
     flavor: We act, even if it costs us.
+    outcome: Abuse drops sharply. Your platform is no longer framed as neutral infrastructure.
     effects:
       industry: -1
       civilSociety: 2
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Defend openness, offer support to victims
     flavor: "We don\u2019t restrict the tool, but we\u2019ll help the victims."
+    outcome: The tool remains flexible and widely used. Public trust fractures.
     effects:
       industry: 2
       civilSociety: -2

@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Introduce basic safeguards
     flavor: We slow misuse.
+    outcome: Some abuse is flagged. Creators complain about friction.
     effects:
       industry: -1
       civilSociety: 1
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Leave moderation to platforms
     flavor: "We\u2019re not the internet police."
+    outcome: Creative freedom stays intact. Targets are told to log off.
     effects:
       industry: 1
       civilSociety: -2

@@ -21,6 +21,8 @@ MonoBehaviour:
   choiceA:
     label: Suspend deployment and reopen certification
     flavor: We treat this as a systemic failure.
+    outcome: Trust in certification is rebuilt slowly. Your product becomes a warning
+      case for the entire sector.
     effects:
       industry: -2
       civilSociety: 2
@@ -29,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Treat it as operational misuse
     flavor: We stand by the certification.
+    outcome: Deployment continues. Certification becomes a shield - not a guarantee.
     effects:
       industry: 2
       civilSociety: -2

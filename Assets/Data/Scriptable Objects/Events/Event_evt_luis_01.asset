@@ -22,6 +22,7 @@ MonoBehaviour:
   choiceA:
     label: Deploy immediately
     flavor: The backlog ends.
+    outcome: Waiting times drop. Oversight is still catching up.
     effects:
       industry: 2
       civilSociety: 0
@@ -30,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Wait for proper rollout
     flavor: We check first.
+    outcome: "The backlog shrinks slowly. The headlines don\u2019t."
     effects:
       industry: -1
       civilSociety: 0

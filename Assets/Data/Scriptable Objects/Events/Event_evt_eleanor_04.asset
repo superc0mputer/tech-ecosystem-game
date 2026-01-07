@@ -22,6 +22,7 @@ MonoBehaviour:
   choiceA:
     label: Structure for clean exits
     flavor: We keep the company easy to sell.
+    outcome: More buyers stay interested. Responsibility is kept deliberately narrow.
     effects:
       industry: 2
       civilSociety: 0
@@ -30,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Structure for long-term ownership
     flavor: We accept complexity.
+    outcome: Fewer buyers qualify. Those who remain stay longer.
     effects:
       industry: -1
       civilSociety: 0

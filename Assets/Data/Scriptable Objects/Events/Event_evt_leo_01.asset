@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Look the other way
     flavor: "We don\u2019t police experimentation."
+    outcome: Wild use cases emerge. Your rules become optional in practice.
     effects:
       industry: 0
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Enforce terms strictly
     flavor: Rules apply to everyone.
+    outcome: Boundaries hold. Leo calls you "corporate" on Twitter.
     effects:
       industry: 0
       civilSociety: 0

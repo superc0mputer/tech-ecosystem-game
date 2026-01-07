@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Give her time to refine it
     flavor: Let her cook.
+    outcome: The prototype improves. Nothing ships this sprint.
     effects:
       industry: 0
       civilSociety: 0
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Turn it into a feature now
     flavor: "We\u2019ll fix it later."
+    outcome: Users get something new. Engineers quietly worry.
     effects:
       industry: 2
       civilSociety: 0

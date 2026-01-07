@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Redesign to reintroduce friction
     flavor: We make disagreement visible again.
+    outcome: Users question the AI more often. Decision speed drops. Engagement softens.
     effects:
       industry: -1
       civilSociety: 2
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Keep the interface as is
     flavor: That trust is a feature.
+    outcome: Usage remains high. Human judgment fades into the background.
     effects:
       industry: 3
       civilSociety: 0

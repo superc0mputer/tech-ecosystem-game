@@ -118,7 +118,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
     private IEnumerator OutcomeSequence(ChoiceData choice)
     {
-        if(uiController != null) uiController.ShowOutcomeUI(choice.flavor);
+        if(uiController != null) uiController.ShowOutcomeUI(choice.outcome);
 
         if (resourceManager.CheckGameOverCondition())
         {

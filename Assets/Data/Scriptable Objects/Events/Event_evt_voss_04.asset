@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Remove some safeguards
     flavor: Speed saves lives.
+    outcome: The AI reacts faster. Later reviews become harder to conduct.
     effects:
       industry: 2
       civilSociety: 0
@@ -29,6 +30,8 @@ MonoBehaviour:
   choiceB:
     label: Keep safeguards
     flavor: Safety first.
+    outcome: The system remains auditable. The military marks it as "operationally
+      limited."
     effects:
       industry: -1
       civilSociety: 0

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2015e8f1797a1489eaf87345057cdae4
+guid: 57ac805eb12684becbab9b26d28fb203
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2926249886941324266
-    second: Helena_Richter_Head_0
+      213: -6647504426532945230
+    second: Elena_Vance_Head_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Helena_Richter_Head_0
+      name: Elena_Vance_Head_0
       rect:
         serializedVersion: 2
-        x: 64
+        x: 55
         y: 0
-        width: 1730
-        height: 2200
+        width: 1609
+        height: 2109
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae32a2ba4c02c9820800000000000000
-      internalID: 2926249886941324266
+      spriteID: 2b2caada1f15fb3a0800000000000000
+      internalID: -6647504426532945230
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Helena_Richter_Head_0: 2926249886941324266
+      Elena_Vance_Head_0: -6647504426532945230
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

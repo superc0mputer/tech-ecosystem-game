@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Ship the breakthrough immediately
     flavor: We take the lead.
+    outcome: You leap ahead of competitors. Understanding lags behind deployment.
     effects:
       industry: 2
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: "Freeze deployment until it\u2019s understood"
     flavor: "We don\u2019t ship black magic."
+    outcome: The system becomes legible and safer. Market momentum slows.
     effects:
       industry: -1
       civilSociety: 0

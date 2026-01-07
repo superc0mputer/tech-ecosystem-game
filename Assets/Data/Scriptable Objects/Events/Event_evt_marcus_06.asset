@@ -23,6 +23,7 @@ MonoBehaviour:
   choiceA:
     label: Launch fast and wide
     flavor: Growth first. We'll fix later.
+    outcome: User numbers spike across regions. Local friction quietly accumulates.
     effects:
       industry: 3
       civilSociety: -1
@@ -31,6 +32,7 @@ MonoBehaviour:
   choiceB:
     label: Localize and adapt before launch
     flavor: We scale with care.
+    outcome: Expansion is slower but steadier. Marcus checks his watch.
     effects:
       industry: -2
       civilSociety: 2

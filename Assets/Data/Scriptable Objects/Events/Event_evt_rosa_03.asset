@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Add a grace period
     flavor: We assume good faith first.
+    outcome: Fewer benefits are cut automatically. Abuse becomes harder to detect.
     effects:
       industry: -1
       civilSociety: 2
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Enforce sanctions immediately
     flavor: Rules must be predictable.
+    outcome: The system stays strict and fast. Small failures escalate quickly.
     effects:
       industry: 2
       civilSociety: -1

@@ -22,6 +22,7 @@ MonoBehaviour:
   choiceA:
     label: Detect and intervene in risky behavior
     flavor: We accept deeper insight to reduce harm.
+    outcome: Some harm is reduced. Your system crosses a new line of behavioral surveillance.
     effects:
       industry: -2
       civilSociety: 2
@@ -30,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Limit monitoring to basic functionality
     flavor: "We don\u2019t profile behavior this deeply."
+    outcome: Privacy boundaries remain clear. Known risk patterns stay unaddressed.
     effects:
       industry: 0
       civilSociety: 1

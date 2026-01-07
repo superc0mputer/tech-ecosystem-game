@@ -22,6 +22,8 @@ MonoBehaviour:
   choiceA:
     label: Allow provisional approval
     flavor: We give time to fix errors.
+    outcome: More households remain eligible while documents are completed. Case
+      handling becomes slower and more complex.
     effects:
       industry: 0
       civilSociety: 2
@@ -30,6 +32,8 @@ MonoBehaviour:
   choiceB:
     label: Enforce strict completeness
     flavor: "We decide based on what\u2019s submitted."
+    outcome: Processing stays fast and predictable. Applicants with unstable situations
+      drop out first.
     effects:
       industry: 2
       civilSociety: 0

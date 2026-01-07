@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Support strong unified EU standards
     flavor: We back consistency.
+    outcome: Regulatory clarity improves. Some markets cool.
     effects:
       industry: -1
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Quietly lobby for flexibility
     flavor: We need room to adapt.
+    outcome: National differences persist. Policy coherence weakens.
     effects:
       industry: 2
       civilSociety: 0

@@ -22,6 +22,8 @@ MonoBehaviour:
   choiceA:
     label: Tighten detection and close loopholes
     flavor: We reduce abuse.
+    outcome: Abuse drops noticeably. Legitimate users feel increased pressure and
+      scrutiny.
     effects:
       industry: 2
       civilSociety: -1
@@ -30,6 +32,8 @@ MonoBehaviour:
   choiceB:
     label: Accept some gaming to protect the vulnerable
     flavor: We tolerate misuse.
+    outcome: Fewer people are wrongly penalized. System costs and inefficiencies
+      grow.
     effects:
       industry: -1
       civilSociety: 3

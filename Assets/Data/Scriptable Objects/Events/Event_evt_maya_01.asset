@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Tone down the confidence
     flavor: We add uncertainty.
+    outcome: Users pause more often. They also trust themselves again.
     effects:
       industry: -1
       civilSociety: 2
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Leave it as is
     flavor: Confidence sells.
+    outcome: Decisions stay fast. Mistakes become harder to notice.
     effects:
       industry: 2
       civilSociety: -1

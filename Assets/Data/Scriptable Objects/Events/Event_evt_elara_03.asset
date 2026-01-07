@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Simplify onboarding
     flavor: We ease people in.
+    outcome: New users stay longer. Advanced users feel constrained.
     effects:
       industry: 1
       civilSociety: 0
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Keep full functionality upfront
     flavor: "They\u2019ll figure it out."
+    outcome: Experienced users are productive. Growth plateaus early.
     effects:
       industry: 2
       civilSociety: 0

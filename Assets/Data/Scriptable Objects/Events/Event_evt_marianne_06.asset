@@ -22,6 +22,8 @@ MonoBehaviour:
   choiceA:
     label: Withdraw the pre-filtering feature from asylum use
     flavor: We change where our product may be used.
+    outcome: Courts regain confidence in human review. Your product loses a major
+      public-sector use case.
     effects:
       industry: -1
       civilSociety: 2
@@ -30,6 +32,8 @@ MonoBehaviour:
   choiceB:
     label: Keep the feature, strengthen contractual safeguards
     flavor: We limit our liability, not the product.
+    outcome: "Deployments continue. Your company stays legally insulated \u2014 morally
+      questioned."
     effects:
       industry: 2
       civilSociety: -1

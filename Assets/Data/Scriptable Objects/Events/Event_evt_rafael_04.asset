@@ -23,6 +23,7 @@ MonoBehaviour:
   choiceA:
     label: Absorb the CO2 cost
     flavor: We treat it as operating expense.
+    outcome: Development continues uninterrupted. Margins quietly shrink.
     effects:
       industry: -1
       civilSociety: 0
@@ -31,6 +32,7 @@ MonoBehaviour:
   choiceB:
     label: Reduce energy-heavy workloads
     flavor: We cut where it hurts most.
+    outcome: Emissions fall. Some teams lose their favorite models.
     effects:
       industry: 0
       civilSociety: 1

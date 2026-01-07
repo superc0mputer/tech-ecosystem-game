@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Deploy XR as a core interface
     flavor: This is the future.
+    outcome: Adoption soars. Users defer to the system more than intended.
     effects:
       industry: 1
       civilSociety: -1
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Restrict XR to experimental use
     flavor: We keep it optional.
+    outcome: The tech matures slowly. The sense of AI authority is contained.
     effects:
       industry: -1
       civilSociety: 0

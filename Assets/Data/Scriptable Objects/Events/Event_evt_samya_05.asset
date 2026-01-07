@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Merge the models
     flavor: Go big.
+    outcome: Capabilities expand. Single points of failure emerge.
     effects:
       industry: 0
       civilSociety: 0
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Keep systems separate
     flavor: Redundancy matters.
+    outcome: Systems stay stable. Progress fragments.
     effects:
       industry: 0
       civilSociety: 0

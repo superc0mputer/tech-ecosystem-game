@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Sign the clause
     flavor: Oversight becomes internal.
+    outcome: Oversight becomes internal. Trust becomes institutional, not public.
     effects:
       industry: 2
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Refuse
     flavor: Transparency is non-negotiable.
+    outcome: "Voss closes the folder. \"Then we can\u2019t work together.\""
     effects:
       industry: -1
       civilSociety: 0

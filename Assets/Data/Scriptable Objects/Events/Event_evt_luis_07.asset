@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Standardize communication citywide
     flavor: We make it strictly neutral.
+    outcome: Messaging becomes neutral. Political advantages flatten out.
     effects:
       industry: -1
       civilSociety: 2
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Keep optimizing engagement
     flavor: "It\u2019s still public service."
+    outcome: Engagement rises where it matters. So do questions about fairness.
     effects:
       industry: 2
       civilSociety: -1

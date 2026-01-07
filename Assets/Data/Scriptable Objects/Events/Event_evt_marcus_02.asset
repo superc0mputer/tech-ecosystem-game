@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Push the timeline.
     flavor: We deliver.
+    outcome: Velocity holds. Creativity thins at the edges.
     effects:
       industry: 2
       civilSociety: 0
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Slow down.
     flavor: We protect the team.
+    outcome: Marcus nods once. "Rest is expensive."
     effects:
       industry: -1
       civilSociety: 0

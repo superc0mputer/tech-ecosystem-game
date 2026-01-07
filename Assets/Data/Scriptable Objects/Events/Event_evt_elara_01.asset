@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Reduce XR intensity
     flavor: We design for comfort.
+    outcome: Sessions shorten. Well-being improves.
     effects:
       industry: 0
       civilSociety: 2
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Optimize for engagement
     flavor: Retention matters.
+    outcome: Time-on-platform stays high. So does fatigue.
     effects:
       industry: 2
       civilSociety: 0

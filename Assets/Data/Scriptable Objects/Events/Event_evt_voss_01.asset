@@ -21,6 +21,8 @@ MonoBehaviour:
   choiceA:
     label: Approve the pilot
     flavor: Performance matters.
+    outcome: "Your AI runs inside a closed military system. You can\u2019t talk about
+      it \u2014 but you know it works."
     effects:
       industry: 2
       civilSociety: 0
@@ -29,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Decline
     flavor: Not our path.
+    outcome: Voss nods. "Then someone else will test theirs instead."
     effects:
       industry: 0
       civilSociety: 2

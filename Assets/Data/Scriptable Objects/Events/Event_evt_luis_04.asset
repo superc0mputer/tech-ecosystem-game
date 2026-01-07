@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Use local citizen data
     flavor: It improves accuracy.
+    outcome: Predictions improve. Privacy fears rise.
     effects:
       industry: 2
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Avoid local data
     flavor: "We don\u2019t touch personal records."
+    outcome: Trust holds. The AI feels less helpful.
     effects:
       industry: -1
       civilSociety: 0

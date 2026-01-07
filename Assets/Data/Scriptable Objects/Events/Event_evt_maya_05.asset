@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Add uncertainty indicators
     flavor: Transparency helps.
+    outcome: Automation feels less magical. Judgment returns to the room.
     effects:
       industry: 0
       civilSociety: 2
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Keep outputs clean
     flavor: It works or it doesn't.
+    outcome: "The AI sounds decisive. Even when it shouldn\u2019t."
     effects:
       industry: 2
       civilSociety: 0

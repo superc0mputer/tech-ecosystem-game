@@ -24,6 +24,8 @@ MonoBehaviour:
   choiceA:
     label: Support the acquisition
     flavor: We stay inside the deal.
+    outcome: The product scales rapidly under new ownership. Your AI becomes harder
+      to disentangle from external decisions.
     effects:
       industry: 2
       civilSociety: 0
@@ -32,6 +34,8 @@ MonoBehaviour:
   choiceB:
     label: Withhold deep cooperation
     flavor: "We don\u2019t follow every exit."
+    outcome: The acquisition slows or reshapes. Your AI is replaced or reworked beyond
+      your influence.
     effects:
       industry: -2
       civilSociety: 1

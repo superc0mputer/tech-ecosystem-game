@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Allow synthetic load
     flavor: Growth signals are signals.
+    outcome: Adoption metrics explode. Reality lags behind dashboards.
     effects:
       industry: 2
       civilSociety: -1
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Require real-user validation
     flavor: We measure actual impact.
+    outcome: Metrics slow down. Credibility improves.
     effects:
       industry: -1
       civilSociety: 2

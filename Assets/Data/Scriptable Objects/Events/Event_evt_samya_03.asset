@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Greenlight the integration
     flavor: "Let\u2019s lead."
+    outcome: The system becomes cutting-edge. Stability takes a hit.
     effects:
       industry: -1
       civilSociety: 0
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Keep XR separate
     flavor: Not yet.
+    outcome: The product stays stable. The frontier moves elsewhere.
     effects:
       industry: 2
       civilSociety: 0

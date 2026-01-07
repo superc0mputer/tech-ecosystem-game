@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Investigate silent drop-offs
     flavor: We treat disengagement as a warning.
+    outcome: Hidden harms surface. Metrics become harder to interpret.
     effects:
       industry: -1
       civilSociety: 2
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Focus on active feedback only
     flavor: We respond to visible signals.
+    outcome: Dashboards stay clean. Some failures never register.
     effects:
       industry: 2
       civilSociety: -1

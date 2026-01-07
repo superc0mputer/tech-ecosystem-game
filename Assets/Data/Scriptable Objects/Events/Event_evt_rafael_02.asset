@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Upgrade cooling systems
     flavor: We maintain capability.
+    outcome: Performance holds. Operating costs and resource use rise.
     effects:
       industry: 2
       civilSociety: 0
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Cap model intensity
     flavor: We respect physical limits.
+    outcome: Resource use stabilizes. Model growth plateaus.
     effects:
       industry: 0
       civilSociety: 0

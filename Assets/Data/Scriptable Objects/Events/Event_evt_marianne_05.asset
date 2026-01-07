@@ -22,6 +22,7 @@ MonoBehaviour:
   choiceA:
     label: Accept liability for safety optimization
     flavor: "Efficiency can\u2019t outweigh life."
+    outcome: Safety thresholds tighten. Automation loses flexibility.
     effects:
       industry: -2
       civilSociety: 1
@@ -30,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Treat it as operational failure
     flavor: The system followed parameters.
+    outcome: Production continues. Workers trust systems less.
     effects:
       industry: 2
       civilSociety: -2

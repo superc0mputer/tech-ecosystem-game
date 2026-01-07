@@ -23,6 +23,7 @@ MonoBehaviour:
   choiceA:
     label: Cap usage despite efficiency gains
     flavor: We limit growth deliberately.
+    outcome: Total resource use stabilizes. Customers accuse you of artificial scarcity.
     effects:
       industry: -2
       civilSociety: 1
@@ -31,6 +32,7 @@ MonoBehaviour:
   choiceB:
     label: Let demand scale freely
     flavor: Efficiency justifies growth.
+    outcome: Adoption surges. Infrastructure strain accelerates again.
     effects:
       industry: 2
       civilSociety: 0

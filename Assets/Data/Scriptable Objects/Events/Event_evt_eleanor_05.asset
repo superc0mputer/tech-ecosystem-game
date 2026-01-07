@@ -22,6 +22,8 @@ MonoBehaviour:
   choiceA:
     label: Align success with broad social benefit
     flavor: We design for societal use, not just profit.
+    outcome: Your success gains defenders beyond your customers. Decision-making
+      becomes slower and more exposed.
     effects:
       industry: -2
       civilSociety: 2
@@ -30,6 +32,7 @@ MonoBehaviour:
   choiceB:
     label: Optimize success for paying customers only
     flavor: We serve those who pay.
+    outcome: Execution stays sharp and focused. Legitimacy depends entirely on performance.
     effects:
       industry: 2
       civilSociety: -2

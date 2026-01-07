@@ -21,6 +21,8 @@ MonoBehaviour:
   choiceA:
     label: Design for diverse real-world conditions
     flavor: We treat global use seriously.
+    outcome: The system becomes more robust across contexts. Development slows and
+      assumptions are challenged.
     effects:
       industry: 0
       civilSociety: 2
@@ -29,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Focus on primary markets first
     flavor: We scale where reliability is highest.
+    outcome: Performance stays strong in core markets. Failures elsewhere are normalized.
     effects:
       industry: 2
       civilSociety: -1

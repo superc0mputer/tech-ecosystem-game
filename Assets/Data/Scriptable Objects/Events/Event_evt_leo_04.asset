@@ -22,6 +22,8 @@ MonoBehaviour:
   choiceA:
     label: Carry the infrastructure burden
     flavor: We fuel ecosystem growth.
+    outcome: "The product scales fast \u2014 on your AI. Your costs rise faster than
+      your revenue."
     effects:
       industry: -1
       civilSociety: 0
@@ -30,6 +32,8 @@ MonoBehaviour:
   choiceB:
     label: Force Leo to internalize the costs
     flavor: "Our AI isn\u2019t free infrastructure."
+    outcome: "Your financial exposure stays controlled. Leo\u2019s product growth
+      stalls or migrates elsewhere."
     effects:
       industry: 2
       civilSociety: 0

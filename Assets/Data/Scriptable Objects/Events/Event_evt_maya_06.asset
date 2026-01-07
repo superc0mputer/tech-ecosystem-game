@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Clarify and limit liability
     flavor: We protect the user too.
+    outcome: Trust stabilizes. Your lawyers start sleeping less.
     effects:
       industry: -1
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Add the clause
     flavor: We protect the company.
+    outcome: "Risk shifts downward. Users notice \u2014 eventually."
     effects:
       industry: 3
       civilSociety: -1

@@ -22,6 +22,8 @@ MonoBehaviour:
   choiceA:
     label: Provide detailed decision logs
     flavor: We make the reasoning traceable.
+    outcome: The appeal is properly reviewed. Agencies now expect explanations every
+      time.
     effects:
       industry: -1
       civilSociety: 0
@@ -30,6 +32,7 @@ MonoBehaviour:
   choiceB:
     label: Defend the decision as lawful
     flavor: The AI followed approved rules.
+    outcome: The ruling stands. Future appeals become harder.
     effects:
       industry: 2
       civilSociety: 0

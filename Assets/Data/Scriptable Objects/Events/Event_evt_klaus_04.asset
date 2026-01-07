@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Redesign before certification
     flavor: We eliminate even low-probability harm.
+    outcome: Systemic risk drops sharply. Release timelines stretch.
     effects:
       industry: 0
       civilSociety: 2
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Proceed with certification as is
     flavor: We rely on operational safeguards.
+    outcome: Klaus raises an eyebrow but proceeds with the paperwork.
     effects:
       industry: 3
       civilSociety: -1

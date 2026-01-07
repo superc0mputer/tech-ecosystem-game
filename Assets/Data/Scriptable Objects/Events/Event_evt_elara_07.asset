@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Introduce usage limits and rest cues
     flavor: We design for long-term well-being.
+    outcome: Sessions shorten. Burnout reports decline.
     effects:
       industry: -1
       civilSociety: 2
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Leave usage patterns unchanged
     flavor: "That\u2019s on the user."
+    outcome: Productivity metrics stay strong. Human costs stay invisible.
     effects:
       industry: 2
       civilSociety: -1

@@ -20,6 +20,8 @@ MonoBehaviour:
   choiceA:
     label: Approve deployment
     flavor: Real world impact.
+    outcome: Your AI is used in real-world operations. You are no longer theorizing
+      about impact.
     effects:
       industry: 2
       civilSociety: -3
@@ -28,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Refuse
     flavor: We draw the line.
+    outcome: You draw a line. The operation proceeds without your system.
     effects:
       industry: -1
       civilSociety: 3

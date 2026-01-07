@@ -23,6 +23,7 @@ MonoBehaviour:
   choiceA:
     label: Co-invest in local infrastructure
     flavor: We offset our footprint.
+    outcome: Local backlash softens. Expansion becomes more expensive.
     effects:
       industry: -2
       civilSociety: 2
@@ -31,6 +32,7 @@ MonoBehaviour:
   choiceB:
     label: Externalize the costs
     flavor: We follow market rules.
+    outcome: Margins stay strong. Social tension builds around your sites.
     effects:
       industry: 2
       civilSociety: -2

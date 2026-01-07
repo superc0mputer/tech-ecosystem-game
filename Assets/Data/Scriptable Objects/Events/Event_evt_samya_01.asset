@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Approve the scale-up
     flavor: "Let\u2019s push it."
+    outcome: Performance jumps. Costs and energy use spike.
     effects:
       industry: -1
       civilSociety: 0
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Hold the current size
     flavor: Optimize what we have.
+    outcome: Costs stay under control. Technical ambition stalls.
     effects:
       industry: 2
       civilSociety: 0

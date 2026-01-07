@@ -21,6 +21,8 @@ MonoBehaviour:
   choiceA:
     label: Fix accessibility now
     flavor: We redesign the interface.
+    outcome: The product becomes usable for more people. Delivery slows across the
+      roadmap.
     effects:
       industry: 0
       civilSociety: 2
@@ -29,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Defer accessibility
     flavor: We focus on current customers.
+    outcome: Enterprise deadlines are met. Some users remain locked out.
     effects:
       industry: 2
       civilSociety: 0

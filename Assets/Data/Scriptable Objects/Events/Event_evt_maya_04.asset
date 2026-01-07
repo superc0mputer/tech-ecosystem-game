@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Make defaults explicit
     flavor: We clarify choices.
+    outcome: Users think twice. They also hesitate more.
     effects:
       industry: -1
       civilSociety: 2
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Leave defaults untouched
     flavor: Frictionless flow.
+    outcome: Decisions speed up. Dependence grows quietly.
     effects:
       industry: 2
       civilSociety: -1

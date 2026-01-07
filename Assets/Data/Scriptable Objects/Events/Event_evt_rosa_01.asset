@@ -20,6 +20,7 @@ MonoBehaviour:
   choiceA:
     label: Extend appeal deadlines
     flavor: We account for reality.
+    outcome: More appeals are valid. Resolution slows.
     effects:
       industry: -1
       civilSociety: 2
@@ -28,6 +29,7 @@ MonoBehaviour:
   choiceB:
     label: Keep deadlines tight
     flavor: We need closure.
+    outcome: Processes stay predictable. Late appeals disappear.
     effects:
       industry: 2
       civilSociety: -1

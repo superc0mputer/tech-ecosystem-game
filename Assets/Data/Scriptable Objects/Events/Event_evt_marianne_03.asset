@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Accept shared liability
     flavor: We share responsibility.
+    outcome: Victims can seek compensation. Your legal exposure grows.
     effects:
       industry: -1
       civilSociety: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Deny responsibility
     flavor: The agency made the final call.
+    outcome: Your company is shielded. Legal clarity suffers.
     effects:
       industry: 2
       civilSociety: 0

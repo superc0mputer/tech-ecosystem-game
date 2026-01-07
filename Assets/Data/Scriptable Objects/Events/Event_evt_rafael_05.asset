@@ -21,6 +21,7 @@ MonoBehaviour:
   choiceA:
     label: Reserve capacity for critical uses
     flavor: We limit peak profits.
+    outcome: Essential services remain stable. Revenue opportunities shrink.
     effects:
       industry: -1
       civilSociety: 1
@@ -29,6 +30,7 @@ MonoBehaviour:
   choiceB:
     label: Keep purely commercial prioritization
     flavor: We follow the market.
+    outcome: Revenue is maximized. Access becomes uneven.
     effects:
       industry: 2
       civilSociety: -1

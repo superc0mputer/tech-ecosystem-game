@@ -22,6 +22,8 @@ MonoBehaviour:
   choiceA:
     label: Accelerate joint project
     flavor: We set the reference before others do.
+    outcome: Your implementation becomes the de facto standard. Public understanding
+      lags behind real impact.
     effects:
       industry: 1
       civilSociety: -2
@@ -30,6 +32,8 @@ MonoBehaviour:
   choiceB:
     label: Publicly draw a hard line
     flavor: "We clarify what we will - and won\u2019t - support."
+    outcome: Your position becomes defensible in hearings and audits. But the most
+      visible deployments of your technology happen without you.
     effects:
       industry: -2
       civilSociety: 1

@@ -22,6 +22,7 @@ MonoBehaviour:
   choiceA:
     label: Restrict AI use in life-critical decisions
     flavor: "This can\u2019t happen again."
+    outcome: "Hospitals slow down. Human responsibility is clear \u2014 and costly."
     effects:
       industry: -1
       civilSociety: 3
@@ -30,6 +31,7 @@ MonoBehaviour:
   choiceB:
     label: Keep AI use, add disclaimers
     flavor: The AI only advises.
+    outcome: Systems keep running smoothly. Trust erodes where the stakes are highest.
     effects:
       industry: 2
       civilSociety: -2
