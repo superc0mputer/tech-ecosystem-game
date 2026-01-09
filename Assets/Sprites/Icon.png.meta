@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eb7076799100044a6b43a7786a177b00
+guid: 4b2214140454146a784b508fb82fc5eb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7600600479473362965
-    second: Samya_Lin_Head_0
+      213: -4961090472046659986
+    second: Icon_Variant2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,10 +46,10 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Samya_Lin_Head_0
+      name: Icon_Variant2_0
       rect:
         serializedVersion: 2
-        x: 47
+        x: 0
         y: 0
-        width: 1196
-        height: 1567
+        width: 1013
+        height: 996
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 180, z: 180, w: 180}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5186caacdd1ca7960800000000000000
-      internalID: 7600600479473362965
+      spriteID: e66751b208aa62bb0800000000000000
+      internalID: -4961090472046659986
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: ce527c2c902b241729f19365bc8ba5af
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Samya_Lin_Head_0: 7600600479473362965
+      Icon_Variant2_0: -4961090472046659986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
