@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.AddressableAssets; // Required for images
+using UnityEngine.AddressableAssets; 
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +24,10 @@ public class EndGameFeedbackManager : MonoBehaviour
         public TextMeshProUGUI scoreText;       
         public TextMeshProUGUI stateText;       
         public TextMeshProUGUI descriptionText;
-        public Slider resultSlider;
         
-        // NEW: References for Character Identity
+        // CHANGED: Replaced Slider with your custom component
+        public ResourceSegmentBar resourceBar; 
+        
         public Image headshotImage;
         public TextMeshProUGUI nameText;
     }
@@ -53,7 +54,9 @@ public class EndGameFeedbackManager : MonoBehaviour
         var scoreObj = panel.Find("Score Number");
         var stateObj = panel.Find("State Text") ?? panel.Find("State");
         var descObj  = panel.Find("Description");
-        var sliderObj = panel.Find("Ressource");
+        
+        // CHANGED: Look for the object named "Ressource" and get the SegmentBar
+        var resourceObj = panel.Find("Ressource");
         
         var nameObj = panel.Find("Name");
         var headObj = panel.Find("Headshot");
@@ -61,7 +64,9 @@ public class EndGameFeedbackManager : MonoBehaviour
         if (scoreObj) slot.scoreText = scoreObj.GetComponent<TextMeshProUGUI>();
         if (stateObj) slot.stateText = stateObj.GetComponent<TextMeshProUGUI>();
         if (descObj)  slot.descriptionText = descObj.GetComponent<TextMeshProUGUI>();
-        if (sliderObj) slot.resultSlider = sliderObj.GetComponent<Slider>();
+
+        // CHANGED: Get the custom component
+        if (resourceObj) slot.resourceBar = resourceObj.GetComponent<ResourceSegmentBar>();
         
         if (nameObj) slot.nameText = nameObj.GetComponent<TextMeshProUGUI>();
         if (headObj) slot.headshotImage = headObj.GetComponent<Image>();
@@ -74,11 +79,10 @@ public class EndGameFeedbackManager : MonoBehaviour
         if(mainResultTitle) 
             mainResultTitle.text = isWin ? "SIMULATION COMPLETE" : "GAME OVER";
 
-        // We find the specific person for each group from the list passed in
         FillSlot(slotIndustry, "Industry", industry, GetStakeholderByGroup(activeStakeholders, "Industry"));
         FillSlot(slotGovernance, "Governance", gov, GetStakeholderByGroup(activeStakeholders, "Governance"));
         FillSlot(slotCivilSociety, "Civil Society", civil, GetStakeholderByGroup(activeStakeholders, "Civil Society"));
-        FillSlot(slotInnovation, "Innovation", innov, GetStakeholderByGroup(activeStakeholders, "Innovation")); // Note: Check if your ID is "Innovation" or "Capability"
+        FillSlot(slotInnovation, "Innovation", innov, GetStakeholderByGroup(activeStakeholders, "Innovation")); 
     }
 
     private StakeholderData GetStakeholderByGroup(List<StakeholderData> list, string group)
@@ -96,7 +100,10 @@ public class EndGameFeedbackManager : MonoBehaviour
     {
         // 1. Fill Standard Stats
         if (slot.scoreText) slot.scoreText.text = score.ToString();
-        if (slot.resultSlider) slot.resultSlider.value = score;
+
+        // CHANGED: Use the visual update method. 
+        // We pass '0' as the second argument because there is no "predicted change" in the game over screen.
+        if (slot.resourceBar) slot.resourceBar.UpdateVisuals(score, 0);
 
         var data = GetOutcomeData(category, score);
         if (slot.stateText) slot.stateText.text = data.state;
@@ -107,16 +114,14 @@ public class EndGameFeedbackManager : MonoBehaviour
             slot.stateText.color = (score <= 0 || score >= 10) ? new Color(0.8f, 0f, 0f) : Color.white;
         }
 
-        // 2. Fill Personal Identity (Name & Picture)
+        // 2. Fill Personal Identity
         if (person != null)
         {
             if (slot.nameText) slot.nameText.text = person.displayName;
 
             if (slot.headshotImage && !string.IsNullOrEmpty(person.headAddress))
             {
-                // Clean up previous sprite if needed (optional)
                 slot.headshotImage.sprite = null; 
-                
                 Addressables.LoadAssetAsync<Sprite>(person.headAddress).Completed += (op) =>
                 {
                     if (op.Status == AsyncOperationStatus.Succeeded && slot.headshotImage != null)
@@ -128,7 +133,7 @@ public class EndGameFeedbackManager : MonoBehaviour
         }
     }
 
-    // (Keep your existing GetOutcomeData method exactly as it was)
+    // (Kept GetOutcomeData exactly as it was)
     private (string state, string description) GetOutcomeData(string category, int score)
     {
          switch (category)

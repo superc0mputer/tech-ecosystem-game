@@ -25,7 +25,6 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private GameObject panelOptionAObj;
     [SerializeField] private GameObject panelOptionBObj;
     
-    // Canvas Groups for Swipe Transparency
     [SerializeField] public CanvasGroup optionACanvasGroup; 
     [SerializeField] public CanvasGroup optionBCanvasGroup; 
 
@@ -43,13 +42,11 @@ public class GameUIController : MonoBehaviour
         public string id; 
         public GameObject groupParent;
         public Image background;
-        public Slider resourceSlider; 
-        public Image sliderFillImage;
         public Image headshot;
         public TextMeshProUGUI nameText;
         
-        // Internal state to reset colors
-        [HideInInspector] public Color defaultFillColor;
+        // REPLACED: Slider with our new script
+        public ResourceSegmentBar segmentBar; 
     }
 
     private void Awake()
@@ -111,19 +108,14 @@ public class GameUIController : MonoBehaviour
         slot.headshot = t.Find("Headshot").GetComponent<Image>();
         slot.nameText = t.Find("Name").GetComponent<TextMeshProUGUI>();
         
-        // Auto-Link Slider & Fill Image
-        slot.resourceSlider = t.Find("Ressource").GetComponent<Slider>(); 
-        if(slot.resourceSlider != null)
+        // Find the custom component instead of Slider
+        // Note: You must rename your "Ressource" object in Unity or ensure this component is on it
+        Transform resObj = t.Find("Ressource");
+        if (resObj != null)
         {
-            slot.resourceSlider.maxValue = 10;
-            // Unity sliders usually have a "Fill Area/Fill" structure
-            if(slot.resourceSlider.fillRect != null)
-            {
-                slot.sliderFillImage = slot.resourceSlider.fillRect.GetComponent<Image>();
-                // Save original color (usually white/grey)
-                if(slot.sliderFillImage != null) slot.defaultFillColor = slot.sliderFillImage.color;
-            }
+            slot.segmentBar = resObj.GetComponent<ResourceSegmentBar>();
         }
+
         stakeholders.Add(slot);
     }
 
@@ -131,7 +123,7 @@ public class GameUIController : MonoBehaviour
 
     public void ShowStatPreview(StatBlock effects, ResourceManager currentResources)
     {
-        // Calculate Future Values and Update Sliders
+        // Pass the CHANGE value into the visual update
         UpdateSinglePreview("Industry",      currentResources.industryVal,   effects.industry);
         UpdateSinglePreview("Civil Society", currentResources.civilVal,      effects.civilSociety);
         UpdateSinglePreview("Governance",    currentResources.governanceVal, effects.governance);
@@ -142,20 +134,10 @@ public class GameUIController : MonoBehaviour
     {
         foreach(var slot in stakeholders)
         {
-            if(slot.id == id && slot.resourceSlider != null)
+            if(slot.id == id && slot.segmentBar != null)
             {
-                int futureVal = Mathf.Clamp(currentVal + change, 0, 10);
-                
-                // 1. Show Future Value
-                slot.resourceSlider.value = futureVal;
-
-                // 2. Color Code
-                if(slot.sliderFillImage != null)
-                {
-                    if (change > 0) slot.sliderFillImage.color = Color.green; // Going Up
-                    else if (change < 0) slot.sliderFillImage.color = Color.red;   // Going Down
-                    else slot.sliderFillImage.color = slot.defaultFillColor;       // No Change
-                }
+                // The SegmentBar handles the coloring logic
+                slot.segmentBar.UpdateVisuals(currentVal, change);
                 return;
             }
         }
@@ -163,20 +145,11 @@ public class GameUIController : MonoBehaviour
 
     public void ResetPreviews(ResourceManager currentResources)
     {
-        // Revert to actual current values and default colors
+        // Simply update with a change of 0 to reset colors
         UpdateResourceDisplay("Industry",      currentResources.industryVal);
         UpdateResourceDisplay("Civil Society", currentResources.civilVal);
         UpdateResourceDisplay("Governance",    currentResources.governanceVal);
         UpdateResourceDisplay("Innovation",    currentResources.innovationVal);
-
-        // Reset Colors
-        foreach(var slot in stakeholders)
-        {
-            if(slot.sliderFillImage != null)
-            {
-                slot.sliderFillImage.color = slot.defaultFillColor;
-            }
-        }
     }
 
     // --- EXISTING METHODS ---
@@ -200,9 +173,10 @@ public class GameUIController : MonoBehaviour
     {
         foreach (var slot in stakeholders)
         {
-            if (slot.id == groupID && slot.resourceSlider != null)
+            if (slot.id == groupID && slot.segmentBar != null)
             {
-                slot.resourceSlider.value = value;
+                // Passing 0 as the second argument means "No Preview / No Change"
+                slot.segmentBar.UpdateVisuals(value, 0);
                 return;
             }
         }
@@ -227,6 +201,7 @@ public class GameUIController : MonoBehaviour
         }
     }
 
+    // ... Rest of SetMainCard, SetOptions, etc. remains the same ...
     public void SetMainCard(string name, string bodyAddressKey)
     {
         if(cardName != null) cardName.text = name;
@@ -259,7 +234,6 @@ public class GameUIController : MonoBehaviour
     
     public void HideGameInterface()
     {
-        // Hide the gameplay panels individually
         if(panelStakeholders) panelStakeholders.SetActive(false);
         if(panelTop) panelTop.SetActive(false);
         if(panelGameplay) panelGameplay.SetActive(false);
