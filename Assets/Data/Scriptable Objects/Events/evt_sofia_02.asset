@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_sofia_02
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_sofia_02
+  characterId: stk_sofia
+  title: The Cheap Content Wave
+  bodyText: "Sofia forwards you drafts she didn\u2019t write herself. \"That\u2019s
+    the draft for my next article: Studios are cutting freelance budgets. Not with
+    layoffs. Just\u2026 fewer calls. They\u2019re using AI for drafts, concepts,
+    sometimes finals. Just for efficiency. How do you want this written?\""
+  choiceA:
+    label: Emphasize AI as a support tool
+    flavor: We talk augmentation, not replacement.
+    outcomeTitle: The narrative softens. The market keeps cutting costs anyway.
+    outcomeText: The narrative reassures writers and artists that their work still
+      matters, easing public and professional anxiety. Trust in the technology stabilizes,
+      even as studios move more cautiously under increased scrutiny. Cost-cutting
+      continues, but with more resistance and slower adoption. Social legitimacy
+      grows, while short-term efficiency gains are limited.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Frame it as inevitable efficiency
+    flavor: "We don\u2019t fight the trend."
+    outcomeTitle: The story sounds realistic. Creative work looks increasingly disposable.
+    outcomeText: Coverage aligns with how companies already talk about cost and output.
+      The shift toward automated content feels unavoidable and rational. For creatives,
+      the narrative offers little room for negotiation, as reduced budgets become
+      framed as progress rather than choice. The market moves faster, while individual
+      careers become easier to cut.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

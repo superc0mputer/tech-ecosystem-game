@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_luis_08
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_luis_08
+  characterId: stk_luis
+  title: The Boundary
+  bodyText: The AI predicts which citizens respond to city services. Based on usage
+    patterns. It could adjust response times and reminders to increase turnout in
+    specific districts. This stays inside City Hall.
+  choiceA:
+    label: Disable predictive use for elections
+    flavor: We draw a hard line.
+    outcomeTitle: The system becomes politically blind. Trust stabilizes.
+    outcomeText: "The system stops using behavioral predictions to shape election-related
+      communication. All districts receive the same reminders and information, regardless
+      of past responsiveness. City officials can point to a firm institutional boundary
+      between administration and political outcomes. Engagement becomes flatter,
+      while trust in the system\u2019s neutrality becomes easier to sustain."
+    effects:
+      industry: -1
+      civilSociety: 1
+      governance: 3
+      innovation: 0
+  choiceB:
+    label: Allow limited predictive use
+    flavor: "We\u2019re increasing participation."
+    outcomeTitle: Turnout shifts subtly. So does the meaning of neutrality.
+    outcomeText: The AI continues to adjust timing and emphasis based on which districts
+      are most likely to respond. Participation increases in selected areas, even
+      though messages remain formally neutral. Because the targeting is invisible,
+      some observers begin to describe it as subtle political steering rather than
+      simple outreach. Effectiveness rises, while concerns about manipulation grow
+      alongside it.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0

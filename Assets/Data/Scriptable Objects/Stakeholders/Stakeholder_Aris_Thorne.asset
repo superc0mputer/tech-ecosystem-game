@@ -28,9 +28,9 @@ MonoBehaviour:
   headAddress: Aris_Thorne_Head
   bodyAddress: Aris_Thorne_Body
   associatedEvents:
-  - {fileID: 11400000, guid: 9f78609d93a9c463496a0f5098cad8cd, type: 2}
-  - {fileID: 11400000, guid: f38a2eaa6beac4fa9bec8aa21b7e0b07, type: 2}
-  - {fileID: 11400000, guid: 3054bc1d57b9f479fa9d5d9428bd4bb1, type: 2}
-  - {fileID: 11400000, guid: 4f0de627353034e2fa2d21148807ba96, type: 2}
-  - {fileID: 11400000, guid: 4eca70a2b86034060acbe7c7cf8cba73, type: 2}
-  - {fileID: 11400000, guid: 56fdb6517b422405693ba0dc7356396c, type: 2}
+  - {fileID: 11400000, guid: 02a9d0f616f17447aa99f4f1d5ccd2af, type: 2}
+  - {fileID: 11400000, guid: 44a2ea8455ad54f03a0a55fb2a8f3904, type: 2}
+  - {fileID: 11400000, guid: 7ff5a287c5a3e446f86c3caa0310272d, type: 2}
+  - {fileID: 11400000, guid: 84d71fa1feff24c5bb198d95d5f7d298, type: 2}
+  - {fileID: 11400000, guid: ebffd0a3ad5a04424b940d45c14f8e53, type: 2}
+  - {fileID: 11400000, guid: ef7c6ec30ea4a44f099082db745dec67, type: 2}

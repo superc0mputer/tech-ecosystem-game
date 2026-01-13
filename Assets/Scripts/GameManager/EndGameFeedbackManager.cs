@@ -24,10 +24,7 @@ public class EndGameFeedbackManager : MonoBehaviour
         public TextMeshProUGUI scoreText;       
         public TextMeshProUGUI stateText;       
         public TextMeshProUGUI descriptionText;
-        
-        // CHANGED: Replaced Slider with your custom component
         public ResourceSegmentBar resourceBar; 
-        
         public Image headshotImage;
         public TextMeshProUGUI nameText;
     }
@@ -40,34 +37,51 @@ public class EndGameFeedbackManager : MonoBehaviour
 
     private void AutoWireUI()
     {
-        WireSlot(panelEndGame.transform, "Panel Stakeholder Summary Industry",      slotIndustry);
-        WireSlot(panelEndGame.transform, "Panel Stakeholder Summary Governance",    slotGovernance);
-        WireSlot(panelEndGame.transform, "Panel Stakeholder Summary Civil Society", slotCivilSociety);
-        WireSlot(panelEndGame.transform, "Panel Stakeholder Summary Innovation",    slotInnovation);
+        if (panelEndGame == null)
+        {
+            Debug.LogError("Panel End Screen is not assigned in the Inspector!");
+            return;
+        }
+
+        // UPDATED: Find the container "Panel Stakeholder" first
+        Transform container = panelEndGame.transform.Find("Panel Stakeholder");
+
+        if (container == null)
+        {
+            Debug.LogError("Could not find 'Panel Stakeholder' inside Panel End Screen. Check hierarchy names.");
+            return;
+        }
+
+        // UPDATED: Wire using the 'container' as the root, not panelEndGame
+        WireSlot(container, "Panel Stakeholder Summary Industry",      slotIndustry);
+        
+        // IMPORTANT: Matches the typo "Gocernance" seen in your screenshot
+        WireSlot(container, "Panel Stakeholder Summary Gocernance",    slotGovernance); 
+        
+        WireSlot(container, "Panel Stakeholder Summary Civil Society", slotCivilSociety);
+        WireSlot(container, "Panel Stakeholder Summary Innovation",    slotInnovation);
     }
 
     private void WireSlot(Transform root, string panelName, FeedbackSlot slot)
     {
         Transform panel = root.Find(panelName);
-        if (panel == null) return;
+        if (panel == null) 
+        {
+            Debug.LogWarning($"Could not find panel named '{panelName}' inside '{root.name}'");
+            return;
+        }
 
         var scoreObj = panel.Find("Score Number");
         var stateObj = panel.Find("State Text") ?? panel.Find("State");
         var descObj  = panel.Find("Description");
-        
-        // CHANGED: Look for the object named "Ressource" and get the SegmentBar
         var resourceObj = panel.Find("Ressource");
-        
         var nameObj = panel.Find("Name");
         var headObj = panel.Find("Headshot");
 
         if (scoreObj) slot.scoreText = scoreObj.GetComponent<TextMeshProUGUI>();
         if (stateObj) slot.stateText = stateObj.GetComponent<TextMeshProUGUI>();
         if (descObj)  slot.descriptionText = descObj.GetComponent<TextMeshProUGUI>();
-
-        // CHANGED: Get the custom component
         if (resourceObj) slot.resourceBar = resourceObj.GetComponent<ResourceSegmentBar>();
-        
         if (nameObj) slot.nameText = nameObj.GetComponent<TextMeshProUGUI>();
         if (headObj) slot.headshotImage = headObj.GetComponent<Image>();
     }
@@ -101,8 +115,6 @@ public class EndGameFeedbackManager : MonoBehaviour
         // 1. Fill Standard Stats
         if (slot.scoreText) slot.scoreText.text = score.ToString();
 
-        // CHANGED: Use the visual update method. 
-        // We pass '0' as the second argument because there is no "predicted change" in the game over screen.
         if (slot.resourceBar) slot.resourceBar.UpdateVisuals(score, 0);
 
         var data = GetOutcomeData(category, score);
@@ -133,7 +145,6 @@ public class EndGameFeedbackManager : MonoBehaviour
         }
     }
 
-    // (Kept GetOutcomeData exactly as it was)
     private (string state, string description) GetOutcomeData(string category, int score)
     {
          switch (category)

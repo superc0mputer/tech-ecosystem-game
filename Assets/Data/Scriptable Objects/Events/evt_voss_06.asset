@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_voss_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_voss_06
+  characterId: stk_voss
+  title: The Allied Request
+  bodyText: "An allied nation is requesting access to the system. They\u2019re stable.
+    Friendly. Strategically important. Once access is granted, control doesn\u2019t
+    stay technical. It becomes diplomatic."
+  choiceA:
+    label: Approve transfer
+    flavor: Allies need support.
+    outcomeTitle: Your AI spreads through military alliances. Retracting it later
+      becomes impossible.
+    outcomeText: The system is adopted by allied forces and used across different
+      command structures. While the technology remains the same, rules of engagement
+      and legal standards vary by country. Over time, the system supports decisions
+      made under assumptions you did not design for. Control fades not through misuse,
+      but through divergence in how "acceptable" outcomes are defined.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0
+  choiceB:
+    label: Deny transfer
+    flavor: Limit proliferation.
+    outcomeTitle: You limit proliferation. You strain political relationships.
+    outcomeText: Access to the system remains limited to a single command structure
+      with shared rules and legal standards. Decisions supported by the AI stay within
+      a framework you can influence and review. Allies pursue alternative tools or
+      adapt existing ones, reducing dependency on your system. Control remains clearer,
+      while coordination across partners becomes less integrated.
+    effects:
+      industry: -2
+      civilSociety: 0
+      governance: 3
+      innovation: 0

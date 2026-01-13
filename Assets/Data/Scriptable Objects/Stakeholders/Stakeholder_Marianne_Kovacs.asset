@@ -28,9 +28,9 @@ MonoBehaviour:
   headAddress: Marianne_Kovacs_Head
   bodyAddress: Marianne_Kovacs_Body
   associatedEvents:
-  - {fileID: 11400000, guid: ffb43573d9fe1475ca43cbca8c0722bc, type: 2}
-  - {fileID: 11400000, guid: 0f995f15430284d30abe2d48a49dcfc2, type: 2}
-  - {fileID: 11400000, guid: b57c21f06204848b0a093950511bafa7, type: 2}
-  - {fileID: 11400000, guid: 8c00344982f74492eaf4eea0239be0fc, type: 2}
-  - {fileID: 11400000, guid: 8ce73bf2cc1d84f74a20d7e36767f544, type: 2}
-  - {fileID: 11400000, guid: d7fec4427027848969b458599a9b0cc4, type: 2}
+  - {fileID: 11400000, guid: aa1073ae2a5e34256b74c249901a27f4, type: 2}
+  - {fileID: 11400000, guid: 16b707e170a8347ef9b21f4c00b511ee, type: 2}
+  - {fileID: 11400000, guid: 62335fdac3602440a953be2774d615fd, type: 2}
+  - {fileID: 11400000, guid: 9e8a32db94a6040fd81a7349af1f1948, type: 2}
+  - {fileID: 11400000, guid: 95e78b1ef215a4aefb0d70036b361a68, type: 2}
+  - {fileID: 11400000, guid: 7062682e5fd4440f1a666cce5c7489d6, type: 2}

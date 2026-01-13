@@ -25,11 +25,11 @@ MonoBehaviour:
   headAddress: Luis_Hernandez_Head
   bodyAddress: Luis_Hernandez_Body
   associatedEvents:
-  - {fileID: 11400000, guid: 69370ad41e73f44ef8a6fe79ad4a4f81, type: 2}
-  - {fileID: 11400000, guid: fc4dd4e77d1074a50b8e5ad7ccbc3bad, type: 2}
-  - {fileID: 11400000, guid: 70d44cee8a1be4f29851946ed7cc98c9, type: 2}
-  - {fileID: 11400000, guid: fa3c474a07ac942829ce1b568c3ce885, type: 2}
-  - {fileID: 11400000, guid: 6d10b1a7869324842ad2033622b335e6, type: 2}
-  - {fileID: 11400000, guid: 672b87e31b4da4e6eb267c28d6cbbea7, type: 2}
-  - {fileID: 11400000, guid: aa3a3353f4c0a46dc817c6cfc5d36242, type: 2}
-  - {fileID: 11400000, guid: cbad62b8c665e49ba86daf8c12580db7, type: 2}
+  - {fileID: 11400000, guid: b5b9337ae0688418496c501267c4f767, type: 2}
+  - {fileID: 11400000, guid: ca783394956464038b3f962c6a88d6a6, type: 2}
+  - {fileID: 11400000, guid: 6a0ca69c48f5f4fcfbc25a1f13afff29, type: 2}
+  - {fileID: 11400000, guid: e9e434d6c728144f7a9f183bfb48977e, type: 2}
+  - {fileID: 11400000, guid: 27265aa878526472d9b8de1ca7cfe2b0, type: 2}
+  - {fileID: 11400000, guid: fbcec104928a747dea41075f6a9443fb, type: 2}
+  - {fileID: 11400000, guid: 374732c18c1614b95a13c14002272c10, type: 2}
+  - {fileID: 11400000, guid: 06d4a1bd06ed349e0a617bbf01437ae0, type: 2}

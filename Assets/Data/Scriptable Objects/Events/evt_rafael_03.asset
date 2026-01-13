@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_rafael_03
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_rafael_03
+  characterId: stk_rafael
+  title: The Supplier Question
+  bodyText: Some of our critical components come from high-risk supply chains. Rare
+    earths. Specialty chips. Cooling materials. Subcontractors flagged for unsafe
+    labor conditions and forced overtime. We can switch to audited suppliers. But
+    it will cost more.
+  choiceA:
+    label: Source from audited ethical suppliers
+    flavor: We pay the premium.
+    outcomeTitle: Supply chains become cleaner. Expansion slows and costs rise.
+    outcomeText: The company shifts to suppliers that meet verified labor and safety
+      standards. Procurement becomes more transparent, and the risk of scandals tied
+      to forced labor or unsafe conditions drops. But higher prices and longer lead
+      times slow hardware expansion and raise operating costs. Ethical credibility
+      improves, while scale becomes harder to achieve.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0
+  choiceB:
+    label: Stick with current suppliers
+    flavor: We follow the market.
+    outcomeTitle: Hardware stays cheap. Ethical risk remains embedded.
+    outcomeText: The existing supply network keeps components cheap and readily available,
+      supporting rapid build-out of data center capacity. Production stays flexible
+      and competitive. At the same time, labor and safety issues remain part of the
+      chain, exposing the company to reputational and regulatory risk. Speed is preserved,
+      while ethical uncertainty continues in the background.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0

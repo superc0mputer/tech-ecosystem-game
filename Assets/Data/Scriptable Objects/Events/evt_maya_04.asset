@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_maya_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_maya_04
+  characterId: stk_maya
+  title: The Default Problem
+  bodyText: "Most people never change the defaults. They assume defaults mean \u2018recommended\u2019.
+    Are they?"
+  choiceA:
+    label: Make defaults explicit
+    flavor: We clarify choices.
+    outcomeTitle: Users think twice. They also hesitate more.
+    outcomeText: Defaults are clearly labeled as choices rather than recommendations.
+      Users pause to consider alternatives, and some adjust settings to better match
+      their needs. Interactions become more intentional, but also slower and less
+      predictable. Autonomy increases, while friction enters previously automatic
+      flows.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Leave defaults untouched
+    flavor: Frictionless flow.
+    outcomeTitle: Decisions speed up. Dependence grows quietly.
+    outcomeText: The system continues to guide behavior through preselected options
+      that require no extra effort. Decisions happen quickly and with minimal interruption.
+      Over time, users adapt to the defaults rather than questioning them. Convenience
+      remains high, as dependence grows without being explicitly acknowledged.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

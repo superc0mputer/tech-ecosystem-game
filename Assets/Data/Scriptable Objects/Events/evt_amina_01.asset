@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_amina_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_amina_01
+  characterId: stk_amina
+  title: The Cheap Pilot
+  bodyText: "You\u2019re offering free AI tools to local governments, which also
+    bring great benefits. No cost. No long-term contract. But once systems adapt
+    around your product, leaving becomes expensive."
+  choiceA:
+    label: Add exit guarantees and local ownership
+    flavor: We make withdrawal possible.
+    outcomeTitle: Finalizing contracts takes time, risking cancellation.
+    outcomeText: Finalizing the contracts takes time. Questions about data ownership
+      and exit conditions can no longer be postponed, and some cities decide the
+      effort outweighs the benefit. Those that stay integrate your system cautiously,
+      keeping alternatives in place. Your AI becomes a helpful presence rather than
+      a silent default - chosen deliberately, and always replaceable.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Launch as planned
+    flavor: We lower barriers first.
+    outcomeTitle: Workflows adapt fast, creating quiet dependence.
+    outcomeText: The rollout is smooth and fast and covers a lot of regions. Workflows
+      adapt and your system settles quietly into daily routines. By the time contracts
+      are discussed, removing it would mean disruption few are willing to face. Dependence
+      forms without ceremony, and your AI becomes infrastructure before anyone notices.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_sofia_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_sofia_06
+  characterId: stk_sofia
+  title: Did You Write This?
+  bodyText: "Schools are panicking. Teachers can\u2019t tell what\u2019s human anymore.
+    Detection doesn\u2019t work. Students are being accused. Some unfairly. Some
+    correctly. This isn\u2019t about cheating. It\u2019s about whether your product
+    becomes part of assessment - or something institutions actively try to block."
+  choiceA:
+    label: Make the product incompatible with exams
+    flavor: We deliberately block use in exams.
+    outcomeTitle: Institutions stop treating your AI as an assessment threat. Students
+      continue using it outside formal evaluation.
+    outcomeText: Schools regain a clear standard for what counts as unaided work,
+      even though some students continue to use AI covertly. Disputes are framed
+      as rule-breaking rather than system design. The product remains widely used
+      for study, but not officially for proof of ability. Boundaries become clearer,
+      even if they are not perfectly enforceable.
+    effects:
+      industry: -2
+      civilSociety: 1
+      governance: 2
+      innovation: 0
+  choiceB:
+    label: Make the product compatible with assessment
+    flavor: We design features for grading.
+    outcomeTitle: Adoption accelerates in education. Traditional notions of authorship
+      erode.
+    outcomeText: AI use becomes normalized in graded work, reducing the need for
+      detection and enforcement. Students still differ in how they use it, but those
+      with better access and skill gain a measurable edge. Assessment shifts from
+      verifying authorship to managing assisted performance. The system fits institutions,
+      even as what counts as individual achievement becomes harder to define.
+    effects:
+      industry: 1
+      civilSociety: -1
+      governance: -2
+      innovation: 1

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_victor_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_victor_06
+  characterId: stk_victor
+  title: The Open Model Proposal
+  bodyText: "Academics are asking for access, NGOs want transparency - they\u2019re
+    asking for an open version of the model, not the data, just the logic of our
+    model. They say openness builds trust, but I see it diluting our ownership."
+  choiceA:
+    label: Keep the model closed.
+    flavor: Value requires enclosure.
+    outcomeTitle: Control remains intact. Skepticism grows.
+    outcomeText: Control and monetization remain intact, but skepticism grows. The
+      AI is seen as a black box serving private interests.
+    effects:
+      industry: 1
+      civilSociety: -1
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Release a limited open version.
+    flavor: Share without complete exposure.
+    outcomeTitle: Transparency improves. Exclusivity weakens.
+    outcomeText: Transparency improves and external scrutiny strengthens legitimacy.
+      However, competitors learn quickly, and our grip on exclusivity weakens.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 1
+      innovation: 0

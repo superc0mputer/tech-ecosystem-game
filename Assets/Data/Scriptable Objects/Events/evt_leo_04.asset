@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_leo_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_leo_04
+  characterId: stk_leo
+  title: Your AI Our Product
+  bodyText: "Our product is based entirely on your AI. When a user clicks a button,
+    your model runs. On your servers. We didn\u2019t build a fallback system. We
+    can\u2019t afford one. So every user we gain is a direct cost - and risk - for
+    you. If we charge users enough to cover that, we don\u2019t grow."
+  choiceA:
+    label: Carry the infrastructure burden
+    flavor: We fuel ecosystem growth.
+    outcomeTitle: "The product scales fast \u2014 on your AI. Your costs rise faster
+      than your revenue."
+    outcomeText: "Leo\u2019s product scales quickly, tightly coupled to your infrastructure
+      and performance. Adoption accelerates, showcasing the system\u2019s potential
+      as a foundation for others. At the same time, operational costs rise faster
+      than direct returns, and financial exposure grows with every additional user."
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 0
+      innovation: 2
+  choiceB:
+    label: Force Leo to internalize the costs
+    flavor: "Our AI isn\u2019t free infrastructure."
+    outcomeTitle: "Your financial exposure stays controlled. Leo\u2019s product growth
+      stalls or migrates elsewhere."
+    outcomeText: Cost boundaries are made explicit, and usage becomes financially
+      predictable. Leo is forced to slow growth, raise prices, or seek alternatives
+      that shift the burden elsewhere. Your exposure remains contained, but so does
+      your influence over how his product evolves.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: -1

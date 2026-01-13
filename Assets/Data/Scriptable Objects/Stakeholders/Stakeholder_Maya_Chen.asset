@@ -28,10 +28,10 @@ MonoBehaviour:
   headAddress: Maya_Chen_Head
   bodyAddress: Maya_Chen_Body
   associatedEvents:
-  - {fileID: 11400000, guid: 3422a861586e44acc81691a177c86419, type: 2}
-  - {fileID: 11400000, guid: 0eac42383140f4e2f92eeed7a82dcbae, type: 2}
-  - {fileID: 11400000, guid: e839264e454d34043943bbcc7551cfe4, type: 2}
-  - {fileID: 11400000, guid: c87d249eb150848bca82c27be794e498, type: 2}
-  - {fileID: 11400000, guid: ccd08e213415344df80ed1b918beb2b2, type: 2}
-  - {fileID: 11400000, guid: 9282839f380a6421e80e23681949d789, type: 2}
-  - {fileID: 11400000, guid: a541064a0eacd42c48e5cc93da4283f8, type: 2}
+  - {fileID: 11400000, guid: 9292286deba5b4ac89e88348d6b06306, type: 2}
+  - {fileID: 11400000, guid: 7376932142bee41e49089d4860a08dd5, type: 2}
+  - {fileID: 11400000, guid: f53a7cb26a685408dbb37cd14d6671f6, type: 2}
+  - {fileID: 11400000, guid: c5f8d5bc030bd458a93a64e4e947acae, type: 2}
+  - {fileID: 11400000, guid: 16c1891e82a924f29b334149824781f0, type: 2}
+  - {fileID: 11400000, guid: 8771cd1373b7d418c95cf9c6385a9332, type: 2}
+  - {fileID: 11400000, guid: cd87e9d786a264e0e8da545dc51de740, type: 2}

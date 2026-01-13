@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_rosa_05
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_rosa_05
+  characterId: stk_rosa
+  title: The Decision Was the System
+  bodyText: Agencies are changing how they talk to people. When someone asks why
+    they were rejected, the answer is always the same. The system decided. Not the
+    agency. Not a caseworker. Your product.
+  choiceA:
+    label: Force clients to retain visible responsibility
+    flavor: No decision without a human name attached.
+    outcomeTitle: Accountability returns to institutions. Some clients resist or
+      delay adoption.
+    outcomeText: Agencies are required to attach a named official to each decision,
+      even when the system provides the recommendation. Appeals and complaints find
+      a clear point of contact, and reasoning becomes easier to challenge. Some clients
+      slow or pause adoption, as liability becomes more explicit. Accountability
+      strengthens, while friction increases.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 2
+      innovation: 0
+  choiceB:
+    label: Allow full delegation to the system
+    flavor: Clients choose how they use it.
+    outcomeTitle: Your system becomes the final authority. Responsibility dissolves
+      upward.
+    outcomeText: Decisions are issued directly by the system, embedded in automated
+      workflows. Caseworkers and agencies act as operators rather than authors of
+      outcomes. Processing accelerates, and consistency improves. Over time, responsibility
+      becomes harder to locate, as authority shifts from institutions to infrastructure.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: 0
+      innovation: 1

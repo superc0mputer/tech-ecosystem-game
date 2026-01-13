@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_sofia_03
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_sofia_03
+  characterId: stk_sofia
+  title: Synthetic Voices
+  bodyText: In that video - it sounds like a famous actor. Your AI can generate voices
+    that are indistinguishable. Legality is unclear. Ethics even more so. This can
+    be a story about democratized creativity - or about consent disappearing.
+  choiceA:
+    label: Restrict voice models to licensed use
+    flavor: We require explicit permission.
+    outcomeTitle: Consent becomes the headline. Creative experimentation narrows.
+    outcomeText: Voice generation is tied to verified rights holders and clear consent.
+      Public debate centers on ownership and protection rather than novelty. Some
+      creative projects become harder to realize, as access is filtered through legal
+      and contractual checks. Trust increases, even as the range of experiments becomes
+      more constrained.
+    effects:
+      industry: 0
+      civilSociety: 1
+      governance: 2
+      innovation: -2
+  choiceB:
+    label: Allow open voice synthesis
+    flavor: We trust users.
+    outcomeTitle: New uses explode. So do uncomfortable questions.
+    outcomeText: Voice tools spread quickly into entertainment, parody, and personal
+      projects. Boundaries around identity and permission remain undefined, creating
+      both excitement and unease. New forms of expression emerge alongside cases
+      of impersonation and misuse. Innovation accelerates, while questions about
+      consent and accountability grow louder.
+    effects:
+      industry: 0
+      civilSociety: -1
+      governance: -1
+      innovation: 2

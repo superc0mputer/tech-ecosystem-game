@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_marianne_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_marianne_04
+  characterId: stk_marianne
+  title: Unreadable Evidence
+  bodyText: "This is from an active case. A citizen is suing a public agency over
+    an automated decision. These are your system logs. These logs are accurate, but
+    they\u2019re written for machines - not for courts. If no one can explain them,
+    they\u2019re not evidence. They\u2019re noise."
+  choiceA:
+    label: Reformat evidence for courts
+    flavor: We translate the logs.
+    outcomeTitle: The case proceeds. Your engineers lose weeks making the system
+      legible.
+    outcomeText: Your company produces court-ready explanations, timelines, and causal
+      chains from the raw system logs. Judges and lawyers can meaningfully assess
+      what the AI did and why. But engineering and legal teams are pulled into ongoing
+      case support, slowing product development and increasing liability exposure.
+      Transparency improves, while operational and legal costs rise.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: 2
+      innovation: -1
+  choiceB:
+    label: Submit raw technical data
+    flavor: This is industry standard.
+    outcomeTitle: The submission is formally accepted. The case stalls anyway.
+    outcomeText: Your company meets disclosure obligations by providing full technical
+      records without interpretation. Development continues uninterrupted, and sensitive
+      design details remain harder to extract. Courts and plaintiffs struggle to
+      use the data, slowing or weakening cases. Operational freedom increases, even
+      as the justice system loses leverage over the technology.
+    effects:
+      industry: 1
+      civilSociety: 0
+      governance: -1
+      innovation: 1

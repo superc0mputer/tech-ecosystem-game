@@ -28,10 +28,10 @@ MonoBehaviour:
   headAddress: Rafael_Ortiz_Head
   bodyAddress: Rafael_Ortiz_Body
   associatedEvents:
-  - {fileID: 11400000, guid: b6c767dc67e2e4710b7116f8bc29445d, type: 2}
-  - {fileID: 11400000, guid: 4d92b2028bead42358e792a713785db1, type: 2}
-  - {fileID: 11400000, guid: 008181a52a3ce416e802b35243ad9960, type: 2}
-  - {fileID: 11400000, guid: 28e122871bbf0420288ce3e3aaa56c18, type: 2}
-  - {fileID: 11400000, guid: a67e8dd7efe6449349ad30d8af78a75e, type: 2}
-  - {fileID: 11400000, guid: b4313d77f6f944bedb78c2cd36414ef4, type: 2}
-  - {fileID: 11400000, guid: f85f741b05ab84ffca14123bad5df31b, type: 2}
+  - {fileID: 11400000, guid: 75ba448d273754f3d8951dbed235dac5, type: 2}
+  - {fileID: 11400000, guid: b4685a49f78d149afb28f94cd09b8e10, type: 2}
+  - {fileID: 11400000, guid: 50209e1383ae94160b260305c3668525, type: 2}
+  - {fileID: 11400000, guid: f859eb154b719488aa99a7fa9a0fd5e2, type: 2}
+  - {fileID: 11400000, guid: f0c1e438b8f6b4dffb7d9ea03897da56, type: 2}
+  - {fileID: 11400000, guid: f78e64ecd64a641ff96c51ab19c1ad69, type: 2}
+  - {fileID: 11400000, guid: bd25f62b1fe5346bab893d72d7fc1a26, type: 2}

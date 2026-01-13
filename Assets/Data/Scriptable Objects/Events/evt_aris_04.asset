@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_aris_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_aris_04
+  characterId: stk_aris
+  title: Age Is Just a Setting
+  bodyText: "Age gating exists, but the system doesn\u2019t behave differently. Same
+    recommendation loops. Same nudges. Same feedback. If age matters only on paper,
+    what does it protect?"
+  choiceA:
+    label: Limit certain features for younger users
+    flavor: We reduce intensity.
+    outcomeTitle: Youth exposure decreases. Product consistency breaks.
+    outcomeText: Younger users encounter a more constrained version of the system,
+      with fewer feedback loops and less aggressive engagement mechanics. Certain
+      risks are reduced, but differences between age groups introduce complexity
+      into design and maintenance. Product behavior becomes harder to unify, even
+      as safeguards become more meaningful for those most affected.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Keep one experience for all users
+    flavor: "We don\u2019t fragment the system."
+    outcomeTitle: The platform stays simple. Protection remains symbolic.
+    outcomeText: The platform remains technically uniform, and youth access is managed
+      through age checks, moderation, and external controls. Younger users encounter
+      the same engagement and recommendation dynamics as adults, relying on oversight
+      rather than design differences for protection. Development stays streamlined,
+      while the impact on minors depends on how consistently those safeguards are
+      enforced.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

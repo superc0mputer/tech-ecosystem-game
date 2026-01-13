@@ -25,9 +25,9 @@ MonoBehaviour:
   headAddress: Sofia_Marin_Head
   bodyAddress: Sofia_Marin_Body
   associatedEvents:
-  - {fileID: 11400000, guid: d05932b5adc9744f994f29ac403d85d1, type: 2}
-  - {fileID: 11400000, guid: 8248794be329c4c13bea871a0317df28, type: 2}
-  - {fileID: 11400000, guid: 743ac96d1fe894af98780f4c5d75d59e, type: 2}
-  - {fileID: 11400000, guid: eac59525ffebe430dbfc6656843e13d2, type: 2}
-  - {fileID: 11400000, guid: 4d1cf3210093649e9a37f2ae3995b370, type: 2}
-  - {fileID: 11400000, guid: 80c44b4218a314730bef4e655a609807, type: 2}
+  - {fileID: 11400000, guid: 4bbc54e352f9a4f819dcda0d08f5cb0f, type: 2}
+  - {fileID: 11400000, guid: 6bcd2669e1af848e186010b9efb4fbe2, type: 2}
+  - {fileID: 11400000, guid: 7125180dfc30844c385aa9199848fd92, type: 2}
+  - {fileID: 11400000, guid: 58c026e09442f4a23b7f5865d954ceb6, type: 2}
+  - {fileID: 11400000, guid: 5877811ed40254d04ada2891e8517ebb, type: 2}
+  - {fileID: 11400000, guid: f4b81ca08c6ef40fca098535a70969d5, type: 2}

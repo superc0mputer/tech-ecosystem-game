@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_victor_05
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_victor_05
+  characterId: stk_victor
+  title: Emotional Index Futures
+  bodyText: "We can predict trends before they happen. Anxiety spikes. Burnout cycles.
+    If we aggregate early enough, these signals are worth more than therapy itself.
+    We can sell people foresight into their future states. It\u2019ll be next level
+    self-prediction!"
+  choiceA:
+    label: Commercialize predictive emotional indices.
+    flavor: Sell the signal.
+    outcomeTitle: New markets emerge. Public unease grows.
+    outcomeText: New markets emerge in finance, HR, and policy forecasting. While
+      anonymized, the idea that collective emotional states are being traded triggers
+      public unease. Mental health becomes a speculative resource rather than a social
+      concern.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Restrict use to internal improvement.
+    flavor: Keep it therapeutic.
+    outcomeTitle: Profits are lost. Exploitation accusations avoided.
+    outcomeText: The AI remains focused on care quality rather than market intelligence.
+      Potential profits are lost, but accusations of emotional exploitation are avoided.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: -1

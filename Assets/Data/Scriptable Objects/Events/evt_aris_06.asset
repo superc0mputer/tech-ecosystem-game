@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_aris_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_aris_06
+  characterId: stk_aris
+  title: Designing for the Most Affected
+  bodyText: "Your system optimizes for average users. But harm isn\u2019t evenly
+    distributed. A small group bears most of the downside: young users, people in
+    crisis, users with limited alternatives. You can keep optimizing for the majority.
+    Or you can redesign around the worst outcomes. You won\u2019t be able to do both."
+  choiceA:
+    label: Optimize for worst-case impact
+    flavor: We design for those at greatest risk.
+    outcomeTitle: Severe harms decrease. Overall performance and growth slow.
+    outcomeText: Design choices begin to prioritize scenarios where the system causes
+      the most damage, even if they affect a small fraction of users. Safeguards,
+      limits, and slower feedback loops reduce the severity of failures for those
+      most exposed. The experience becomes more cautious and less optimized for speed
+      or engagement. Extreme outcomes become rarer, while average performance becomes
+      less aggressive.
+    effects:
+      industry: -1
+      civilSociety: 3
+      governance: 1
+      innovation: 0
+  choiceB:
+    label: Optimize for average performance
+    flavor: We design for scale.
+    outcomeTitle: The system remains competitive. Outliers continue to absorb the
+      cost.
+    outcomeText: The system continues to improve for the majority of users, reinforcing
+      smooth interactions and strong growth metrics. Design decisions are guided
+      by typical usage rather than rare but severe cases. Most users benefit from
+      increased efficiency, while those at the margins experience the full force
+      of failures. Performance remains high, even as some costs are carried by a
+      few.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: 0
+      innovation: 1

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_victor_03
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_victor_03
+  characterId: stk_victor
+  title: Secondary Markets
+  bodyText: "We\u2019re sitting on more intelligence than we use. Why sell one system
+    when we can sell twenty specialized versions? Let others build on our work for
+    a fee."
+  choiceA:
+    label: Launch the data and model exchange.
+    flavor: Let the market scale it.
+    outcomeTitle: Ecosystem thrives. Accountability diffuses.
+    outcomeText: A thriving ecosystem emerges, but accountability becomes more difficult
+      to manage. When harms occur, responsibility is diffused across licensees. Regulators
+      struggle to trace liability, and public oversight weakens.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 1
+  choiceB:
+    label: Keep models centralized.
+    flavor: Maintain control.
+    outcomeTitle: Oversight remains clear. Innovation slows.
+    outcomeText: Oversight remains clear and defensible, but innovation slows. External
+      developers are excluded, and Victor argues that value is being artificially
+      constrained.
+    effects:
+      industry: -1
+      civilSociety: 1
+      governance: 2
+      innovation: -1

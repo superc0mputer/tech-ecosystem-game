@@ -28,9 +28,9 @@ MonoBehaviour:
   headAddress: Rosa_Martinez_Head
   bodyAddress: Rosa_Martinez_Body
   associatedEvents:
-  - {fileID: 11400000, guid: 0f0b3c0d0be594c1d8244df0bd665e98, type: 2}
-  - {fileID: 11400000, guid: df036ca408dfc4bd7b1d1abf2c8e99ff, type: 2}
-  - {fileID: 11400000, guid: 4b97b35d40d6d4febb11eb1ae15c31c0, type: 2}
-  - {fileID: 11400000, guid: aea533d45ad2b4480b5870aa26561a5f, type: 2}
-  - {fileID: 11400000, guid: d7199fbef581b497bb7b8e2f5333b8bc, type: 2}
-  - {fileID: 11400000, guid: 6391ad791f92344b4a6deb60ad7f7815, type: 2}
+  - {fileID: 11400000, guid: 82aba3977d27b4048b82224abc4f3007, type: 2}
+  - {fileID: 11400000, guid: fefbaf6421a0748d98adfead98607f5b, type: 2}
+  - {fileID: 11400000, guid: 1e4328326016b4d358ba47c4c5d10577, type: 2}
+  - {fileID: 11400000, guid: b5b655de0d7654982b0344d66cd3e0f6, type: 2}
+  - {fileID: 11400000, guid: 3fcc1a4cccf4b4452a5c0cc7dfa38e9b, type: 2}
+  - {fileID: 11400000, guid: 5a5f073cc9c014b0ea012d9e6d213c4d, type: 2}

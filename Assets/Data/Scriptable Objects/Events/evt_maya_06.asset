@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_maya_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_maya_06
+  characterId: stk_maya
+  title: Terms and Conditions
+  bodyText: "Legal proposes an update. A new clause clearly states that users are
+    fully responsible for decisions made with AI assistance. Maya reads it and sighs:
+    \"So\u2026 it helps me decide. But only until something goes wrong.\""
+  choiceA:
+    label: Clarify and limit liability
+    flavor: We protect the user too.
+    outcomeTitle: Trust stabilizes. Your lawyers start sleeping less.
+    outcomeText: The terms are rewritten to specify when the system can be relied
+      on and where its responsibility ends. Some use cases become harder to offer,
+      but disputes are easier to resolve. Users gain clearer expectations, even as
+      legal complexity increases behind the scenes. Trust grows slowly, while operational
+      flexibility narrows.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 3
+      innovation: 0
+  choiceB:
+    label: Add the clause
+    flavor: We protect the company.
+    outcomeTitle: "Risk shifts downward. Users notice \u2014 eventually."
+    outcomeText: The clause places responsibility squarely on the user, allowing
+      the system to be used across a wider range of decisions. Adoption continues
+      with minimal friction, as legal risk is pushed outward. Over time, users begin
+      to recognize the imbalance between influence and liability. Efficiency remains
+      high, even as confidence in the fairness of the arrangement erodes.
+    effects:
+      industry: 3
+      civilSociety: -1
+      governance: 0
+      innovation: 0

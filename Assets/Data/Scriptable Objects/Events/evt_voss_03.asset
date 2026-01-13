@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_voss_03
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_voss_03
+  characterId: stk_voss
+  title: Dual-Use Reality
+  bodyText: "Your AI can optimize logistics, prediction, and coordination. Those
+    are civilian features - and military ones. If you don\u2019t plan for defense
+    use, others will use it without constraints."
+  choiceA:
+    label: Engage in dual-use planning
+    flavor: We help define limits.
+    outcomeTitle: You help define limits from inside the system. Publicly, nothing
+      changes.
+    outcomeText: "The company becomes involved in defining safeguards and operational
+      boundaries within defense contexts. Some constraints are shaped early, embedded
+      before alternative implementations take hold. Publicly, the system\u2019s role
+      appears unchanged, as defense use remains indirect or undisclosed. Influence
+      increases inside closed environments, while visibility stays limited."
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Commit to civilian-only use
+    flavor: We stay civilian.
+    outcomeTitle: Your position is clear. So is your lack of influence over military
+      applications.
+    outcomeText: "The company\u2019s stance is stated clearly and consistently across
+      partnerships. Civilian applications remain the focus, and public alignment
+      strengthens. Military use proceeds independently, adapted from external sources
+      without your input. The boundary holds, even as control over how similar systems
+      are applied elsewhere recedes."
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0

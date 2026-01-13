@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_marcus_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_marcus_01
+  characterId: stk_marcus
+  title: Just a Small Data Adjustment
+  bodyText: "Retention could double if we\u2026 reinterpret user consent. Relax -
+    everyone does it. We\u2019ll call it \u2018industry standard\u2019."
+  choiceA:
+    label: Do it.
+    flavor: Growth first.
+    outcomeTitle: Your KPIs explode. Somewhere, a privacy advocate refreshes Twitter.
+    outcomeText: Consent becomes easier to obtain and harder to notice. Fewer users
+      opt out, and engagement metrics improve across the board. Internally, the reinterpretation
+      quickly becomes routine, referenced as standard practice rather than a deliberate
+      choice. Outside the company, nothing visibly changes, but the gap between what
+      users expect and what the system actually does widens. Growth accelerates,
+      while trust erodes quietly, without triggering a clear moment of backlash.
+    effects:
+      industry: 1
+      civilSociety: -1
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: No.
+    flavor: We keep consent clean.
+    outcomeTitle: "Marcus frowns. \"Ethics don\u2019t show up in revenue reports.\""
+    outcomeText: The system asks more questions and moves more slowly. Some users
+      disengage when faced with repeated consent prompts, and growth remains modest.
+      Internally, teams adjust their ambitions, designing features that require less
+      data or scale less aggressively. The system remains easier to defend and easier
+      to explain, but its limits become more visible. Ethical clarity stabilizes
+      trust, even as Marcus notes that the numbers fail to reflect it.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0

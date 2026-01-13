@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_amina_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_amina_04
+  characterId: stk_amina
+  title: The Local Vendor Question
+  bodyText: "Your deployments for cloud services, consultants and support contracts
+    rely on a few big established international partners. Why don\u2019t you integrate
+    local companies in your system? They are present - just not selected. I guess
+    it\u2019s just all about efficiency and supposed reliability."
+  choiceA:
+    label: Prioritize local vendors where possible
+    flavor: Okay
+    outcomeTitle: -1
+    outcomeText: Local economies benefit. Coordination slows.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: 2
+      innovation: 0
+  choiceB:
+    label: Local firms are integrated into deployments, even when they lack scale.
+      Coordination becomes slower and solutions less uniform. Over time, local expertise
+      grows around your system, reducing dependence on a few big actors and embedding
+      the AI more deeply into existing economies.
+    flavor: Use established global partners
+    outcomeTitle: 2
+    outcomeText: Deployments scale cleanly. Partners gain leverage.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: -1
+      innovation: 0

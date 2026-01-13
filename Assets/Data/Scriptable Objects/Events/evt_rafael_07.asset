@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_rafael_07
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_rafael_07
+  characterId: stk_rafael
+  title: The Rebound Effect
+  bodyText: "Our efficiency work paid off. Energy per request is down. Costs dropped.
+    Usage didn\u2019t just grow. It exploded. Because the system is cheaper and faster,
+    people use it more. For things they wouldn\u2019t have used it for before. Total
+    energy use is now higher than before the optimization. This is just what happens
+    when something gets better."
+  choiceA:
+    label: Cap usage despite efficiency gains
+    flavor: We limit growth deliberately.
+    outcomeTitle: Total resource use stabilizes. Customers accuse you of artificial
+      scarcity.
+    outcomeText: Limits are placed on how much compute can be consumed, even though
+      each request is now cheaper. Total energy and water use level off, and environmental
+      targets become easier to meet. Customers who want to expand complain about
+      constrained access and rising prices. Sustainability improves, while market
+      growth is held back.
+    effects:
+      industry: -2
+      civilSociety: 1
+      governance: 2
+      innovation: 0
+  choiceB:
+    label: Let demand scale freely
+    flavor: Efficiency justifies growth.
+    outcomeTitle: Adoption surges. Infrastructure strain accelerates again.
+    outcomeText: Lower costs and faster performance unlock new uses and a wave of
+      additional demand. The platform becomes embedded in more products and workflows.
+      Infrastructure and resource consumption climb again as overall volume rises.
+      Growth accelerates, while environmental and regulatory pressure returns.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -2
+      innovation: 1

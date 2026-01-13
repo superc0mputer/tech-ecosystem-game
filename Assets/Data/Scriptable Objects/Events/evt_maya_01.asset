@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_maya_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_maya_01
+  characterId: stk_maya
+  title: Confidently Wrong
+  bodyText: "I like the AI. I really do. But it sounds confident in the same way
+    people do right before they\u2019re wrong. When it\u2019s wrong, it doesn\u2019t
+    sound wrong."
+  choiceA:
+    label: Tone down the confidence
+    flavor: We add uncertainty.
+    outcomeTitle: Users pause more often. They also trust themselves again.
+    outcomeText: The system signals uncertainty more clearly, prompting users to
+      slow down and verify key outputs. Workflows become more deliberate, with more
+      human judgment in the loop. Some tasks take longer, but errors are caught earlier.
+      The productivity of your system drops slightly, while the reliability of decisions
+      improves.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Leave it as is
+    flavor: Confidence sells.
+    outcomeTitle: Decisions stay fast. Mistakes become harder to notice.
+    outcomeText: Your system continues to deliver confident answers that integrate
+      smoothly into fast-moving workflows. Users rely on it as a decisive reference,
+      reducing friction and speeding up routine work. Mistakes slip through more
+      easily, often discovered only after they have propagated. Efficiency of your
+      system rises, while correction shifts from prevention to cleanup.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

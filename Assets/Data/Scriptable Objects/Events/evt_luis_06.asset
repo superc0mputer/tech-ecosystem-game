@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_luis_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_luis_06
+  characterId: stk_luis
+  title: The EU Audit
+  bodyText: "The EU wants to audit our AI use. They\u2019re asking how decisions
+    are made - and who oversees them. If they find violations, this won\u2019t stay
+    a city problem."
+  choiceA:
+    label: Open the system to auditors
+    flavor: We cooperate fully.
+    outcomeTitle: The audit is slow and painful. Legitimacy improves.
+    outcomeText: "Auditors gain access to data flows, models, and decision logs,
+      extending the review process and exposing internal weaknesses. Fixes and clarifications
+      slow day-to-day operations. At the same time, the city\u2019s use of AI becomes
+      easier to defend in public and in law. Oversight deepens, while short-term
+      flexibility declines."
+    effects:
+      industry: -1
+      civilSociety: 1
+      governance: 3
+      innovation: 0
+  choiceB:
+    label: Limit disclosure
+    flavor: We provide summaries only.
+    outcomeTitle: The city avoids immediate sanctions. Scrutiny intensifies.
+    outcomeText: Only high-level documentation is provided, allowing the system to
+      keep running without major interruption. Immediate penalties are avoided, but
+      unanswered questions remain. Regulators begin to probe more aggressively, and
+      trust erodes among watchdogs and the public. Momentum holds, while the cost
+      of scrutiny rises.
+    effects:
+      industry: 3
+      civilSociety: -1
+      governance: -1
+      innovation: 0

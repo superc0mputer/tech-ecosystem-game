@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_amina_05
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_amina_05
+  characterId: stk_amina
+  title: Who Gets Support First?
+  bodyText: "Your helpdesk is overwhelmed. Not everywhere but in some regions. Bug
+    reports come in faster than they can be handled. Some are clear. But a lot of
+    them are vague and are written in broken English. So your support engineers are
+    triaging them. They don\u2019t mean to. But they answer the tickets they understand
+    fastest. Over time, that decides where the system actually works."
+  choiceA:
+    label: Prioritize equal support effort
+    flavor: "Response time shouldn\u2019t depend on how well someone writes a ticket."
+    outcomeTitle: Difficult contexts stabilize. Overall metrics drop.
+    outcomeText: Support cases take longer to resolve and your engineers spend more
+      time clarifying issues. But in regions where problems used to stall silently,
+      fixes start to appear. On the other hand overall performance metrics drop slightly.
+      All in all the system becomes more reliable in difficult contexts, but less
+      responsive where expectations were already high.
+    effects:
+      industry: -2
+      civilSociety: 2
+      governance: 1
+      innovation: 0
+  choiceB:
+    label: Optimize for efficiency in support
+    flavor: We fix what we can fix fastest.
+    outcomeTitle: Throughput improves. Complex problems linger.
+    outcomeText: The support throughput improves and metrics recover. The issues
+      which are reported clearly and completely are resolved quickly, and those regions
+      continue to see steady improvements. But in places where problems are harder
+      to communicate, they remain unresolved for longer.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: -1
+      innovation: 1

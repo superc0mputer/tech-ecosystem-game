@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_eleanor_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_eleanor_01
+  characterId: stk_eleanor
+  title: Ringfencing the Risk
+  bodyText: "One of your largest enterprise clients wants an indemnity clause. If
+    your AI causes harm, you cover the downstream liability. It helps close the deal.
+    It also means future incidents hit your balance sheet directly. This isn\u2019t
+    about blame. It\u2019s about where risk lives."
+  choiceA:
+    label: Accept broader liability
+    flavor: We absorb the risk to grow.
+    outcomeTitle: The contract closes quickly. Your company becomes the default backstop
+      when things go wrong.
+    outcomeText: The agreement is finalized without delay, and the client proceeds
+      with deployment. Liability shifts quietly onto your balance sheet, turning
+      the company into the first point of response when failures occur. Over time,
+      this reshapes internal decision-making, as legal exposure begins to influence
+      product design and rollout. Growth accelerates, but risk concentrates in fewer
+      hands.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0
+  choiceB:
+    label: Limit liability
+    flavor: "We don\u2019t underwrite unknown risk."
+    outcomeTitle: Some deals fall through. Future exposure becomes easier to price
+      and insure.
+    outcomeText: Negotiations take longer, and some clients walk away in favor of
+      more permissive vendors. The deals that remain are clearer in scope, with responsibilities
+      defined before deployment. Financial exposure becomes easier to model and insure,
+      even as short-term revenue suffers. The system grows more cautiously, shaped
+      by boundaries that make future failures easier to contain.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0

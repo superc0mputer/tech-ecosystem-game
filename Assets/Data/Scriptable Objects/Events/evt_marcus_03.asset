@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_marcus_03
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_marcus_03
+  characterId: stk_marcus
+  title: Engagement by Design
+  bodyText: "These are engagement loops. Nudges. Defaults. Nothing illegal. Nothing
+    obvious. People like being guided. We\u2019d just help them choose faster."
+  choiceA:
+    label: Implement the nudges.
+    flavor: Engagement first.
+    outcomeTitle: "Usage rises. Users stay longer \u2014 often without knowing why."
+    outcomeText: Subtle design choices begin to shape user behavior. Decisions feel
+      faster and easier, and overall usage time increases. Most users experience
+      the system as more intuitive, without noticing how strongly defaults and prompts
+      guide their actions. Engagement metrics improve, while the line between assistance
+      and influence becomes harder to define. The system works better by caring less
+      about whether users understand how it works.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Explain the system.
+    flavor: They deserve to know.
+    outcomeTitle: "Marcus raises an eyebrow. \"You really don\u2019t like asymmetry,
+      do you?\""
+    outcomeText: Explanations slow interactions and introduce friction into previously
+      seamless flows. Some users appreciate the transparency, while others disengage
+      when confronted with complexity. Engagement drops slightly, but expectations
+      become clearer on both sides. The system becomes easier to trust and harder
+      to optimize, as influence is replaced with consent that must be actively maintained.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0

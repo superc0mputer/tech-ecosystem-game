@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_voss_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_voss_01
+  characterId: stk_voss
+  title: A Classified Environment
+  bodyText: "We\u2019d like to test your AI in a classified environment - a military
+    network isolated from the internet, public oversight, and civilian use. No press.
+    No users. No public accountability. Just performance."
+  choiceA:
+    label: Approve the pilot
+    flavor: Performance matters.
+    outcomeTitle: "Your AI runs inside a closed military system. You can\u2019t talk
+      about it \u2014 but you know it works."
+    outcomeText: The system is deployed inside a sealed military network, evaluated
+      under conditions you cannot observe directly. Feedback arrives filtered and
+      delayed, focused on performance rather than consequence. Internally, confidence
+      grows that the technology works at scale, even if its use remains invisible.
+      The knowledge stays with you, while public accountability stays outside the
+      room.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Decline
+    flavor: Not our path.
+    outcomeTitle: Voss nods. "Then someone else will test theirs instead."
+    outcomeText: The proposal ends quietly, without dispute or publicity. The system
+      remains outside classified environments, preserving civilian boundaries and
+      external oversight. Development continues along public-facing paths, while
+      military testing moves elsewhere. You keep control over where the technology
+      appears, even as influence over how it might be used diminishes.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0

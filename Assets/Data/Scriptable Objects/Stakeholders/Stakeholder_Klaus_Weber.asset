@@ -28,9 +28,9 @@ MonoBehaviour:
   headAddress: Klaus_Weber_Head
   bodyAddress: Klaus_Weber_Body
   associatedEvents:
-  - {fileID: 11400000, guid: e5405044bab8e4c6b9f308f74ad628cf, type: 2}
-  - {fileID: 11400000, guid: 49267a23a70224c4fb7fa05609ae37ac, type: 2}
-  - {fileID: 11400000, guid: 9ed61e056f00d44ddabaef67822546da, type: 2}
-  - {fileID: 11400000, guid: 3463457981f664b1a850d79ac35a56b6, type: 2}
-  - {fileID: 11400000, guid: d8be76fedc77646ea9521738e7bf9f9a, type: 2}
-  - {fileID: 11400000, guid: 7b21c50ee78b447b1a6b4397c58fc23c, type: 2}
+  - {fileID: 11400000, guid: a2e3ef086c51840d2a2d9334793f4e53, type: 2}
+  - {fileID: 11400000, guid: 6cb6da0b004324088ba9529f4e0ca5d3, type: 2}
+  - {fileID: 11400000, guid: a6d5e86874ad947b189669eeb3cce2d5, type: 2}
+  - {fileID: 11400000, guid: 0d81d895af4014913bcada58c3a6744e, type: 2}
+  - {fileID: 11400000, guid: 5dbb0f4adfb2040dbb5d84f90fe178b6, type: 2}
+  - {fileID: 11400000, guid: 030b7e5ea086146cf8c1324788c63200, type: 2}

@@ -155,8 +155,8 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
         if(uiController != null) 
         {
-            // Pass the outcome text AND the actor to the UI
-            uiController.ShowOutcomeUI(choice.outcome, actor);
+            // UPDATED: Pass both Title and Text (Body) to the UI
+            uiController.ShowOutcomeUI(choice.outcomeTitle, choice.outcomeText, actor);
             
             // Generate the resource bars
             uiController.DisplayOutcomeSummary(oldState, resourceManager);

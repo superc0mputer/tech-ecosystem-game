@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_rafael_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_rafael_04
+  characterId: stk_rafael
+  title: The Carbon Bill
+  bodyText: "Our systems don\u2019t just consume electricity. They consume it at
+    scale: data centers, cooling, redundancy. In some regions, that now includes
+    carbon pricing. Every megawatt-hour has a cost and an emissions tag. We can keep
+    operating the same way. Or we can reduce the most energy-intensive workloads.
+    Either way, the bill doesn\u2019t go away."
+  choiceA:
+    label: Absorb the CO2 cost
+    flavor: We treat it as operating expense.
+    outcomeTitle: Development continues uninterrupted. Margins quietly shrink.
+    outcomeText: High-energy workloads continue to run, allowing research and product
+      teams to operate without new limits. The company treats carbon pricing as just
+      another line item in the budget. Over time, rising emissions costs eat into
+      margins and pricing flexibility. Progress holds, while financial pressure quietly
+      builds.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 0
+      innovation: 1
+  choiceB:
+    label: Reduce energy-heavy workloads
+    flavor: We cut where it hurts most.
+    outcomeTitle: Emissions fall. Some teams lose their favorite models.
+    outcomeText: The most power-hungry training runs and deployments are scaled back
+      or delayed. Emissions and carbon costs drop, easing public and regulatory pressure.
+      Some advanced models and experiments are shelved, frustrating parts of your
+      organization. Sustainability improves, while technical ambition is curtailed.
+    effects:
+      industry: 0
+      civilSociety: 1
+      governance: 0
+      innovation: -1

@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_rafael_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_rafael_01
+  characterId: stk_rafael
+  title: Where to Build the Data Center
+  bodyText: Site A runs mostly on solar. Energy is cheap and clean - but water is
+    scarce. Cooling will compete with agriculture. Site B has abundant water and
+    existing cooling infrastructure. But the grid relies heavily on coal and gas.
+  choiceA:
+    label: Build at the solar-powered site
+    flavor: We optimize for clean energy.
+    outcomeTitle: Emissions stay low. Water usage becomes a bottleneck.
+    outcomeText: The data center draws most of its power from solar, sharply reducing
+      carbon emissions and insulating the company from volatile energy prices. As
+      demand grows, however, cooling systems place increasing strain on a region
+      already short on water. Local farmers, municipalities, and regulators begin
+      to push back. The company gains a green reputation, while physical resource
+      limits start to cap how far and how fast it can expand.
+    effects:
+      industry: 1
+      civilSociety: 0
+      governance: 1
+      innovation: -1
+  choiceB:
+    label: Build at the water-secure site
+    flavor: We optimize for reliability and scale.
+    outcomeTitle: The system scales smoothly. Environmental scrutiny grows.
+    outcomeText: Reliable water and established infrastructure allow the facility
+      to scale without major technical hurdles. Performance, uptime, and expansion
+      plans remain predictable as the system grows. The electricity grid, however,
+      remains heavily fossil-fueled, increasing emissions and drawing criticism from
+      environmental groups and policymakers. Growth accelerates, even as the project
+      becomes harder to justify in climate and sustainability debates.
+    effects:
+      industry: 1
+      civilSociety: 0
+      governance: -1
+      innovation: 2

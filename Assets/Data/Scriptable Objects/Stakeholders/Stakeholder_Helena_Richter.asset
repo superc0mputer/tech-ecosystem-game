@@ -28,10 +28,10 @@ MonoBehaviour:
   headAddress: Helena_Richter_Head
   bodyAddress: Helena_Richter_Body
   associatedEvents:
-  - {fileID: 11400000, guid: 8cc1fc92d73d342feb90a1eddf40151d, type: 2}
-  - {fileID: 11400000, guid: 77b9bda361e0c4f45a46bec5999b8901, type: 2}
-  - {fileID: 11400000, guid: ec8f4d6871b144d37a5d3d0c4c4574f4, type: 2}
-  - {fileID: 11400000, guid: 121cb7b31fcb24fecae0e04c3969ffa3, type: 2}
-  - {fileID: 11400000, guid: 48d171b92b6a1454099e857a481f2e68, type: 2}
-  - {fileID: 11400000, guid: 9f73b90ccd27a47f693f0c109270f358, type: 2}
-  - {fileID: 11400000, guid: 8b639470216654677badea8874973c06, type: 2}
+  - {fileID: 11400000, guid: b3ffd1aedaecb4dedb1c8dff2b4c6a8a, type: 2}
+  - {fileID: 11400000, guid: 052114d3a22d14149a36fbbe462ec51a, type: 2}
+  - {fileID: 11400000, guid: a239e2d447ce6477e817a7446dc42357, type: 2}
+  - {fileID: 11400000, guid: b0f9629e9080943269779ed47475b134, type: 2}
+  - {fileID: 11400000, guid: 02da2f516ce7e46b3856e400d4c0d939, type: 2}
+  - {fileID: 11400000, guid: 7493f39c45ad5482f9d2bcbd38ac5287, type: 2}
+  - {fileID: 11400000, guid: f232786af93b6426697bc7bbb2bdf6d7, type: 2}

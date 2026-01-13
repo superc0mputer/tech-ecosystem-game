@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_sofia_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_sofia_04
+  characterId: stk_sofia
+  title: "It\u2019s Just a Joke"
+  bodyText: "Fake videos. Private people. Colleagues. Teachers. Ex-partners. Most
+    are framed as humor. But some targets are losing jobs. There\u2019s no single
+    victim yet. Just a story forming."
+  choiceA:
+    label: Introduce basic safeguards
+    flavor: We slow misuse.
+    outcomeTitle: Some abuse is flagged. Creators complain about friction.
+    outcomeText: Certain forms of abusive or deceptive content are flagged before
+      they spread widely. Some harmful cases are intercepted, while others slip through.
+      Creators encounter new limits that add friction to fast-moving trends. Harm
+      is reduced in specific instances, even as complaints about overreach and false
+      positives increase.
+    effects:
+      industry: -1
+      civilSociety: 1
+      governance: 1
+      innovation: 0
+  choiceB:
+    label: Leave moderation to platforms
+    flavor: "We\u2019re not the internet police."
+    outcomeTitle: Creative freedom stays intact. Targets are told to log off.
+    outcomeText: The tools remain open and flexible, with responsibility for content
+      pushed to downstream platforms. Moderation varies widely, depending on where
+      material is posted and who reports it. For some targets, recourse comes slowly
+      or not at all. Creative activity continues, while the burden of managing harm
+      shifts away from your company.
+    effects:
+      industry: 1
+      civilSociety: -2
+      governance: 1
+      innovation: 0

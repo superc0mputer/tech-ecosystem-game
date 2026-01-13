@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_klaus_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_klaus_01
+  characterId: stk_klaus
+  title: The Unknown Unknowns
+  bodyText: "There are behaviors of your system which your safety tests don\u2019t
+    predict. How do you plan to notice them?"
+  choiceA:
+    label: Deploy with live monitoring
+    flavor: We learn in production.
+    outcomeTitle: You gain insight - after exposure.
+    outcomeText: The system is released with extensive logging and real-time observation.
+      Unexpected behaviors are detected as they occur, but only after users are exposed
+      to them. Your company learns quickly from real-world signals, even as some
+      risks are discovered too late to prevent. Insight grows, while control becomes
+      more reactive.
+    effects:
+      industry: 0
+      civilSociety: 0
+      governance: -1
+      innovation: 1
+  choiceB:
+    label: Delay until confidence is higher
+    flavor: "We don\u2019t guess."
+    outcomeTitle: Momentum slows. Uncertainty shrinks.
+    outcomeText: Additional testing and review reduce the number of unknown behaviors
+      that reach users. Fewer surprises emerge after launch, and decisions rest on
+      more stable evidence. Development slows, and market momentum weakens. Uncertainty
+      shrinks, while opportunity costs accumulate.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0

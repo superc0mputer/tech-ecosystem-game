@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_victor_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_victor_04
+  characterId: stk_victor
+  title: The Audit Clause
+  bodyText: "Regulators want access to our data. Full access. They\u2019re saying
+    it\u2019s for \u2018accountability\u2019, but mandatory audits threaten proprietary
+    advantage. I think it will cause undue exposure. Once the model is inspectable,
+    it\u2019s replicable."
+  choiceA:
+    label: Resist comprehensive audits.
+    flavor: Protect the IP.
+    outcomeTitle: Advantage preserved. Political pressure mounts.
+    outcomeText: Competitive advantage is preserved, but political pressure mounts.
+      The AI is increasingly framed as operating beyond democratic oversight.
+    effects:
+      industry: 1
+      civilSociety: 0
+      governance: -2
+      innovation: 1
+  choiceB:
+    label: Accept full audits.
+    flavor: Trade secrecy for legitimacy.
+    outcomeTitle: Deployment slows. Trust increases.
+    outcomeText: "Deployment slows, but trust in the system increases. The AI becomes
+      a benchmark for compliance, reducing Victor\u2019s control over proprietary
+      boundaries."
+    effects:
+      industry: 0
+      civilSociety: 1
+      governance: 2
+      innovation: -1

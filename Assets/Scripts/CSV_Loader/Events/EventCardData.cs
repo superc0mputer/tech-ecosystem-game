@@ -14,7 +14,12 @@ public struct ChoiceData
 {
     public string label;     
     public string flavor;
-    public string outcome; 
+    
+    // Updated: Split outcome into Title and Narrative Text
+    public string outcomeTitle; 
+    [TextArea(3, 10)] 
+    public string outcomeText; 
+    
     public StatBlock effects; 
 }
 

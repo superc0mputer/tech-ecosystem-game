@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_luis_03
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_luis_03
+  characterId: stk_luis
+  title: Unequal Service
+  bodyText: "Luis puts a printed dashboard on the table. \"This AI sorts incoming
+    requests for City Hall. In the city center, requests are answered within hours.
+    In the outer districts, people wait days. The second area is already angry at
+    City Hall. They think we\u2019re ignoring them.\""
+  choiceA:
+    label: Fix fairness citywide
+    flavor: We rebalance priorities.
+    outcomeTitle: Response times become more equal. Overall processing slows down.
+    outcomeText: The prioritization system is adjusted to balance response times
+      across all districts. Service becomes more even, reducing visible disparities
+      between neighborhoods. High-demand areas see some delays as capacity is redistributed.
+      Equity improves, while overall throughput drops.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Optimize where it already works
+    flavor: Efficiency wins.
+    outcomeTitle: Central districts stay fast. Anger grows elsewhere.
+    outcomeText: Resources remain concentrated in districts where the system performs
+      best. Central areas continue to receive rapid responses, keeping headline metrics
+      strong. Outer districts wait longer, and dissatisfaction deepens. Efficiency
+      holds, even as political and social pressure builds in neglected areas.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

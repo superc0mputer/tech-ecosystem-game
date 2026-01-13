@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_luis_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_luis_01
+  characterId: stk_luis
+  title: City Hall on Fire
+  bodyText: "The council meeting just ended. Badly. People are waiting months for
+    building permits. The opposition is calling it \u2018digital incompetence\u2019.
+    If your AI can cut the backlog this week, I can survive the next headline and
+    in return I can help you with the next contract award."
+  choiceA:
+    label: Deploy immediately
+    flavor: The backlog ends.
+    outcomeTitle: Waiting times drop. Oversight is still catching up.
+    outcomeText: The system is rushed into service, cutting permit queues within
+      days and stabilizing the political situation. Several checks, audits, and training
+      steps are postponed to meet the deadline. Decisions are processed faster, but
+      errors and edge cases become harder to trace. Relief comes quickly, while hidden
+      risk accumulates in the background.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0
+  choiceB:
+    label: Wait for proper rollout
+    flavor: We check first.
+    outcomeTitle: "The backlog shrinks slowly. The headlines don\u2019t."
+    outcomeText: The system goes through formal testing, staff training, and oversight
+      reviews before being used on real cases. Errors are more likely to be caught
+      before they affect residents, and responsibility chains are clearly defined.
+      The permit backlog declines only slowly, leaving political pressure unresolved.
+      Legitimacy grows, even as public frustration continues.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0

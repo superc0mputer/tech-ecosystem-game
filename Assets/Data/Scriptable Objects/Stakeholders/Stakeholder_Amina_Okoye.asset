@@ -24,4 +24,10 @@ MonoBehaviour:
   uniqueTension: Innovation vs. exploitation; Industry vs. ethics at scale
   headAddress: Amina_Okoye_Head
   bodyAddress: Amina_Okoye_Body
-  associatedEvents: []
+  associatedEvents:
+  - {fileID: 11400000, guid: 652a4cb91fddc40cd8ab840af7dfb10b, type: 2}
+  - {fileID: 11400000, guid: a54abf1e4c7564c3bb4dddebc38a1298, type: 2}
+  - {fileID: 11400000, guid: 962f62c2fa1694d11953fd9ff4518e1b, type: 2}
+  - {fileID: 11400000, guid: 1c0930e3ac6fc43c6b5d78291fe406e1, type: 2}
+  - {fileID: 11400000, guid: 61ff59e113ec2412289d40911ac83440, type: 2}
+  - {fileID: 11400000, guid: be46eb58f7bec454d99f69c539a07039, type: 2}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_amina_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_amina_06
+  characterId: stk_amina
+  title: Which Language the System Speaks
+  bodyText: "Your system works best in English and a few other widely used languages.
+    That\u2019s not a surprise. Most of the data is there. Most of the testing too.
+    But when people explain complex situations in a second language, they simplify,
+    shorten and avoid nuance. The system still responds. Just not as well. I know
+    why you haven\u2019t expanded language support. Training is expensive. Evaluation
+    is harder. Mistakes are easier to miss. But right now, fluency decides who the
+    system understands best."
+  choiceA:
+    label: Expand training to underrepresented languages
+    flavor: The system should understand more people.
+    outcomeTitle: Access broadens. Testing becomes harder.
+    outcomeText: The model begins to support more languages and mixed-language inputs.
+      Performance improves for users who previously had to simplify or translate
+      their problems. At the same time, quality still varies between languages, and
+      new errors are harder to detect. So, development slows as testing and validation
+      become more complex.
+    effects:
+      industry: -2
+      civilSociety: 2
+      governance: 0
+      innovation: 1
+  choiceB:
+    label: Focus on high-quality support for major languages
+    flavor: Understanding fewer languages well is more efficient.
+    outcomeTitle: Accuracy stays high. The user base narrows.
+    outcomeText: Accuracy remains high in the supported languages. Updates stay predictable,
+      and responsibility is easy to trace when something goes wrong. In regions where
+      these languages are not widely spoken, complex cases are used less often with
+      the system. The AI handles routine decisions, while nuanced situations are
+      delayed or handled outside the system. The technology remains reliable where
+      it performs best. Elsewhere, its role quietly narrows.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: -1
+      innovation: 1

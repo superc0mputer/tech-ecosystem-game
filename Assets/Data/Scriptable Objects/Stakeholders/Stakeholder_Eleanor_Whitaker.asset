@@ -28,9 +28,9 @@ MonoBehaviour:
   headAddress: Eleanor_Whitaker_Head
   bodyAddress: Eleanor_Whitaker_Body
   associatedEvents:
-  - {fileID: 11400000, guid: e8382439ae3ab4a56a872dfc11ea9f8b, type: 2}
-  - {fileID: 11400000, guid: bd8068ab27362426f892b6c347ccf30c, type: 2}
-  - {fileID: 11400000, guid: 8fb33f403468f4436ad8bdb5e2fa7b82, type: 2}
-  - {fileID: 11400000, guid: 52b219cbc3391431fad323fd9af75d1a, type: 2}
-  - {fileID: 11400000, guid: dbcced059f195480aaf8b8704d3ec390, type: 2}
-  - {fileID: 11400000, guid: a2a38ab3589cf4b13b58fc9a347cf9ec, type: 2}
+  - {fileID: 11400000, guid: d4f368483dc08455a92f52397f348674, type: 2}
+  - {fileID: 11400000, guid: ed0054989f4a14354b6d5528b693af09, type: 2}
+  - {fileID: 11400000, guid: c9d47d9b1b8ab4368adf6601809617bc, type: 2}
+  - {fileID: 11400000, guid: 3a3d7cbfca7f445f1b34e36dafce23f9, type: 2}
+  - {fileID: 11400000, guid: 8cb9a2833585a483696af09cb8b47d7b, type: 2}
+  - {fileID: 11400000, guid: f17a457ceec074c71bff251691a08ed6, type: 2}

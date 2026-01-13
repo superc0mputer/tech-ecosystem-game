@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_leo_05
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_leo_05
+  characterId: stk_leo
+  title: Too Fast to Regulate
+  bodyText: "A copycat of our joint project just signed a high-visibility client.
+    Public-facing. Politically sensitive. They\u2019re using the same underlying
+    AI behavior. But without audits. Without guardrails. If this breaks, the technology
+    - not the startup - takes the blame. We need to speed up."
+  choiceA:
+    label: Accelerate joint project
+    flavor: We set the reference before others do.
+    outcomeTitle: Your implementation becomes the de facto standard. Public understanding
+      lags behind real impact.
+    outcomeText: Development accelerates by compressing review, validation, and oversight
+      steps. The system reaches public-facing deployments first and is treated as
+      a reference for how the technology works in practice. In the short term, visibility
+      brings influence. Over time, skipped safeguards become harder to explain if
+      problems surface, and early shortcuts shape how responsibility is assigned
+      after the fact.
+    effects:
+      industry: 1
+      civilSociety: -2
+      governance: 0
+      innovation: 2
+  choiceB:
+    label: Publicly draw a hard line
+    flavor: "We clarify what we will - and won\u2019t - support."
+    outcomeTitle: Your position becomes defensible in hearings and audits. But the
+      most visible deployments of your technology happen without you.
+    outcomeText: Development proceeds with full review and disclosure, slowing public
+      deployment. Less careful implementations appear first and define early perceptions
+      of the technology. When failures occur elsewhere, distinctions between responsible
+      and rushed use are not immediately visible. Accountability remains clear internally,
+      even as public trust in the broader technology category is tested.
+    effects:
+      industry: -2
+      civilSociety: 1
+      governance: 2
+      innovation: 0

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_victor_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_victor_01
+  characterId: stk_victor
+  title: Who Owns the Data?
+  bodyText: "Legal flagged an ambiguity. Users assume their conversations are theirs,
+    but once the model processes them, they\u2019re no longer raw data - they\u2019re
+    patterns extracted by our system. That\u2019s our IP. If we don\u2019t define
+    ownership now, someone else will. Regulators. Courts. Or worse - users."
+  choiceA:
+    label: Define conversations as company-owned derivatives.
+    flavor: Secure the asset.
+    outcomeTitle: Monetization accelerates. Users lose control.
+    outcomeText: The company establishes strong IP claims over conversational data
+      and derived insights, enabling licensing deals and long-term asset valuation.
+      Monetization accelerates, and Victor gains leverage in external negotiations.
+      However, users lose practical control over their disclosures, and civil society
+      groups begin to argue that emotional labor is being enclosed as corporate property.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: -1
+      innovation: 0
+  choiceB:
+    label: Acknowledge ongoing user ownership.
+    flavor: Limit the claim.
+    outcomeTitle: Trust stabilizes. Financial power weakens.
+    outcomeText: Ownership boundaries restrict large-scale data licensing. The system
+      becomes easier to defend ethically and legally, but Victor warns that without
+      exclusive assets, the platform risks becoming replaceable. Trust stabilises,
+      financial power does not.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 1
+      innovation: 0

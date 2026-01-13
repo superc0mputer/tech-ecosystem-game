@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_luis_07
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_luis_07
+  characterId: stk_luis
+  title: Targeted Visibility
+  bodyText: Our AI sends city notifications. Deadlines, service updates, reminders.
+    It started prioritizing districts with low engagement. Turnout improves there.
+    No one tells people who to vote for. But the timing helps me.
+  choiceA:
+    label: Standardize communication citywide
+    flavor: We make it strictly neutral.
+    outcomeTitle: Messaging becomes neutral. Political advantages flatten out.
+    outcomeText: Notifications are delivered uniformly, regardless of engagement
+      or political sensitivity. Residents receive the same information at the same
+      time, making the system easier to defend as neutral infrastructure. Targeted
+      turnout effects disappear, and so do some of the gains in responsiveness. Legitimacy
+      strengthens, while influence becomes harder to exercise.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 2
+      innovation: 0
+  choiceB:
+    label: Keep optimizing engagement
+    flavor: "It\u2019s still public service."
+    outcomeTitle: Engagement rises where it matters. So do questions about fairness.
+    outcomeText: The system continues to time and target messages where they produce
+      the strongest response. Certain districts become more active and reachable,
+      while others remain less visible. Public service metrics improve, but the pattern
+      of influence becomes uneven. Effectiveness rises, even as the line between
+      service delivery and political advantage grows thinner.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: -1
+      innovation: 0

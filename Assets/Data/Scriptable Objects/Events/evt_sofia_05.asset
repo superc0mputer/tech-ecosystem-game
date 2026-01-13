@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_sofia_05
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_sofia_05
+  characterId: stk_sofia
+  title: The Face Everyone Recognizes
+  bodyText: "This one\u2019s bad. A deepfake. Sexual. Degrading. A real person. Not
+    famous. Some persons lost their jobs. But the videos aren\u2019t illegal everywhere.
+    This isn\u2019t about tools anymore. It\u2019s about responsibility."
+  choiceA:
+    label: Take responsibility publicly
+    flavor: We act, even if it costs us.
+    outcomeTitle: Abuse drops sharply. Your platform is no longer framed as neutral
+      infrastructure.
+    outcomeText: Your company intervenes through takedowns, model restrictions, and
+      visible cooperation with platforms and investigators. Distribution of similar
+      material declines as access points narrow. At the same time, the system is
+      no longer seen as neutral infrastructure, but as an actor that can be held
+      to account. Abuse decreases, while expectations of oversight and liability
+      rise.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 2
+      innovation: 0
+  choiceB:
+    label: Defend openness, offer support to victims
+    flavor: "We don\u2019t restrict the tool, but we\u2019ll help the victims."
+    outcomeTitle: The tool remains flexible and widely used. Public trust fractures.
+    outcomeText: The technology remains broadly available and continues to be used
+      in many creative and commercial contexts. Victims receive assistance and resources,
+      but the underlying capabilities stay unchanged. For the public, the distinction
+      between tool and harm becomes harder to maintain. Usage grows, even as confidence
+      in how the system is governed weakens.
+    effects:
+      industry: 2
+      civilSociety: -2
+      governance: 0
+      innovation: 1

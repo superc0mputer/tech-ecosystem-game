@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_rafael_05
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_rafael_05
+  characterId: stk_rafael
+  title: Who Gets Priority?
+  bodyText: "When capacity is tight, we prioritize workload. Right now, it\u2019s
+    whoever pays most. We could reserve capacity for public or safety-critical uses.
+    Or keep it purely commercial."
+  choiceA:
+    label: Reserve capacity for critical uses
+    flavor: We limit peak profits.
+    outcomeTitle: Essential services remain stable. Revenue opportunities shrink.
+    outcomeText: A portion of compute is set aside for emergency services, public
+      infrastructure, and safety-critical workloads. Those users remain reliable
+      even during demand spikes. Commercial customers face occasional delays or higher
+      prices as capacity is constrained. Social value is protected, while peak revenue
+      potential declines.
+    effects:
+      industry: -1
+      civilSociety: 1
+      governance: 1
+      innovation: 0
+  choiceB:
+    label: Keep purely commercial prioritization
+    flavor: We follow the market.
+    outcomeTitle: Revenue is maximized. Access becomes uneven.
+    outcomeText: Compute is allocated through pricing, keeping utilization high and
+      revenue predictable, which supports ongoing investment in infrastructure. High-paying
+      clients receive consistent performance for demanding workloads. When capacity
+      tightens, public and smaller users are pushed aside. Market efficiency increases,
+      while access becomes increasingly unequal.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: -1
+      innovation: 0

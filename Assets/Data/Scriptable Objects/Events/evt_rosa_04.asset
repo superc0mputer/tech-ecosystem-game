@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_rosa_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_rosa_04
+  characterId: stk_rosa
+  title: The Feature Clients Ask For
+  bodyText: "Several agencies are asking for a \u2018risk flag\u2019. One indicator.
+    Red or green. It simplifies casework. It also becomes the decision."
+  choiceA:
+    label: Refuse to build a single-score flag
+    flavor: "We don\u2019t reduce people to one signal."
+    outcomeTitle: Decisions remain nuanced. Some clients look for simpler tools elsewhere.
+    outcomeText: Caseworkers continue to rely on multiple indicators and their own
+      judgment when reviewing applications. Decisions take more time, but edge cases
+      remain visible. Some agencies turn to other vendors offering simpler tools.
+      Nuance is preserved, even as standardization becomes harder to sell.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Offer the feature with disclaimers
+    flavor: We trust professionals to use it responsibly.
+    outcomeTitle: Adoption increases. The flag quietly dominates outcomes.
+    outcomeText: The single flag is quickly adopted as a shortcut in busy workflows.
+      Although officially only advisory, it becomes the first thing many reviewers
+      look at. Processing speeds up, and outcomes become more consistent. Over time,
+      the indicator shapes decisions more than the underlying evidence.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

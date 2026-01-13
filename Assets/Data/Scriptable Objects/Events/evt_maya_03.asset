@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_maya_03
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_maya_03
+  characterId: stk_maya
+  title: Surprise Update
+  bodyText: "Did the AI change\u2026 or am I imagining things? It feels different.
+    I just don\u2019t know how."
+  choiceA:
+    label: Add simple update notes
+    flavor: We explain changes.
+    outcomeTitle: Users feel oriented again. They also start paying attention.
+    outcomeText: Users receive brief summaries of what changed and why. Expectations
+      reset, and subtle shifts become easier to notice. People feel more grounded
+      in how the system evolves, even as they begin to scrutinize its behavior more
+      closely. Orientation improves, while complacency fades.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Keep updates invisible
+    flavor: Seamless magic.
+    outcomeTitle: Nothing breaks. Nothing is explained either.
+    outcomeText: The system continues to update quietly in the background, preserving
+      a smooth and uninterrupted experience. Performance improves without drawing
+      attention to itself. At the same time, users are left guessing whether changes
+      are real or imagined. Stability feels intact, even as understanding drifts.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0

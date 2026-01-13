@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_elara_07
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_elara_07
+  characterId: stk_elara
+  title: The Burnout Signal
+  bodyText: "We\u2019re seeing a pattern. Professionals using the system daily report
+    exhaustion, stress, detachment. The AI is always available. Always confident.
+    Always suggesting \u2018one more thing\u2019. It never stops. People do."
+  choiceA:
+    label: Introduce usage limits and rest cues
+    flavor: We design for long-term well-being.
+    outcomeTitle: Sessions shorten. Burnout reports decline.
+    outcomeText: The system starts nudging users to pause, limits continuous sessions,
+      and reduces the intensity of back-to-back tasks. Many users feel less overwhelmed
+      and regain a sense of control over their work. At the same time, long, uninterrupted
+      workflows become harder, and some teams complain about lost momentum. Output
+      drops slightly as healthier patterns replace constant availability.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 1
+      innovation: 0
+  choiceB:
+    label: Leave usage patterns unchanged
+    flavor: "That\u2019s on the user."
+    outcomeTitle: Productivity metrics stay strong. Human costs stay invisible.
+    outcomeText: "The AI stays available at all times, continuously offering suggestions,
+      next steps, and optimizations. Work moves quickly, and productivity metrics
+      remain high. Over time, more users report fatigue, emotional distance, and
+      dependence on the system\u2019s guidance. Performance stays visible, while
+      strain builds quietly underneath."
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 1

@@ -44,12 +44,17 @@ public class EventAssetGenerator : EditorWindow
         {
             string[] cells = SplitCsvLine(lines[i]);
             
-            // We now have 18 columns with Outcome added back
-            if (cells.Length < 18) continue;
+            // The new CSV has 20 columns. 
+            // If a line is empty or malformed, skip it.
+            if (cells.Length < 20) 
+            {
+                Debug.LogWarning($"Skipping line {i} (ID: {(cells.Length > 0 ? cells[0] : "null")}): Insufficient columns ({cells.Length}).");
+                continue;
+            }
 
             string id = cells[0];
             string sanitizedId = id.Replace(":", "").Replace("/", "_");
-            string fileName = $"Event_{sanitizedId}.asset";
+            string fileName = $"{sanitizedId}.asset"; // Removed "Event_" prefix if ID already has it (e.g. evt_marcus)
             string fullPath = $"{targetFolder}/{fileName}";
 
             EventCardData asset = AssetDatabase.LoadAssetAtPath<EventCardData>(fullPath);
@@ -72,29 +77,35 @@ public class EventAssetGenerator : EditorWindow
             cA.label = cells[4];
             cA.flavor = cells[5];
             
-            // Map Columns 6-9 to Stats
+            // Map Stats A (Indices 6-9)
             cA.effects = new StatBlock();
             cA.effects.industry = ParseInt(cells[6]);
             cA.effects.civilSociety = ParseInt(cells[7]);
             cA.effects.governance = ParseInt(cells[8]);
             cA.effects.innovation = ParseInt(cells[9]);
             
-            cA.outcome = cells[10]; // New Column 10
+            // New Outcome fields (Indices 10-11)
+            cA.outcomeTitle = cells[10]; 
+            cA.outcomeText = cells[11];
+            
             asset.choiceA = cA;
 
             // -- Choice B --
             ChoiceData cB = new ChoiceData();
-            cB.label = cells[11];
-            cB.flavor = cells[12];
+            cB.label = cells[12];
+            cB.flavor = cells[13];
 
-            // Map Columns 13-16 to Stats
+            // Map Stats B (Indices 14-17)
             cB.effects = new StatBlock();
-            cB.effects.industry = ParseInt(cells[13]);
-            cB.effects.civilSociety = ParseInt(cells[14]);
-            cB.effects.governance = ParseInt(cells[15]);
-            cB.effects.innovation = ParseInt(cells[16]);
+            cB.effects.industry = ParseInt(cells[14]);
+            cB.effects.civilSociety = ParseInt(cells[15]);
+            cB.effects.governance = ParseInt(cells[16]);
+            cB.effects.innovation = ParseInt(cells[17]);
 
-            cB.outcome = cells[17]; // New Column 17
+            // New Outcome fields (Indices 18-19)
+            cB.outcomeTitle = cells[18];
+            cB.outcomeText = cells[19];
+            
             asset.choiceB = cB;
 
             EditorUtility.SetDirty(asset);
@@ -104,23 +115,26 @@ public class EventAssetGenerator : EditorWindow
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         
-        Debug.Log($"Successfully generated {count} Event assets in {targetFolder}");
+        Debug.Log($"Successfully generated/updated {count} Event assets in {targetFolder}");
     }
 
     private int ParseInt(string s) => int.TryParse(s, out int v) ? v : 0;
 
     private string[] SplitCsvLine(string line)
     {
+        // Regex handles commas inside quotes correctly
         string pattern = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
         string[] tokens = Regex.Split(line, pattern);
 
         for (int i = 0; i < tokens.Length; i++)
         {
             string val = tokens[i].Trim();
+            // Remove wrapping quotes
             if (val.Length >= 2 && val.StartsWith("\"") && val.EndsWith("\""))
             {
                 val = val.Substring(1, val.Length - 2);
             }
+            // Unescape double quotes ("" -> ")
             val = val.Replace("\"\"", "\"");
             tokens[i] = val;
         }

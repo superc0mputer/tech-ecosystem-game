@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_amina_03
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_amina_03
+  characterId: stk_amina
+  title: Jobs That Never Arrive
+  bodyText: 'Your system is everywhere now: Hospitals, ministries, universities.
+    People rely on it. When it was announced, there was talk of opportunity. Of jobs.
+    Of growth. But the development stayed where it always was. Here, people learned
+    how to use your AI. They never learned how to build it.'
+  choiceA:
+    label: Invest in local AI teams
+    flavor: We build more than markets.
+    outcomeTitle: Local expertise grows slowly. Decisions diversify.
+    outcomeText: Local teams take time to form, and early progress is uneven. Hiring
+      and training slow releases, and some engineers leave again for better-paid
+      roles elsewhere. Others stay and begin to contribute cautiously, raising issues
+      that were never part of earlier discussions. Over time, parts of the system
+      start reflecting local priorities, even if only at the margins. The product
+      evolves more slowly, but decisions are no longer entirely imported.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Keep development centralized
+    flavor: We focus where expertise already exists.
+    outcomeTitle: Updates are fast. Local dependency deepens.
+    outcomeText: Development remains fast and tightly coordinated, with clear ownership
+      and a unified roadmap. Improvements reach users quickly, but always as finished
+      products, designed elsewhere. Locally, the AI is treated as infrastructure
+      rather than opportunity. It becomes something people depend on, but cannot
+      influence or grow with. Economic benefits concentrate where development happens,
+      while usage spreads outward without creating new pathways.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

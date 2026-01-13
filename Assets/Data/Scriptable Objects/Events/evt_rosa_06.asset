@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_rosa_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_rosa_06
+  characterId: stk_rosa
+  title: Gaming the Safety Net
+  bodyText: "People are learning how your system works. Not everyone - but enough.
+    They delay reporting income. They structure jobs to stay just below thresholds.
+    They time applications to trigger higher priority. Some of this is survival.
+    Some of it is exploitation. Your system can\u2019t tell the difference."
+  choiceA:
+    label: Tighten detection and close loopholes
+    flavor: We reduce abuse.
+    outcomeTitle: Abuse drops noticeably. Legitimate users feel increased pressure
+      and scrutiny.
+    outcomeText: Detection rules become stricter, and fewer cases slip through unnoticed.
+      Some strategic manipulation is reduced, and budgets become easier to defend.
+      At the same time, legitimate applicants face more reviews, requests, and delays
+      as the system grows less forgiving. Compliance improves, while trust becomes
+      more fragile.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 2
+      innovation: 0
+  choiceB:
+    label: Accept some gaming to protect the vulnerable
+    flavor: We tolerate misuse.
+    outcomeTitle: Fewer people are wrongly penalized. System costs and inefficiencies
+      grow.
+    outcomeText: The system is tuned to avoid penalizing borderline or ambiguous
+      cases. More people remain eligible when their situations are unstable or hard
+      to document. Alongside this, some exploitation continues, increasing overall
+      costs and administrative complexity. Protection widens, even as efficiency
+      erodes.
+    effects:
+      industry: -1
+      civilSociety: 3
+      governance: 0
+      innovation: 1

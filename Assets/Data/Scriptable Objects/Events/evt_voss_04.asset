@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_voss_04
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_voss_04
+  characterId: stk_voss
+  title: Operational Changes
+  bodyText: Our engineers are requesting changes to the system. They want to remove
+    explainability layers from the decision loop. Each additional check adds latency.
+    In combat systems, milliseconds matter. Delays cost lives.
+  choiceA:
+    label: Remove some safeguards
+    flavor: Speed saves lives.
+    outcomeTitle: The AI reacts faster. Later reviews become harder to conduct.
+    outcomeText: System latency decreases, and response times improve in operational
+      testing. Decisions become harder to reconstruct after the fact, as explainability
+      layers are reduced or bypassed. Performance aligns more closely with military
+      requirements, while post-incident analysis relies increasingly on trust in
+      process rather than detailed traceability.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: -1
+      innovation: 0
+  choiceB:
+    label: Keep safeguards
+    flavor: Safety first.
+    outcomeTitle: The system remains auditable. The military marks it as "operationally
+      limited."
+    outcomeText: The system retains clear audit trails and interpretable decision
+      paths. Review and accountability remain possible, even under pressure. Operational
+      use is constrained, as latency and verification requirements limit deployment
+      in time-critical contexts. The technology stays transparent, while its role
+      in active operations remains restricted.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0

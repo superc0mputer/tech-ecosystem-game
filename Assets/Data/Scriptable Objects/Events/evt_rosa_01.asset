@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_rosa_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_rosa_01
+  characterId: stk_rosa
+  title: The Time Window
+  bodyText: Appeals must be filed within seven days. Miss it, and the decision stands.
+    Seven days is fine - if you have stability.
+  choiceA:
+    label: Extend appeal deadlines
+    flavor: We account for reality.
+    outcomeTitle: More appeals are valid. Resolution slows.
+    outcomeText: More people are able to file appeals after disruptions, illness,
+      or unstable living conditions. Legitimate cases surface that would otherwise
+      be lost. At the same time, the longer window invites more strategic or low-effort
+      appeals, increasing review burden. Access expands, while distinguishing real
+      claims from noise becomes harder.
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Keep deadlines tight
+    flavor: We need closure.
+    outcomeTitle: Processes stay predictable. Late appeals disappear.
+    outcomeText: Cases move quickly from decision to closure, keeping workloads predictable
+      and reducing opportunities for procedural abuse. Appeals that miss the deadline
+      never enter review, even when circumstances were genuine. Efficiency improves,
+      while the system becomes less forgiving to those who cannot respond in time.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

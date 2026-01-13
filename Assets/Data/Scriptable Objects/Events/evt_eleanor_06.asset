@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_eleanor_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_eleanor_06
+  characterId: stk_eleanor
+  title: Who Gets to Build on You
+  bodyText: "Your platform is becoming foundational, not just a product - something
+    others depend on. You can keep it expensive, tightly controlled, and optimized
+    for large clients. Or you can lower barriers so smaller actors - nonprofits,
+    startups, public-interest groups - can build on it too, but you have to accept
+    less oversight over how it\u2019s used."
+  choiceA:
+    label: Keep access limited and controlled
+    flavor: We approve who builds on the system.
+    outcomeTitle: Use cases stay traceable and enforceable. Fewer actors shape the
+      ecosystem.
+    outcomeText: "The ecosystem remains compact and legible. Use cases are reviewed,
+      contracts are enforceable, and responsibility is easier to assign when problems
+      arise. A smaller set of actors shapes how the system is used, aligned closely
+      with the company\u2019s priorities. Oversight stays strong, while experimentation
+      and diversity of application remain constrained."
+    effects:
+      industry: 1
+      civilSociety: 1
+      governance: 2
+      innovation: -1
+  choiceB:
+    label: Broaden access deliberately
+    flavor: We lower barriers and accept less control.
+    outcomeTitle: More groups benefit from the technology. Misuse becomes harder
+      to anticipate and correct.
+    outcomeText: "A wider range of organizations begins to build on the platform,
+      extending its reach into new contexts and communities. Novel applications emerge
+      quickly, some aligning with the company\u2019s intent, others less so. The
+      benefits spread more broadly, while misuse becomes harder to predict and slower
+      to correct. Influence expands, even as direct control diminishes."
+    effects:
+      industry: -1
+      civilSociety: 3
+      governance: 0
+      innovation: 1

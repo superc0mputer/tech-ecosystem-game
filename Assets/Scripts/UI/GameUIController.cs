@@ -14,11 +14,11 @@ public class GameUIController : MonoBehaviour
 
     [Header("--- OUTCOME POPUP ---")]
     [SerializeField] private GameObject panelOutcomeRoot; 
-    [SerializeField] private TextMeshProUGUI outcomeExplanationText; 
-    [SerializeField] private TextMeshProUGUI outcomeTitleText; 
+    [SerializeField] private TextMeshProUGUI outcomeExplanationText; // Maps to outcomeText
+    [SerializeField] private TextMeshProUGUI outcomeTitleText;       // Maps to outcomeTitle
     [SerializeField] private OutcomePanelController outcomeBarsController; 
 
-    // NEW: References specifically for the Card inside the Outcome Panel
+    // References specifically for the Card inside the Outcome Panel
     [Header("--- OUTCOME CARD ---")]
     [SerializeField] private OutcomeCardRefs outcomeCard;
 
@@ -172,7 +172,8 @@ public class GameUIController : MonoBehaviour
 
     // --- OUTCOME SYSTEM (UPDATED) ---
 
-    public void ShowOutcomeUI(string outcomeText, StakeholderData actor)
+    // UPDATED: Accepts Title, Body, and Actor
+    public void ShowOutcomeUI(string outcomeTitle, string outcomeBody, StakeholderData actor)
     {
         // 1. Hide Options
         if(panelOptionAObj) panelOptionAObj.SetActive(false);
@@ -187,16 +188,16 @@ public class GameUIController : MonoBehaviour
         // 3. Title Text
         if(outcomeTitleText != null)
         {
-            outcomeTitleText.text = outcomeText;
+            outcomeTitleText.text = outcomeTitle;
         }
         
-        // 4. Explanation Text
+        // 4. Explanation Text (The Narrative Body)
         if(outcomeExplanationText != null)
         {
-            outcomeExplanationText.text = outcomeText;
+            outcomeExplanationText.text = outcomeBody;
         }
 
-        // 4. Update Card Visuals in Outcome Panel
+        // 5. Update Card Visuals in Outcome Panel
         if(actor != null)
         {
             // Set Name
@@ -285,7 +286,6 @@ public class GameUIController : MonoBehaviour
         }
     }
 
-    // --- THIS IS THE METHOD THAT WAS MISSING ---
     public void SetupStakeholderSlot(string groupID, string name, string headAddressKey)
     {
         foreach (var slot in stakeholders)
@@ -304,7 +304,6 @@ public class GameUIController : MonoBehaviour
             }
         }
     }
-    // -------------------------------------------
 
     public void SetMainCard(string name, string bodyAddressKey, string groupID)
     {
@@ -367,6 +366,5 @@ public class GameUIController : MonoBehaviour
         if(panelTop) panelTop.SetActive(false);
         if(panelGameplay) panelGameplay.SetActive(false);
         if(panelOutcomeRoot) panelOutcomeRoot.SetActive(false);
-
     }
 }

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_elara_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_elara_01
+  characterId: stk_elara
+  title: XR Fatigue
+  bodyText: "Users report dizziness and exhaustion after long XR sessions. They still
+    log in every day. But they don\u2019t feel good."
+  choiceA:
+    label: Reduce XR intensity
+    flavor: We design for comfort.
+    outcomeTitle: Sessions shorten. Well-being improves.
+    outcomeText: Usage sessions become shorter and more deliberate. The system nudges
+      users to pause, reflect, or take breaks. Some workflows slow down, but people
+      report feeling more in control of their thinking. Engagement drops slightly,
+      while well-being improves.
+    effects:
+      industry: 0
+      civilSociety: 2
+      governance: 0
+      innovation: 0
+  choiceB:
+    label: Optimize for engagement
+    flavor: Retention matters.
+    outcomeTitle: Time-on-platform stays high. So does fatigue.
+    outcomeText: The AI remains always-on, offering constant suggestions and support.
+      Users stay productive and connected for longer stretches. Over time, reliance
+      deepens, and independent judgment weakens. Efficiency holds, while cognitive
+      fatigue quietly grows.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: 0

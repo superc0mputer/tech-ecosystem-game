@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_samya_01
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_samya_01
+  characterId: stk_samya
+  title: Bigger Model
+  bodyText: "If we double the model size, we\u2019ll beat competitors on benchmarks.
+    It\u2019ll cost a lot of compute. But technically? It\u2019s beautiful."
+  choiceA:
+    label: Approve the scale-up
+    flavor: "Let\u2019s push it."
+    outcomeTitle: Performance jumps. Costs and energy use spike.
+    outcomeText: The larger model delivers stronger benchmark results and new capabilities.
+      Training and inference require far more compute, driving up energy use and
+      infrastructure costs. The company gains technical prestige, even as efficiency
+      and margins tighten.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 0
+      innovation: 2
+  choiceB:
+    label: Hold the current size
+    flavor: Optimize what we have.
+    outcomeTitle: Costs stay under control. Technical ambition stalls.
+    outcomeText: Resources are focused on tuning and deploying the existing model
+      rather than expanding it. Operating costs remain predictable, and releases
+      stay frequent. Competitive performance improves more slowly, and some advanced
+      use cases remain out of reach.
+    effects:
+      industry: 2
+      civilSociety: 0
+      governance: 0
+      innovation: -1

@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_klaus_03
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_klaus_03
+  characterId: stk_klaus
+  title: The False Positive Dilemma
+  bodyText: "Your model hesitates. In uncertain situations, it defaults to do nothing.
+    When inputs are unclear, the system delays decisions, escalates to humans, or
+    refuses action. That reduces risk. It also shifts responsibility - and sometimes
+    creates new harm. In some contexts, hesitation is safety. In others, it\u2019s
+    failure."
+  choiceA:
+    label: Keep the model conservative
+    flavor: We prefer false negatives.
+    outcomeTitle: "The system avoids risky actions. Responsibility shifts to human
+      operators \u2014 under pressure."
+    outcomeText: The system frequently defers or refuses when uncertainty is high,
+      avoiding actions that could cause direct harm. Human operators are pulled into
+      more often to make judgment calls, especially in urgent situations. Some risks
+      are prevented, while delays and handoffs become part of normal operation. Safety
+      improves, even as pressure shifts to people at the edges.
+    effects:
+      industry: -1
+      civilSociety: 0
+      governance: 2
+      innovation: 0
+  choiceB:
+    label: Tune the model to act more decisively
+    flavor: We accept calculated risk.
+    outcomeTitle: "Decisions come faster. Mistakes become rarer \u2014 but more consequential."
+    outcomeText: The model makes clearer, faster calls in ambiguous cases, reducing
+      the need for human escalation. Most interactions move more smoothly, and throughput
+      increases. When errors occur, they tend to be harder to undo, as actions are
+      taken rather than deferred. Efficiency rises, while the cost of mistakes grows.
+    effects:
+      industry: 2
+      civilSociety: -1
+      governance: 0
+      innovation: 0

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad8dfc228556476eb257d4eb5e5645c, type: 3}
+  m_Name: evt_elara_06
+  m_EditorClassIdentifier: Assembly-CSharp::EventCardData
+  id: evt_elara_06
+  characterId: stk_elara
+  title: People Stop Questioning It
+  bodyText: "Something changed. Users no longer compare the AI\u2019s suggestions
+    with alternatives. They don\u2019t disagree. They don\u2019t explore. They don\u2019t
+    double-check. They trust the interface too much."
+  choiceA:
+    label: Redesign to reintroduce friction
+    flavor: We make disagreement visible again.
+    outcomeTitle: Users question the AI more often. Decision speed drops. Engagement
+      softens.
+    outcomeText: "The interface begins to surface alternatives, uncertainty, and
+      dissenting signals. Users slow down, reflect, and sometimes push back against
+      the AI\u2019s advice. This leads to more careful decisions, but also to hesitation,
+      friction between team members, and fewer completed tasks. Engagement and revenue
+      soften, while responsibility and disagreement return to the process."
+    effects:
+      industry: -1
+      civilSociety: 2
+      governance: 2
+      innovation: 0
+  choiceB:
+    label: Keep the interface as is
+    flavor: That trust is a feature.
+    outcomeTitle: Usage remains high. Human judgment fades into the background.
+    outcomeText: The AI continues to present clean, confident recommendations that
+      feel easy to follow. Decisions stay fast, and coordination improves because
+      everyone acts on the same guidance. Over time, fewer users actively evaluate
+      what the system suggests. The tool becomes a shared reference point - and a
+      single source of truth that is rarely questioned.
+    effects:
+      industry: 3
+      civilSociety: 0
+      governance: 0
+      innovation: 2
