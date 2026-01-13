@@ -13,7 +13,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
     [Header("Game Settings")]
     public int maxTurns = 10;
-    public float outcomeDelay = 2.0f; 
+    public float outcomeDelay = 10.0f; 
     
     [Header("Current State")]
     public int currentTurn = 0;
@@ -94,7 +94,6 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         else { EndGame(true); }
     }
 
-    // --- UPDATED METHOD ---
     private void UpdateUI(EventCardData card, StakeholderData actor)
     {
         if (uiController == null) return;
@@ -103,11 +102,8 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
         string actorName = actor != null ? actor.displayName : "Unknown";
         string actorBodyAddress = actor != null ? actor.bodyAddress : "";
-        
-        // NEW: Get the group ID (e.g., "Industry")
         string actorGroup = actor != null ? actor.group : "";
 
-        // NEW: Pass the group ID to SetMainCard
         uiController.SetMainCard(actorName, actorBodyAddress, actorGroup);
         
         uiController.SetOptions(card.choiceA.label, card.choiceA.flavor, card.choiceB.label, card.choiceB.flavor);
@@ -136,17 +132,39 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         ChoiceData selectedOption = isLeftChoice ? currentCard.choiceA : currentCard.choiceB;
         Debug.Log($"Selected: {selectedOption.label}");
 
+        // 1. CAPTURE OLD STATE
+        var oldStateObj = resourceManager.CaptureState();
+        ResourceManager.ResourceSaveData oldState = (ResourceManager.ResourceSaveData)oldStateObj;
+
+        // 2. APPLY EFFECTS
         resourceManager.ApplyEffects(selectedOption.effects);
-        StartCoroutine(OutcomeSequence(selectedOption));
+
+        // 3. START OUTCOME SEQUENCE
+        StartCoroutine(OutcomeSequence(selectedOption, oldState));
     }
 
-    private IEnumerator OutcomeSequence(ChoiceData choice)
+    // --- UPDATED METHOD ---
+    private IEnumerator OutcomeSequence(ChoiceData choice, ResourceManager.ResourceSaveData oldState)
     {
-        if(uiController != null) uiController.ShowOutcomeUI(choice.outcome);
+        // Get the actor associated with the CURRENT card before we null it out
+        StakeholderData actor = null;
+        if(currentCard != null)
+        {
+            actor = stakeholderManager.GetStakeholderById(currentCard.characterId);
+        }
+
+        if(uiController != null) 
+        {
+            // Pass the outcome text AND the actor to the UI
+            uiController.ShowOutcomeUI(choice.outcome, actor);
+            
+            // Generate the resource bars
+            uiController.DisplayOutcomeSummary(oldState, resourceManager);
+        }
 
         if (resourceManager.CheckGameOverCondition())
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2.0f);
             EndGame(false); 
             yield break;
         }
@@ -225,7 +243,6 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
         if(isGameActive && currentCard != null)
         {
-            // This re-triggers UpdateUI, which will correctly set the Glow based on the restored card/actor
             StakeholderData actor = stakeholderManager.GetStakeholderById(currentCard.characterId);
             UpdateUI(currentCard, actor);
         }

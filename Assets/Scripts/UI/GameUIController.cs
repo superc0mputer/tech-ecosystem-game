@@ -12,27 +12,42 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private GameObject panelTop;
     [SerializeField] private GameObject panelGameplay;
 
+    [Header("--- OUTCOME POPUP ---")]
+    [SerializeField] private GameObject panelOutcomeRoot; 
+    [SerializeField] private TextMeshProUGUI outcomeExplanationText; 
+    [SerializeField] private TextMeshProUGUI outcomeTitleText; 
+    [SerializeField] private OutcomePanelController outcomeBarsController; 
+
+    // NEW: References specifically for the Card inside the Outcome Panel
+    [Header("--- OUTCOME CARD ---")]
+    [SerializeField] private OutcomeCardRefs outcomeCard;
+
+    [System.Serializable]
+    public struct OutcomeCardRefs
+    {
+        public TextMeshProUGUI nameText;
+        public Image bodyshotImage;
+    }
+
     [Header("--- TOP PANEL ---")]
     [SerializeField] private TextMeshProUGUI roundNumber; 
     [SerializeField] private TextMeshProUGUI topFlavorText; 
 
-    [Header("--- MAIN CARD ---")]
+    [Header("--- MAIN GAMEPLAY CARD ---")]
     [SerializeField] private Image cardBackground;
     [SerializeField] private Image cardBodyshot;
     [SerializeField] private TextMeshProUGUI cardName;
 
-    // --- NEW SECTION: GLOW & COLORS ---
-    [Header("--- CARD VISUALS ---")]
+    [Header("--- CARD VISUALS (SHARED) ---")]
     [SerializeField] private Image cardGlow; 
     [SerializeField] private List<GroupColorDefinition> groupColors = new List<GroupColorDefinition>();
 
     [System.Serializable]
     public struct GroupColorDefinition
     {
-        public string id;       // Match this to your data (e.g. "Industry")
-        public Color glowColor; // The color to show
+        public string id;       
+        public Color glowColor; 
     }
-    // ----------------------------------
 
     [Header("--- OPTIONS ---")]
     [SerializeField] private GameObject panelOptionAObj;
@@ -67,49 +82,71 @@ public class GameUIController : MonoBehaviour
 
     private void AutoWireUI()
     {
-        panelStakeholders = transform.Find("Panel Stakeholders").gameObject;
-        panelTop = transform.Find("Panel Top").gameObject;
-        panelGameplay = transform.Find("Panel Gameplay").gameObject; 
+        // Existing Wiring
+        panelStakeholders = transform.Find("Panel Stakeholders")?.gameObject;
+        panelTop = transform.Find("Panel Top")?.gameObject;
+        panelGameplay = transform.Find("Panel Gameplay")?.gameObject; 
 
-        // Top Panel
-        Transform roundObj = panelTop.transform.Find("Round");
-        var roundNumCheck = roundObj.Find("Text/Round Number") ?? roundObj.Find("Round Number");
-        if (roundNumCheck != null) roundNumber = roundNumCheck.GetComponent<TextMeshProUGUI>();
+        if(panelTop != null)
+        {
+            Transform roundObj = panelTop.transform.Find("Round");
+            if(roundObj) roundNumber = roundObj.GetComponentInChildren<TextMeshProUGUI>();
+            topFlavorText = panelTop.transform.Find("Flavor/Flavor Text")?.GetComponent<TextMeshProUGUI>();
+        }
 
-        Transform flavorObj = panelTop.transform.Find("Flavor");
-        topFlavorText = flavorObj.Find("Flavor Text").GetComponent<TextMeshProUGUI>();
+        if(panelGameplay != null)
+        {
+            GameObject panelCard = panelGameplay.transform.Find("Panel Card")?.gameObject;
+            panelOptionAObj = panelGameplay.transform.Find("Panel Option A")?.gameObject;
+            panelOptionBObj = panelGameplay.transform.Find("Panel Option B")?.gameObject;
+            
+            if(panelOptionAObj) optionACanvasGroup = panelOptionAObj.GetComponent<CanvasGroup>();
+            if(panelOptionBObj) optionBCanvasGroup = panelOptionBObj.GetComponent<CanvasGroup>();
 
-        // Gameplay Panel
-        GameObject panelCard = panelGameplay.transform.Find("Panel Card").gameObject;
-        panelOptionAObj = panelGameplay.transform.Find("Panel Option A").gameObject;
-        panelOptionBObj = panelGameplay.transform.Find("Panel Option B").gameObject;
-        
-        optionACanvasGroup = panelOptionAObj.GetComponent<CanvasGroup>();
-        optionBCanvasGroup = panelOptionBObj.GetComponent<CanvasGroup>();
+            if(panelCard)
+            {
+                cardBackground = panelCard.transform.Find("Background")?.GetComponent<Image>();
+                cardBodyshot   = panelCard.transform.Find("Bodyshot")?.GetComponent<Image>();
+                cardName       = panelCard.transform.Find("Name")?.GetComponent<TextMeshProUGUI>();
+                cardGlow       = panelCard.transform.Find("Glow")?.GetComponent<Image>();
+            }
 
-        // Card & Options
-        cardBackground = panelCard.transform.Find("Background").GetComponent<Image>();
-        cardBodyshot   = panelCard.transform.Find("Bodyshot").GetComponent<Image>();
-        cardName       = panelCard.transform.Find("Name").GetComponent<TextMeshProUGUI>();
+            if(panelOptionAObj)
+            {
+                optionATitle  = panelOptionAObj.transform.Find("Title")?.GetComponent<TextMeshProUGUI>();
+                optionAFlavor = panelOptionAObj.transform.Find("Flavor")?.GetComponent<TextMeshProUGUI>();
+            }
+            if(panelOptionBObj)
+            {
+                optionBTitle  = panelOptionBObj.transform.Find("Title")?.GetComponent<TextMeshProUGUI>();
+                optionBFlavor = panelOptionBObj.transform.Find("Flavor")?.GetComponent<TextMeshProUGUI>();
+            }
+        }
 
-        // --- NEW: Try to find the Glow Image automatically ---
-        // Expects an object named "Glow" inside "Panel Card"
-        Transform glowTrans = panelCard.transform.Find("Glow");
-        if (glowTrans != null) cardGlow = glowTrans.GetComponent<Image>();
-
-        optionATitle  = panelOptionAObj.transform.Find("Title").GetComponent<TextMeshProUGUI>();
-        optionAFlavor = panelOptionAObj.transform.Find("Flavor").GetComponent<TextMeshProUGUI>();
-        
-        optionBTitle  = panelOptionBObj.transform.Find("Title").GetComponent<TextMeshProUGUI>();
-        optionBFlavor = panelOptionBObj.transform.Find("Flavor").GetComponent<TextMeshProUGUI>();
+        // --- NEW: AUTO-WIRE OUTCOME PANEL ---
+        if(panelOutcomeRoot != null)
+        {
+            Transform pCard = panelOutcomeRoot.transform.Find("Panel Card");
+            if(pCard != null)
+            {
+                outcomeCard.nameText = pCard.Find("Name")?.GetComponent<TextMeshProUGUI>();
+                outcomeCard.bodyshotImage = pCard.Find("Bodyshot")?.GetComponent<Image>();
+            }
+        }
 
         // Stakeholders
         stakeholders.Clear();
-        Transform groupContainer = panelStakeholders.transform.Find("Group");
-        AddStakeholderToList(groupContainer, "Stakeholder Civil Society", "Civil Society");
-        AddStakeholderToList(groupContainer, "Stakeholder Industry",      "Industry");
-        AddStakeholderToList(groupContainer, "Stakeholder Governance",    "Governance");
-        AddStakeholderToList(groupContainer, "Stakeholder Innovation",    "Innovation");
+        if(panelStakeholders)
+        {
+            Transform groupContainer = panelStakeholders.transform.Find("Group");
+            if(groupContainer)
+            {
+                AddStakeholderToList(groupContainer, "Stakeholder Civil Society", "Civil Society");
+                AddStakeholderToList(groupContainer, "Stakeholder Industry",      "Industry");
+                AddStakeholderToList(groupContainer, "Stakeholder Governance",    "Governance");
+                AddStakeholderToList(groupContainer, "Stakeholder Innovation",    "Innovation");
+            }
+        }
     }
 
     private void AddStakeholderToList(Transform container, string objectName, string id)
@@ -120,9 +157,9 @@ public class GameUIController : MonoBehaviour
         StakeholderSlot slot = new StakeholderSlot();
         slot.id = id;
         slot.groupParent = t.gameObject;
-        slot.background = t.Find("Background").GetComponent<Image>();
-        slot.headshot = t.Find("Headshot").GetComponent<Image>();
-        slot.nameText = t.Find("Name").GetComponent<TextMeshProUGUI>();
+        slot.background = t.Find("Background")?.GetComponent<Image>();
+        slot.headshot = t.Find("Headshot")?.GetComponent<Image>();
+        slot.nameText = t.Find("Name")?.GetComponent<TextMeshProUGUI>();
         
         Transform resObj = t.Find("Ressource");
         if (resObj != null)
@@ -133,7 +170,80 @@ public class GameUIController : MonoBehaviour
         stakeholders.Add(slot);
     }
 
-    // --- PREVIEW SYSTEM ---
+    // --- OUTCOME SYSTEM (UPDATED) ---
+
+    public void ShowOutcomeUI(string outcomeText, StakeholderData actor)
+    {
+        // 1. Hide Options
+        if(panelOptionAObj) panelOptionAObj.SetActive(false);
+        if(panelOptionBObj) panelOptionBObj.SetActive(false);
+
+        // 2. Show Outcome Panel
+        if(panelOutcomeRoot != null) 
+        {
+            panelOutcomeRoot.SetActive(true);
+        }
+
+        // 3. Title Text
+        if(outcomeTitleText != null)
+        {
+            outcomeTitleText.text = outcomeText;
+        }
+        
+        // 4. Explanation Text
+        if(outcomeExplanationText != null)
+        {
+            outcomeExplanationText.text = outcomeText;
+        }
+
+        // 4. Update Card Visuals in Outcome Panel
+        if(actor != null)
+        {
+            // Set Name
+            if(outcomeCard.nameText != null) outcomeCard.nameText.text = actor.displayName;
+
+            // Set Image
+            if(!string.IsNullOrEmpty(actor.bodyAddress) && outcomeCard.bodyshotImage != null)
+            {
+                // Clear old sprite
+                outcomeCard.bodyshotImage.sprite = null;
+                Addressables.LoadAssetAsync<Sprite>(actor.bodyAddress).Completed += (handle) =>
+                {
+                    if (handle.Status == AsyncOperationStatus.Succeeded) 
+                        outcomeCard.bodyshotImage.sprite = handle.Result;
+                };
+            }
+        }
+    }
+
+    public void DisplayOutcomeSummary(ResourceManager.ResourceSaveData oldStats, ResourceManager newStats)
+    {
+        if(outcomeBarsController != null)
+        {
+            outcomeBarsController.GenerateOutcomeBars(oldStats, newStats);
+        }
+    }
+
+    public void HideOutcomeSummary()
+    {
+        if(panelOutcomeRoot != null) 
+        {
+            panelOutcomeRoot.SetActive(false);
+        }
+    }
+
+    // --- VISUAL METHODS & PREVIEWS ---
+
+    public void ResetTurnUI()
+    {
+        HideOutcomeSummary(); // Ensure Popup is closed
+
+        // Bring back options
+        if(panelOptionAObj) panelOptionAObj.SetActive(true);
+        if(panelOptionBObj) panelOptionBObj.SetActive(true);
+        if(optionACanvasGroup) optionACanvasGroup.alpha = 1f; 
+        if(optionBCanvasGroup) optionBCanvasGroup.alpha = 1f;
+    }
 
     public void ShowStatPreview(StatBlock effects, ResourceManager currentResources)
     {
@@ -163,23 +273,6 @@ public class GameUIController : MonoBehaviour
         UpdateResourceDisplay("Innovation",    currentResources.innovationVal);
     }
 
-    // --- VISUAL METHODS ---
-
-    public void ShowOutcomeUI(string outcomeText)
-    {
-        if(panelOptionAObj) panelOptionAObj.SetActive(false);
-        if(panelOptionBObj) panelOptionBObj.SetActive(false);
-        if(topFlavorText) topFlavorText.text = outcomeText;
-    }
-
-    public void ResetTurnUI()
-    {
-        if(panelOptionAObj) panelOptionAObj.SetActive(true);
-        if(panelOptionBObj) panelOptionBObj.SetActive(true);
-        if(optionACanvasGroup) optionACanvasGroup.alpha = 1f; 
-        if(optionBCanvasGroup) optionBCanvasGroup.alpha = 1f;
-    }
-
     public void UpdateResourceDisplay(string groupID, int value)
     {
         foreach (var slot in stakeholders)
@@ -192,6 +285,7 @@ public class GameUIController : MonoBehaviour
         }
     }
 
+    // --- THIS IS THE METHOD THAT WAS MISSING ---
     public void SetupStakeholderSlot(string groupID, string name, string headAddressKey)
     {
         foreach (var slot in stakeholders)
@@ -210,15 +304,14 @@ public class GameUIController : MonoBehaviour
             }
         }
     }
+    // -------------------------------------------
 
-    // --- UPDATED METHOD: Accepts groupID to determine Glow Color ---
     public void SetMainCard(string name, string bodyAddressKey, string groupID)
     {
         if(cardName != null) cardName.text = name;
-        var swipe = panelGameplay.GetComponentInChildren<SwipeController>();
+        var swipe = transform.GetComponentInChildren<SwipeController>(); 
         if(swipe != null) swipe.ResetCardPosition();
 
-        // 1. Set Image
         if (!string.IsNullOrEmpty(bodyAddressKey) && cardBodyshot != null)
         {
             cardBodyshot.sprite = null; 
@@ -228,7 +321,6 @@ public class GameUIController : MonoBehaviour
             };
         }
 
-        // 2. Set Glow Color
         if (cardGlow != null)
         {
             if (string.IsNullOrEmpty(groupID))
@@ -237,7 +329,6 @@ public class GameUIController : MonoBehaviour
             }
             else
             {
-                // Find matching color
                 Color c = Color.white; 
                 bool found = false;
                 foreach(var def in groupColors)
@@ -251,7 +342,6 @@ public class GameUIController : MonoBehaviour
                 }
 
                 cardGlow.color = c;
-                // Only enable if we actually found a matching group definition
                 cardGlow.gameObject.SetActive(found);
             }
         }
@@ -276,5 +366,7 @@ public class GameUIController : MonoBehaviour
         if(panelStakeholders) panelStakeholders.SetActive(false);
         if(panelTop) panelTop.SetActive(false);
         if(panelGameplay) panelGameplay.SetActive(false);
+        if(panelOutcomeRoot) panelOutcomeRoot.SetActive(false);
+
     }
 }
