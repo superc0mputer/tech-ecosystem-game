@@ -8,8 +8,12 @@ public class MainMenuController : MonoBehaviour
     public Button playButton;
     public Button resetSaveButton;
     
+    [Header("Scene Configuration")]
     // Set this to the exact name of your game scene in Build Settings
     public string gameSceneName = "GameScene"; 
+    
+    // Set this to the exact name of your Intro Video scene in Build Settings
+    public string introSceneName = "IntroScene";
 
     private void Start()
     {
@@ -26,18 +30,30 @@ public class MainMenuController : MonoBehaviour
             // TextMeshProUGUI btnText = playButton.GetComponentInChildren<TextMeshProUGUI>();
             // if(btnText) btnText.text = hasSave ? "Continue" : "New Game";
             
-            // Optional: Disable reset button if no save exists
+            // Disable reset button if no save exists
             if(resetSaveButton) resetSaveButton.interactable = hasSave;
         }
     }
 
-    // Connect to PLAY button
+    // Connect this to your PLAY button in the Inspector
     public void OnPlayClicked()
     {
-        SceneManager.LoadScene(gameSceneName);
+        // Check if the SaveManager exists and if we actually have a save file
+        if (SaveManager.Instance != null && SaveManager.Instance.HasSaveFile())
+        {
+            // Case A: Save exists -> CONTINUE -> Go straight to Game
+            Debug.Log("Save found. Skipping intro, loading Game.");
+            SceneManager.LoadScene(gameSceneName);
+        }
+        else
+        {
+            // Case B: No Save -> NEW GAME -> Go to Intro Video
+            Debug.Log("No save found. Loading Intro Video.");
+            SceneManager.LoadScene(introSceneName);
+        }
     }
 
-    // Connect to RESET SAVE button
+    // Connect this to your RESET SAVE button in the Inspector
     public void OnResetSaveClicked()
     {
         if (SaveManager.Instance != null)

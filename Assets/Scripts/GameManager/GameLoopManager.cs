@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameLoopManager : MonoBehaviour, ISaveable
 {
-    // ... (Keep existing Header variables: Dependencies, Settings, State) ...
     [Header("Dependencies")]
     public StakeholderManager stakeholderManager;
     public ResourceManager resourceManager;
@@ -26,7 +25,6 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         if (SaveManager.Instance != null && SaveManager.Instance.HasSaveFile())
         {
             Debug.Log("Save file found. Attempting load...");
-            // We do NOT call InitializeGame() here because RestoreState will handle filling the lists
             SaveManager.Instance.LoadGame();
         }
         else
@@ -38,22 +36,17 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
     public void StartGame()
     {
-        // Clear previous state manually if starting fresh
         if(stakeholderManager.activeStakeholders.Count > 0) stakeholderManager.activeStakeholders.Clear();
 
         currentTurn = 0;
         isGameActive = true;
         
-        stakeholderManager.InitializeGame(); // Fills lists randomly
+        stakeholderManager.InitializeGame(); 
         resourceManager.InitializeResources();
 
         StartCoroutine(NextTurnRoutine());
     }
 
-    // ... (Keep ExitAndSave, RestartGame, NextTurnRoutine, UpdateUI, etc. EXACTLY AS THEY WERE) ...
-    // Just pasting the Save System fix below to save space. 
-    
-    // (Ensure you have ExitAndSave, RestartGame, NextTurnRoutine, ShowPreview, OnPlayerChoice, OutcomeSequence, EndGame implemented as before)
     public void ExitAndSave()
     {
         if(SaveManager.Instance != null) SaveManager.Instance.SaveGame();
@@ -75,7 +68,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     {
         if (!isGameActive) yield break;
 
-        // 1. Reset UI for the new turn (Buttons back, colors reset)
+        // 1. Reset UI
         if(uiController != null) 
         {
             uiController.ResetTurnUI();
@@ -84,7 +77,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
         if (currentTurn >= maxTurns) { EndGame(true); yield break; }
 
-        // 3. Draw Card
+        // 2. Draw Card
         if (currentCard == null && stakeholderManager.gameDeck.Count > 0)
         {
             currentCard = stakeholderManager.gameDeck[0];
@@ -101,6 +94,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         else { EndGame(true); }
     }
 
+    // --- UPDATED METHOD ---
     private void UpdateUI(EventCardData card, StakeholderData actor)
     {
         if (uiController == null) return;
@@ -110,56 +104,46 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         string actorName = actor != null ? actor.displayName : "Unknown";
         string actorBodyAddress = actor != null ? actor.bodyAddress : "";
         
-        uiController.SetMainCard(actorName, actorBodyAddress);
+        // NEW: Get the group ID (e.g., "Industry")
+        string actorGroup = actor != null ? actor.group : "";
+
+        // NEW: Pass the group ID to SetMainCard
+        uiController.SetMainCard(actorName, actorBodyAddress, actorGroup);
+        
         uiController.SetOptions(card.choiceA.label, card.choiceA.flavor, card.choiceB.label, card.choiceB.flavor);
     }
 
-    // --- PREVIEW SYSTEM (THE FIX) ---
-    // Called by SwipeController when dragging
+    // --- PREVIEW SYSTEM ---
     public void ShowPreview(bool isLeft)
     {
         if (currentCard == null || uiController == null) return;
-
-        // 1. Get stats from the card data
         StatBlock effects = isLeft ? currentCard.choiceA.effects : currentCard.choiceB.effects;
-        
-        // 2. Send them to the UI Controller to move the sliders
         uiController.ShowStatPreview(effects, resourceManager);
     }
 
     public void ClearPreview()
     {
         if (uiController == null) return;
-        
-        // Reset sliders to their actual values
         uiController.ResetPreviews(resourceManager);
     }
-    // --------------------------------
 
     public void OnPlayerChoice(bool isLeftChoice)
     {
         if (!isGameActive || currentCard == null) return;
 
-        // Clear any lingering previews
         ClearPreview(); 
 
-        // 1. Get Data
         ChoiceData selectedOption = isLeftChoice ? currentCard.choiceA : currentCard.choiceB;
         Debug.Log($"Selected: {selectedOption.label}");
 
-        // 2. Apply Stats
         resourceManager.ApplyEffects(selectedOption.effects);
-
-        // 3. Start Outcome Phase
         StartCoroutine(OutcomeSequence(selectedOption));
     }
 
     private IEnumerator OutcomeSequence(ChoiceData choice)
     {
-        // A. Show Outcome Text
         if(uiController != null) uiController.ShowOutcomeUI(choice.outcome);
 
-        // B. Check Game Over (Stat Failure)
         if (resourceManager.CheckGameOverCondition())
         {
             yield return new WaitForSeconds(1.5f);
@@ -167,10 +151,8 @@ public class GameLoopManager : MonoBehaviour, ISaveable
             yield break;
         }
 
-        // C. Reading Time
         yield return new WaitForSeconds(outcomeDelay);
 
-        // D. Next Turn
         currentCard = null; 
         currentTurn++;
         StartCoroutine(NextTurnRoutine());
@@ -182,7 +164,6 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         if(SaveManager.Instance != null) SaveManager.Instance.DeleteSaveFile();
         if(uiController != null) uiController.HideGameInterface();
 
-        // 2. Show the Feedback Screen
         if (feedbackManager != null)
         {
             feedbackManager.ShowFeedback(
@@ -198,7 +179,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         Debug.Log(isWin ? "Game Complete (Victory)" : "Game Over (Stat Collapse)");
     }
 
-    // --- COORDINATOR SAVE SYSTEM FIX ---
+    // --- SAVE SYSTEM ---
 
     [System.Serializable]
     public class MasterSaveData
@@ -206,8 +187,6 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         public int currentTurn;
         public bool isGameActive;
         public string currentCardName;
-        
-        // These will be saved as JObjects inside the JSON
         public object resourceData;
         public object stakeholderData;
     }
@@ -219,8 +198,6 @@ public class GameLoopManager : MonoBehaviour, ISaveable
             currentTurn = this.currentTurn,
             isGameActive = this.isGameActive,
             currentCardName = currentCard != null ? currentCard.name : "",
-            
-            // Capture sub-states
             resourceData = resourceManager.CaptureState(),
             stakeholderData = stakeholderManager.CaptureState()
         };
@@ -230,7 +207,6 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     {
         Debug.Log("[GameLoop] Starting Restore...");
         
-        // 1. Cast the generic object to JObject, then to MasterSaveData
         var jState = state as JObject;
         if (jState == null) { Debug.LogError("Save state is null!"); return; }
 
@@ -239,35 +215,22 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         this.currentTurn = data.currentTurn;
         this.isGameActive = data.isGameActive;
 
-        // 2. Restore Sub-Systems
-        // We pass the inner data objects. Newtonsoft makes them JObjects/JTokens automatically.
-        if(data.resourceData != null) 
-        {
-            Debug.Log("[GameLoop] Passing data to Resource Manager...");
-            resourceManager.RestoreState(data.resourceData);
-        }
-        
-        if(data.stakeholderData != null) 
-        {
-            Debug.Log("[GameLoop] Passing data to Stakeholder Manager...");
-            stakeholderManager.RestoreState(data.stakeholderData);
-        }
+        if(data.resourceData != null) resourceManager.RestoreState(data.resourceData);
+        if(data.stakeholderData != null) stakeholderManager.RestoreState(data.stakeholderData);
 
-        // 3. Restore Card Logic
         if (!string.IsNullOrEmpty(data.currentCardName))
         {
             this.currentCard = stakeholderManager.FindCardByName(data.currentCardName);
         }
 
-        // 4. Update UI
         if(isGameActive && currentCard != null)
         {
+            // This re-triggers UpdateUI, which will correctly set the Glow based on the restored card/actor
             StakeholderData actor = stakeholderManager.GetStakeholderById(currentCard.characterId);
             UpdateUI(currentCard, actor);
         }
         else if (isGameActive && currentCard == null)
         {
-            // If we saved exactly between turns, resume the loop
             StartCoroutine(NextTurnRoutine());
         }
         

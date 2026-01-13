@@ -21,6 +21,19 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private Image cardBodyshot;
     [SerializeField] private TextMeshProUGUI cardName;
 
+    // --- NEW SECTION: GLOW & COLORS ---
+    [Header("--- CARD VISUALS ---")]
+    [SerializeField] private Image cardGlow; 
+    [SerializeField] private List<GroupColorDefinition> groupColors = new List<GroupColorDefinition>();
+
+    [System.Serializable]
+    public struct GroupColorDefinition
+    {
+        public string id;       // Match this to your data (e.g. "Industry")
+        public Color glowColor; // The color to show
+    }
+    // ----------------------------------
+
     [Header("--- OPTIONS ---")]
     [SerializeField] private GameObject panelOptionAObj;
     [SerializeField] private GameObject panelOptionBObj;
@@ -44,8 +57,6 @@ public class GameUIController : MonoBehaviour
         public Image background;
         public Image headshot;
         public TextMeshProUGUI nameText;
-        
-        // REPLACED: Slider with our new script
         public ResourceSegmentBar segmentBar; 
     }
 
@@ -81,6 +92,11 @@ public class GameUIController : MonoBehaviour
         cardBodyshot   = panelCard.transform.Find("Bodyshot").GetComponent<Image>();
         cardName       = panelCard.transform.Find("Name").GetComponent<TextMeshProUGUI>();
 
+        // --- NEW: Try to find the Glow Image automatically ---
+        // Expects an object named "Glow" inside "Panel Card"
+        Transform glowTrans = panelCard.transform.Find("Glow");
+        if (glowTrans != null) cardGlow = glowTrans.GetComponent<Image>();
+
         optionATitle  = panelOptionAObj.transform.Find("Title").GetComponent<TextMeshProUGUI>();
         optionAFlavor = panelOptionAObj.transform.Find("Flavor").GetComponent<TextMeshProUGUI>();
         
@@ -108,8 +124,6 @@ public class GameUIController : MonoBehaviour
         slot.headshot = t.Find("Headshot").GetComponent<Image>();
         slot.nameText = t.Find("Name").GetComponent<TextMeshProUGUI>();
         
-        // Find the custom component instead of Slider
-        // Note: You must rename your "Ressource" object in Unity or ensure this component is on it
         Transform resObj = t.Find("Ressource");
         if (resObj != null)
         {
@@ -123,7 +137,6 @@ public class GameUIController : MonoBehaviour
 
     public void ShowStatPreview(StatBlock effects, ResourceManager currentResources)
     {
-        // Pass the CHANGE value into the visual update
         UpdateSinglePreview("Industry",      currentResources.industryVal,   effects.industry);
         UpdateSinglePreview("Civil Society", currentResources.civilVal,      effects.civilSociety);
         UpdateSinglePreview("Governance",    currentResources.governanceVal, effects.governance);
@@ -136,7 +149,6 @@ public class GameUIController : MonoBehaviour
         {
             if(slot.id == id && slot.segmentBar != null)
             {
-                // The SegmentBar handles the coloring logic
                 slot.segmentBar.UpdateVisuals(currentVal, change);
                 return;
             }
@@ -145,14 +157,13 @@ public class GameUIController : MonoBehaviour
 
     public void ResetPreviews(ResourceManager currentResources)
     {
-        // Simply update with a change of 0 to reset colors
         UpdateResourceDisplay("Industry",      currentResources.industryVal);
         UpdateResourceDisplay("Civil Society", currentResources.civilVal);
         UpdateResourceDisplay("Governance",    currentResources.governanceVal);
         UpdateResourceDisplay("Innovation",    currentResources.innovationVal);
     }
 
-    // --- EXISTING METHODS ---
+    // --- VISUAL METHODS ---
 
     public void ShowOutcomeUI(string outcomeText)
     {
@@ -175,7 +186,6 @@ public class GameUIController : MonoBehaviour
         {
             if (slot.id == groupID && slot.segmentBar != null)
             {
-                // Passing 0 as the second argument means "No Preview / No Change"
                 slot.segmentBar.UpdateVisuals(value, 0);
                 return;
             }
@@ -201,13 +211,14 @@ public class GameUIController : MonoBehaviour
         }
     }
 
-    // ... Rest of SetMainCard, SetOptions, etc. remains the same ...
-    public void SetMainCard(string name, string bodyAddressKey)
+    // --- UPDATED METHOD: Accepts groupID to determine Glow Color ---
+    public void SetMainCard(string name, string bodyAddressKey, string groupID)
     {
         if(cardName != null) cardName.text = name;
         var swipe = panelGameplay.GetComponentInChildren<SwipeController>();
         if(swipe != null) swipe.ResetCardPosition();
 
+        // 1. Set Image
         if (!string.IsNullOrEmpty(bodyAddressKey) && cardBodyshot != null)
         {
             cardBodyshot.sprite = null; 
@@ -215,6 +226,34 @@ public class GameUIController : MonoBehaviour
             {
                 if (handle.Status == AsyncOperationStatus.Succeeded) cardBodyshot.sprite = handle.Result;
             };
+        }
+
+        // 2. Set Glow Color
+        if (cardGlow != null)
+        {
+            if (string.IsNullOrEmpty(groupID))
+            {
+                cardGlow.gameObject.SetActive(false);
+            }
+            else
+            {
+                // Find matching color
+                Color c = Color.white; 
+                bool found = false;
+                foreach(var def in groupColors)
+                {
+                    if (def.id == groupID) 
+                    {
+                        c = def.glowColor;
+                        found = true;
+                        break;
+                    }
+                }
+
+                cardGlow.color = c;
+                // Only enable if we actually found a matching group definition
+                cardGlow.gameObject.SetActive(found);
+            }
         }
     }
 
