@@ -68,7 +68,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
     {
         if (!isGameActive) yield break;
 
-        // 1. Reset UI
+        // 1. Reset UI (Options, sliders, etc)
         if(uiController != null) 
         {
             uiController.ResetTurnUI();
@@ -89,14 +89,24 @@ public class GameLoopManager : MonoBehaviour, ISaveable
             Debug.Log($"Turn {currentTurn + 1}: {currentCard.name}");
             
             StakeholderData actor = stakeholderManager.GetStakeholderById(currentCard.characterId);
-            UpdateUI(currentCard, actor);
+            
+            // --- SYNC POINT: WAIT FOR ASSETS ---
+            // We use yield return StartCoroutine to pause here until UpdateUIAsync is totally finished
+            yield return StartCoroutine(UpdateUIAsync(currentCard, actor));
+            
+            // If the screen was hidden (Alpha 0), fade it in now that everything is loaded
+            if (uiController.gameplayCanvasGroup != null && uiController.gameplayCanvasGroup.alpha < 0.9f)
+            {
+               yield return StartCoroutine(uiController.FadeInUI(0.5f));
+            }
         }
         else { EndGame(true); }
     }
 
-    private void UpdateUI(EventCardData card, StakeholderData actor)
+    // Changed from void to IEnumerator to support waiting
+    private IEnumerator UpdateUIAsync(EventCardData card, StakeholderData actor)
     {
-        if (uiController == null) return;
+        if (uiController == null) yield break;
 
         uiController.UpdateRoundInfo(currentTurn + 1, card.bodyText);
 
@@ -104,7 +114,8 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         string actorBodyAddress = actor != null ? actor.bodyAddress : "";
         string actorGroup = actor != null ? actor.group : "";
 
-        uiController.SetMainCard(actorName, actorBodyAddress, actorGroup);
+        // Wait for Addressables to finish downloading/assigning
+        yield return StartCoroutine(uiController.SetMainCardAsync(actorName, actorBodyAddress, actorGroup));
         
         uiController.SetOptions(card.choiceA.label, card.choiceA.flavor, card.choiceB.label, card.choiceB.flavor);
     }
@@ -143,10 +154,8 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         StartCoroutine(OutcomeSequence(selectedOption, oldState));
     }
 
-    // --- UPDATED METHOD ---
     private IEnumerator OutcomeSequence(ChoiceData choice, ResourceManager.ResourceSaveData oldState)
     {
-        // Get the actor associated with the CURRENT card before we null it out
         StakeholderData actor = null;
         if(currentCard != null)
         {
@@ -155,10 +164,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
         if(uiController != null) 
         {
-            // UPDATED: Pass both Title and Text (Body) to the UI
             uiController.ShowOutcomeUI(choice.outcomeTitle, choice.outcomeText, actor);
-            
-            // Generate the resource bars
             uiController.DisplayOutcomeSummary(oldState, resourceManager);
         }
 
@@ -244,7 +250,12 @@ public class GameLoopManager : MonoBehaviour, ISaveable
         if(isGameActive && currentCard != null)
         {
             StakeholderData actor = stakeholderManager.GetStakeholderById(currentCard.characterId);
-            UpdateUI(currentCard, actor);
+            // Must use Coroutine here for restore as well
+            StartCoroutine(UpdateUIAsync(currentCard, actor));
+            
+            // Fade in manually on restore if needed
+            if(uiController != null && uiController.gameplayCanvasGroup != null)
+                StartCoroutine(uiController.FadeInUI());
         }
         else if (isGameActive && currentCard == null)
         {

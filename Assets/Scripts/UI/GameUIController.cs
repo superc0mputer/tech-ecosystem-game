@@ -1,12 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections; // Required for Coroutines
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets; 
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class GameUIController : MonoBehaviour
 {
+    [Header("--- VISIBILITY CONTROL ---")]
+    [Tooltip("Add a CanvasGroup to your Panel Gameplay. This allows us to hide the game until images load.")]
+    public CanvasGroup gameplayCanvasGroup; 
+
     [Header("--- PANELS ---")]
     [SerializeField] private GameObject panelStakeholders;
     [SerializeField] private GameObject panelTop;
@@ -14,11 +19,10 @@ public class GameUIController : MonoBehaviour
 
     [Header("--- OUTCOME POPUP ---")]
     [SerializeField] private GameObject panelOutcomeRoot; 
-    [SerializeField] private TextMeshProUGUI outcomeExplanationText; // Maps to outcomeText
-    [SerializeField] private TextMeshProUGUI outcomeTitleText;       // Maps to outcomeTitle
+    [SerializeField] private TextMeshProUGUI outcomeExplanationText; 
+    [SerializeField] private TextMeshProUGUI outcomeTitleText;       
     [SerializeField] private OutcomePanelController outcomeBarsController; 
 
-    // References specifically for the Card inside the Outcome Panel
     [Header("--- OUTCOME CARD ---")]
     [SerializeField] private OutcomeCardRefs outcomeCard;
 
@@ -78,11 +82,17 @@ public class GameUIController : MonoBehaviour
     private void Awake()
     {
         AutoWireUI();
+        
+        // INSTANTLY hide the UI on load so the player doesn't see empty white squares
+        if (gameplayCanvasGroup != null)
+        {
+            gameplayCanvasGroup.alpha = 0f;
+            gameplayCanvasGroup.blocksRaycasts = false;
+        }
     }
 
     private void AutoWireUI()
     {
-        // Existing Wiring
         panelStakeholders = transform.Find("Panel Stakeholders")?.gameObject;
         panelTop = transform.Find("Panel Top")?.gameObject;
         panelGameplay = transform.Find("Panel Gameplay")?.gameObject; 
@@ -123,7 +133,6 @@ public class GameUIController : MonoBehaviour
             }
         }
 
-        // --- NEW: AUTO-WIRE OUTCOME PANEL ---
         if(panelOutcomeRoot != null)
         {
             Transform pCard = panelOutcomeRoot.transform.Find("Panel Card");
@@ -134,7 +143,6 @@ public class GameUIController : MonoBehaviour
             }
         }
 
-        // Stakeholders
         stakeholders.Clear();
         if(panelStakeholders)
         {
@@ -170,43 +178,103 @@ public class GameUIController : MonoBehaviour
         stakeholders.Add(slot);
     }
 
-    // --- OUTCOME SYSTEM (UPDATED) ---
+    // --- ASYNC LOADING LOGIC ---
 
-    // UPDATED: Accepts Title, Body, and Actor
+    // Updated: Returns IEnumerator so GameLoop can wait for it
+    public IEnumerator SetMainCardAsync(string name, string bodyAddressKey, string groupID)
+    {
+        if(cardName != null) cardName.text = name;
+        
+        var swipe = transform.GetComponentInChildren<SwipeController>(); 
+        if(swipe != null) swipe.ResetCardPosition();
+
+        // 1. Load Image
+        if (!string.IsNullOrEmpty(bodyAddressKey) && cardBodyshot != null)
+        {
+            cardBodyshot.sprite = null; // Clear old
+            
+            var handle = Addressables.LoadAssetAsync<Sprite>(bodyAddressKey);
+
+            // This Loop is the magic: It pauses execution until the image is actually ready
+            while (!handle.IsDone)
+            {
+                yield return null; 
+            }
+
+            if (handle.Status == AsyncOperationStatus.Succeeded) 
+            {
+                cardBodyshot.sprite = handle.Result;
+            }
+            else
+            {
+                Debug.LogError($"Failed to load Addressable: {bodyAddressKey}");
+            }
+        }
+
+        // 2. Set Glow (Instant)
+        if (cardGlow != null)
+        {
+            if (string.IsNullOrEmpty(groupID))
+            {
+                cardGlow.gameObject.SetActive(false);
+            }
+            else
+            {
+                Color c = Color.white; 
+                bool found = false;
+                foreach(var def in groupColors)
+                {
+                    if (def.id == groupID) 
+                    {
+                        c = def.glowColor;
+                        found = true;
+                        break;
+                    }
+                }
+
+                cardGlow.color = c;
+                cardGlow.gameObject.SetActive(found);
+            }
+        }
+    }
+
+    // Helper to reveal UI nicely
+    public IEnumerator FadeInUI(float duration = 0.5f)
+    {
+        if (gameplayCanvasGroup == null) yield break;
+
+        float start = gameplayCanvasGroup.alpha;
+        float elapsed = 0f;
+
+        while(elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            gameplayCanvasGroup.alpha = Mathf.Lerp(start, 1f, elapsed / duration);
+            yield return null;
+        }
+        
+        gameplayCanvasGroup.alpha = 1f;
+        gameplayCanvasGroup.blocksRaycasts = true;
+    }
+
+    // --- OUTCOME SYSTEM ---
+
     public void ShowOutcomeUI(string outcomeTitle, string outcomeBody, StakeholderData actor)
     {
-        // 1. Hide Options
         if(panelOptionAObj) panelOptionAObj.SetActive(false);
         if(panelOptionBObj) panelOptionBObj.SetActive(false);
 
-        // 2. Show Outcome Panel
-        if(panelOutcomeRoot != null) 
-        {
-            panelOutcomeRoot.SetActive(true);
-        }
+        if(panelOutcomeRoot != null) panelOutcomeRoot.SetActive(true);
 
-        // 3. Title Text
-        if(outcomeTitleText != null)
-        {
-            outcomeTitleText.text = outcomeTitle;
-        }
-        
-        // 4. Explanation Text (The Narrative Body)
-        if(outcomeExplanationText != null)
-        {
-            outcomeExplanationText.text = outcomeBody;
-        }
+        if(outcomeTitleText != null) outcomeTitleText.text = outcomeTitle;
+        if(outcomeExplanationText != null) outcomeExplanationText.text = outcomeBody;
 
-        // 5. Update Card Visuals in Outcome Panel
         if(actor != null)
         {
-            // Set Name
             if(outcomeCard.nameText != null) outcomeCard.nameText.text = actor.displayName;
 
-            // Set Image
             if(!string.IsNullOrEmpty(actor.bodyAddress) && outcomeCard.bodyshotImage != null)
             {
-                // Clear old sprite
                 outcomeCard.bodyshotImage.sprite = null;
                 Addressables.LoadAssetAsync<Sprite>(actor.bodyAddress).Completed += (handle) =>
                 {
@@ -237,9 +305,8 @@ public class GameUIController : MonoBehaviour
 
     public void ResetTurnUI()
     {
-        HideOutcomeSummary(); // Ensure Popup is closed
+        HideOutcomeSummary(); 
 
-        // Bring back options
         if(panelOptionAObj) panelOptionAObj.SetActive(true);
         if(panelOptionBObj) panelOptionBObj.SetActive(true);
         if(optionACanvasGroup) optionACanvasGroup.alpha = 1f; 
@@ -301,47 +368,6 @@ public class GameUIController : MonoBehaviour
                     };
                 }
                 return;
-            }
-        }
-    }
-
-    public void SetMainCard(string name, string bodyAddressKey, string groupID)
-    {
-        if(cardName != null) cardName.text = name;
-        var swipe = transform.GetComponentInChildren<SwipeController>(); 
-        if(swipe != null) swipe.ResetCardPosition();
-
-        if (!string.IsNullOrEmpty(bodyAddressKey) && cardBodyshot != null)
-        {
-            cardBodyshot.sprite = null; 
-            Addressables.LoadAssetAsync<Sprite>(bodyAddressKey).Completed += (handle) =>
-            {
-                if (handle.Status == AsyncOperationStatus.Succeeded) cardBodyshot.sprite = handle.Result;
-            };
-        }
-
-        if (cardGlow != null)
-        {
-            if (string.IsNullOrEmpty(groupID))
-            {
-                cardGlow.gameObject.SetActive(false);
-            }
-            else
-            {
-                Color c = Color.white; 
-                bool found = false;
-                foreach(var def in groupColors)
-                {
-                    if (def.id == groupID) 
-                    {
-                        c = def.glowColor;
-                        found = true;
-                        break;
-                    }
-                }
-
-                cardGlow.color = c;
-                cardGlow.gameObject.SetActive(found);
             }
         }
     }

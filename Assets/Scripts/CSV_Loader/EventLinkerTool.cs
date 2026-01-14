@@ -1,3 +1,4 @@
+#if (UNITY_EDITOR) 
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
@@ -96,3 +97,4 @@ public class EventLinkerTool : EditorWindow
         return assets;
     }
 }
+#endif

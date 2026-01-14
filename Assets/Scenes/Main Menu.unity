@@ -1019,8 +1019,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 178.25267, y: -1.9641113}
-  m_SizeDelta: {x: 196.4399, y: 380.8222}
+  m_AnchoredPosition: {x: 196.0727, y: -1.9641113}
+  m_SizeDelta: {x: 232.0799, y: 442.01}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1581511447
 MonoBehaviour:
@@ -1572,7 +1572,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Try AI
+  m_text: Medi.AI.tion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2b57de210f49419b9aee27844cbfc4d, type: 2}
   m_sharedMaterial: {fileID: 4706486511618114747, guid: c2b57de210f49419b9aee27844cbfc4d, type: 2}

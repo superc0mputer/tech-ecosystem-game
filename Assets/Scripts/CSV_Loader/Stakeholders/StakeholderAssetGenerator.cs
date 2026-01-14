@@ -1,3 +1,4 @@
+#if (UNITY_EDITOR) 
 using UnityEngine;
 using UnityEditor;
 using System.IO;
@@ -118,3 +119,4 @@ public class StakeholderAssetGenerator : EditorWindow
         return tokens;
     }
 }
+#endif
