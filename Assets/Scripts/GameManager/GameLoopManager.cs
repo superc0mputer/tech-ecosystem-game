@@ -13,7 +13,7 @@ public class GameLoopManager : MonoBehaviour, ISaveable
 
     [Header("Game Settings")]
     public int maxTurns = 10;
-    public float outcomeDelay = 10.0f; 
+    public float outcomeDelay = 60.0f; 
     
     [Header("Current State")]
     public int currentTurn = 0;
